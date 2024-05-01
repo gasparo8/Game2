@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 40bb73ca1e5db442297815d0cab341c4, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 2837015bad96a4635960b226d171aba1, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -3644,7 +3644,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &319583124
 Transform:
@@ -5827,6 +5827,10 @@ PrefabInstance:
     - target: {fileID: 9097810216589042559, guid: ac6a1e256a5304b7887f856cddb7cd90, type: 3}
       propertyPath: m_Name
       value: Cardboard Box Open 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097810216589042559, guid: ac6a1e256a5304b7887f856cddb7cd90, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9048,7 +9052,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &964944532
 Transform:
@@ -9517,6 +9521,71 @@ Transform:
   - {fileID: 1956602139}
   m_Father: {fileID: 2140168941}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1014360015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1014360016}
+  - component: {fileID: 1014360017}
+  m_Layer: 0
+  m_Name: Reflection Probe (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1014360016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014360015}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.92, y: -2.13, z: -4.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2130343064}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!215 &1014360017
+ReflectionProbe:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014360015}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Type: 0
+  m_Mode: 0
+  m_RefreshMode: 0
+  m_TimeSlicingMode: 0
+  m_Resolution: 128
+  m_UpdateFrequency: 0
+  m_BoxSize: {x: 21.355606, y: 8.03606, z: 13.190843}
+  m_BoxOffset: {x: 2.2874813, y: 0.48536396, z: 1.8054547}
+  m_NearClip: 0.3
+  m_FarClip: 1000
+  m_ShadowDistance: 100
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IntensityMultiplier: 1
+  m_BlendDistance: 1
+  m_HDR: 1
+  m_BoxProjection: 0
+  m_RenderDynamicObjects: 0
+  m_UseOcclusionCulling: 1
+  m_Importance: 1
+  m_CustomBakedTexture: {fileID: 0}
 --- !u!1001 &1022365537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18181,7 +18250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5373236534639234501, guid: 7dfe80945833f4e079b4af3ca6ae7f39, type: 3}
       propertyPath: m_ReceiveShadows
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5877600316890622992, guid: 7dfe80945833f4e079b4af3ca6ae7f39, type: 3}
       propertyPath: m_Name
@@ -19614,6 +19683,7 @@ Transform:
   - {fileID: 1779419868}
   - {fileID: 1992482550}
   - {fileID: 104091665}
+  - {fileID: 1014360016}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2130972875
@@ -21517,7 +21587,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &919132148366661095
 GameObject:
@@ -21623,7 +21693,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &919132149487830679
 GameObject:
@@ -23554,6 +23624,10 @@ PrefabInstance:
     - target: {fileID: 9097810216589042559, guid: ac6a1e256a5304b7887f856cddb7cd90, type: 3}
       propertyPath: m_Name
       value: Cardboard Box Open 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097810216589042559, guid: ac6a1e256a5304b7887f856cddb7cd90, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28736,14 +28810,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1844794047}
     m_Modifications:
-    - target: {fileID: 5958321191147305378, guid: 9c4d128ba88684069b2d5de2f1c60807, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1414001
-      objectReference: {fileID: 0}
-    - target: {fileID: 5958321191147305378, guid: 9c4d128ba88684069b2d5de2f1c60807, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.1414001
-      objectReference: {fileID: 0}
     - target: {fileID: 5958321191147305378, guid: 9c4d128ba88684069b2d5de2f1c60807, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.432
