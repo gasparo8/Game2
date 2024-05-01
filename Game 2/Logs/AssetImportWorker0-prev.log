@@ -22,7 +22,7 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-53024
+53219
 Successfully changed project path to: /Users/DavidGasparovich/Documents/GitHub/Game2/Game 2
 /Users/DavidGasparovich/Documents/GitHub/Game2/Game 2
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -56,12 +56,12 @@ Successfully changed project path to: /Users/DavidGasparovich/Documents/GitHub/G
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [8740479616] Host "[IP] 10.0.0.144 [Port] 0 [Flags] 2 [Guid] 2682254343 [EditorId] 2682254343 [Version] 1048832 [Id] OSXEditor(0,MacBook-Air-3.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [8741393024] Host "[IP] 10.0.0.144 [Port] 0 [Flags] 2 [Guid] 1772305488 [EditorId] 1772305488 [Version] 1048832 [Id] OSXEditor(0,MacBook-Air-3.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [8740479616] Host "[IP] 10.0.0.144 [Port] 0 [Flags] 2 [Guid] 2682254343 [EditorId] 2682254343 [Version] 1048832 [Id] OSXEditor(0,MacBook-Air-3.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [8741393024] Host "[IP] 10.0.0.144 [Port] 0 [Flags] 2 [Guid] 1772305488 [EditorId] 1772305488 [Version] 1048832 [Id] OSXEditor(0,MacBook-Air-3.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
-Refreshing native plugins compatible for Editor in 14.21 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 11.05 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.15f1 (b58023a2b463)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2022.3.15f1/Unity.app/Contents/Resources/UnitySubsystems
@@ -76,44 +76,44 @@ Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2022.3.15f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2022.3.15f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
 Mono config path = '/Applications/Unity/Hub/Editor/2022.3.15f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56930
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56590
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/2022.3.15f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.001566 seconds.
-- Loaded All Assemblies, in  0.958 seconds
+Registered in 0.002224 seconds.
+- Loaded All Assemblies, in  0.790 seconds
 Native extension for OSXStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  3.220 seconds
-Domain Reload Profiling: 4181ms
-	BeginReloadAssembly (355ms)
+- Finished resetting the current domain, in  1.279 seconds
+Domain Reload Profiling: 2070ms
+	BeginReloadAssembly (347ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (6ms)
-	RebuildCommonClasses (66ms)
-	RebuildNativeTypeToScriptingClass (19ms)
-	initialDomainReloadingComplete (270ms)
-	LoadAllAssembliesAndSetupDomain (248ms)
-		LoadAssemblies (350ms)
+		CreateAndSetChildDomain (4ms)
+	RebuildCommonClasses (47ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (202ms)
+	LoadAllAssembliesAndSetupDomain (180ms)
+		LoadAssemblies (343ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (241ms)
-			TypeCache.Refresh (237ms)
-				TypeCache.ScanAssembly (213ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (3ms)
-	FinalizeReload (3224ms)
+		AnalyzeDomain (176ms)
+			TypeCache.Refresh (173ms)
+				TypeCache.ScanAssembly (154ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (1281ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (2831ms)
+		SetupLoadedEditorAssemblies (1088ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (52ms)
-			SetLoadedEditorAssemblies (45ms)
+			InitializePlatformSupportModulesInManaged (32ms)
+			SetLoadedEditorAssemblies (28ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (15ms)
-			ProcessInitializeOnLoadAttributes (2055ms)
-			ProcessInitializeOnLoadMethodAttributes (663ms)
+			BeforeProcessingInitializeOnLoad (12ms)
+			ProcessInitializeOnLoadAttributes (781ms)
+			ProcessInitializeOnLoadMethodAttributes (234ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
@@ -121,56 +121,56 @@ Domain Reload Profiling: 4181ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  2.742 seconds
-Refreshing native plugins compatible for Editor in 1.64 ms, found 2 plugins.
+- Loaded All Assemblies, in  1.192 seconds
+Refreshing native plugins compatible for Editor in 0.99 ms, found 2 plugins.
 Native extension for OSXStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  3.704 seconds
-Domain Reload Profiling: 6449ms
-	BeginReloadAssembly (1015ms)
+- Finished resetting the current domain, in  2.562 seconds
+Domain Reload Profiling: 3758ms
+	BeginReloadAssembly (376ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (111ms)
+		DisableScriptedObjects (42ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (102ms)
-	RebuildCommonClasses (117ms)
-	RebuildNativeTypeToScriptingClass (35ms)
-	initialDomainReloadingComplete (422ms)
-	LoadAllAssembliesAndSetupDomain (1154ms)
-		LoadAssemblies (1276ms)
+		CreateAndSetChildDomain (38ms)
+	RebuildCommonClasses (44ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (148ms)
+	LoadAllAssembliesAndSetupDomain (614ms)
+		LoadAssemblies (562ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (349ms)
-			TypeCache.Refresh (298ms)
-				TypeCache.ScanAssembly (256ms)
-			ScanForSourceGeneratedMonoScriptInfo (38ms)
-			ResolveRequiredComponents (12ms)
-	FinalizeReload (3706ms)
+		AnalyzeDomain (233ms)
+			TypeCache.Refresh (197ms)
+				TypeCache.ScanAssembly (173ms)
+			ScanForSourceGeneratedMonoScriptInfo (27ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (2563ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (2993ms)
+		SetupLoadedEditorAssemblies (2066ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (33ms)
-			SetLoadedEditorAssemblies (19ms)
+			InitializePlatformSupportModulesInManaged (20ms)
+			SetLoadedEditorAssemblies (12ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (273ms)
-			ProcessInitializeOnLoadAttributes (2492ms)
-			ProcessInitializeOnLoadMethodAttributes (173ms)
-			AfterProcessingInitializeOnLoad (2ms)
+			BeforeProcessingInitializeOnLoad (172ms)
+			ProcessInitializeOnLoadAttributes (1720ms)
+			ProcessInitializeOnLoadMethodAttributes (141ms)
+			AfterProcessingInitializeOnLoad (1ms)
 			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (19ms)
+		AwakeInstancesAfterBackupRestoration (16ms)
 Launching external process: /Applications/Unity/Hub/Editor/2022.3.15f1/Unity.app/Contents/Tools/UnityShaderCompiler
-Launched and connected shader compiler UnityShaderCompiler after 0.13 seconds
-Refreshing native plugins compatible for Editor in 1.74 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler after 0.23 seconds
+Refreshing native plugins compatible for Editor in 1.25 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3093 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 32 unused Assets / (50.9 KB). Loaded Objects now: 3557.
-Memory consumption went from 131.1 MB to 131.0 MB.
-Total: 4.974667 ms (FindLiveObjects: 0.238958 ms CreateObjectMapping: 0.126375 ms MarkObjects: 4.348708 ms  DeleteObjects: 0.258959 ms)
+Memory consumption went from 131.2 MB to 131.2 MB.
+Total: 6.370625 ms (FindLiveObjects: 0.338000 ms CreateObjectMapping: 0.118208 ms MarkObjects: 4.810833 ms  DeleteObjects: 1.102166 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -187,10 +187,10 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 764841.174612 seconds.
-  path: Assets/Blender Imports/Office Chair.blend
-  artifactKey: Guid(208fdf66559a844aeb6043d213908bc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Blender Imports/Office Chair.blend using Guid(208fdf66559a844aeb6043d213908bc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5781d5128b72cf6038a220d0aadb2aaa') in 1.031930 seconds
+  Time since last request: 765593.022521 seconds.
+  path: Assets/Blender Imports/Office Chair 1.blend
+  artifactKey: Guid(ca71e932b12324b2fbf7c21ed3f304f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blender Imports/Office Chair 1.blend using Guid(ca71e932b12324b2fbf7c21ed3f304f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '549b06954c1d9c0d5bd872d7b2966ea8') in 0.540298 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 8
 TcpMessagingSession - receive error
