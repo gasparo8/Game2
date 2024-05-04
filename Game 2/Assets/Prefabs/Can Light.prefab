@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6419885684980818385
 Transform:
@@ -45,12 +45,12 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.9529412, g: 0.8627451, b: 0.62352943, a: 1}
   m_Intensity: 1
-  m_Range: 15
+  m_Range: 7
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -86,7 +86,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -116,15 +116,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f94b55a9f978141b39ebe9198e1d760b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.11
+      value: -2.6422215
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f94b55a9f978141b39ebe9198e1d760b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.2559
+      value: 2.178
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f94b55a9f978141b39ebe9198e1d760b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.364
+      value: -0.172
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f94b55a9f978141b39ebe9198e1d760b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -132,15 +132,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f94b55a9f978141b39ebe9198e1d760b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f94b55a9f978141b39ebe9198e1d760b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f94b55a9f978141b39ebe9198e1d760b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f94b55a9f978141b39ebe9198e1d760b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -157,6 +157,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f94b55a9f978141b39ebe9198e1d760b, type: 3}
       propertyPath: m_Name
       value: Can Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248714906478839821, guid: f94b55a9f978141b39ebe9198e1d760b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317578925029434746, guid: f94b55a9f978141b39ebe9198e1d760b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6317578925029434746, guid: f94b55a9f978141b39ebe9198e1d760b, type: 3}
       propertyPath: m_Materials.Array.data[0]
