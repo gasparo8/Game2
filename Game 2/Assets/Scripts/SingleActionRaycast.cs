@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpinRayCast : MonoBehaviour
+public class SingleActionRaycast : MonoBehaviour
 {
-    [SerializeField] private int rayLength = 2;
+    [SerializeField] private int rayLength = 4;
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private string excludeLayerName = null;
 
@@ -18,7 +18,7 @@ public class SpinRayCast : MonoBehaviour
     private bool isCrossHairActive;
     private bool doOnce;
 
-    private const string interactableTag = "InteractiveSpin";
+    private const string interactableTag = "SingleActionInteraction";
 
     private void Update()
     {

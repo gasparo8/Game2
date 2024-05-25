@@ -13,7 +13,7 @@ public class SpinController : MonoBehaviour
     {
         TP = gameObject.GetComponent<Animator>();
     }
-
+    
     public void PlayTPAnimation()
     {
         if (!animationCooldown)
