@@ -21,17 +21,17 @@ public class DoorRayCast : MonoBehaviour
     private const string interactableTag = "InteractiveObject";
 
     private void Update()
-   {
+    {
         RaycastHit hit;
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
         int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMaskInteract.value;
 
-        if(Physics.Raycast(transform.position, fwd, out hit, rayLength, mask))
+        if (Physics.Raycast(transform.position, fwd, out hit, rayLength, mask))
         {
-            if(hit.collider.CompareTag(interactableTag))
+            if (hit.collider.CompareTag(interactableTag))
             {
-                if(!doOnce)
+                if (!doOnce)
                 {
                     rayCastedObj = hit.collider.gameObject.GetComponent<DoorController>();
                     CrosshairChange(true);
@@ -49,7 +49,7 @@ public class DoorRayCast : MonoBehaviour
 
         else
         {
-            if(isCrossHairActive)
+            if (isCrossHairActive)
             {
                 CrosshairChange(false);
                 doOnce = false;
@@ -69,5 +69,4 @@ public class DoorRayCast : MonoBehaviour
             isCrossHairActive = false;
         }
     }
-}
-// from OPENING a DOOR in UNITY with a RAYCAST
+} // from OPENING a DOOR in UNITY with a RAYCAST
