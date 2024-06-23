@@ -36608,7 +36608,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I never really liked being home alone...
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -37635,6 +37635,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0867e931a1b03d4f9d610e88748b933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueText: {fileID: 1098052313}
+  delayBeforeNextSentence: 3
+  delayAfterLastSentence: 4
 --- !u!4 &1126957454
 Transform:
   m_ObjectHideFlags: 0
@@ -63644,7 +63647,7 @@ GameObject:
   - component: {fileID: 1921317721}
   m_Layer: 0
   m_Name: First Person Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -63684,7 +63687,7 @@ Transform:
   m_GameObject: {fileID: 1921317718}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9999999, z: -0, w: -0.00056284334}
-  m_LocalPosition: {x: -4.382, y: 1.947, z: 14.76}
+  m_LocalPosition: {x: -4.381, y: 1.947, z: 15.694}
   m_LocalScale: {x: 0.6, y: 1, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
