@@ -8,7 +8,8 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
     public TextMeshProUGUI dialogueText;
     public float delayBeforeNextSentence = 3.0f;
-    public float delayAfterLastSentence = 4.0f; // Additional delay for the last sentence
+    public float delayAfterLastSentence = 3.0f; // Additional delay for the last sentence
+    public float typingSpeed = .06f; // Delay between each character
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(typingSpeed); // Delay between each letter
         }
 
         // Wait for the delay before displaying the next sentence
