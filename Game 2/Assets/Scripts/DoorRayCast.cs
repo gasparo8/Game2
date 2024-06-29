@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,9 +16,6 @@ public class DoorRayCast : MonoBehaviour
 
     [SerializeField] private Image crosshair = null;
 
-    private bool isCrossHairActive;
-    private bool doOnce;
-
     private const string interactableTag = "InteractiveObject";
 
     private void Update()
@@ -31,42 +29,48 @@ public class DoorRayCast : MonoBehaviour
         {
             if (hit.collider.CompareTag(interactableTag))
             {
-                if (!doOnce)
+                DoorController hitDoor = hit.collider.gameObject.GetComponent<DoorController>();
+
+                if (rayCastedObj != hitDoor)
                 {
-                    rayCastedObj = hit.collider.gameObject.GetComponent<DoorController>();
+                    rayCastedObj = hitDoor;
                     CrosshairChange(true);
                 }
-
-                isCrossHairActive = true;
-                doOnce = true;
 
                 if (Input.GetKeyDown(openDoorKey))
                 {
                     rayCastedObj.PlayAnimation();
                 }
             }
+            else
+            {
+                if (rayCastedObj != null)
+                {
+                    CrosshairChange(false);
+                    rayCastedObj = null;
+                }
+            }
         }
-
         else
         {
-            if (isCrossHairActive)
+            if (rayCastedObj != null)
             {
                 CrosshairChange(false);
-                doOnce = false;
+                rayCastedObj = null;
             }
         }
     }
 
     void CrosshairChange(bool on)
     {
-        if (on && !doOnce)
+        if (on)
         {
             crosshair.color = Color.red;
         }
         else
         {
             crosshair.color = Color.white;
-            isCrossHairActive = false;
         }
     }
-} // from OPENING a DOOR in UNITY with a RAYCAST
+}
+// from OPENING a DOOR in UNITY with a RAYCAST
