@@ -916,7 +916,7 @@ GameObject:
   - component: {fileID: 32379724}
   - component: {fileID: 32379723}
   m_Layer: 0
-  m_Name: Point Light (1)
+  m_Name: Point Light Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -935,7 +935,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 450
+  m_Range: 350
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -993,7 +993,7 @@ Transform:
   m_GameObject: {fileID: 32379722}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.6, y: 80.82, z: 76.9}
+  m_LocalPosition: {x: -31.6, y: 82, z: 76.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15408,6 +15408,175 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06a2b91926bea8049a37e04ffac80c80, type: 3}
+--- !u!1 &424360034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3975166786075327933, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
+  m_PrefabInstance: {fileID: 1349788302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &424360038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424360034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: affe03290c432a64d8020f8e5b603657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorOpenClip: {fileID: 0}
+  doorCloseClip: {fileID: 0}
+--- !u!95 &424360039
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424360034}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8c4d1ece5540d7a478c73832c605eaa5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &424360040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424360034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90c233a666b67b4cad5686a977fba86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &424360041
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424360034}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.18484962, y: 0.2341241, z: 0.09297126}
+  m_Center: {x: -0.0062656035, y: 0.00044729494, z: 0.062074754}
+--- !u!82 &424360042
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424360034}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &425925960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6006891164106547525, guid: fe349a8a38f54f04e8d2796d1aa63f69, type: 3}
@@ -16192,6 +16361,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!4 &448086741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7681518366623419228, guid: bd062cf97cb784d7f8b2375a04123803, type: 3}
@@ -17517,6 +17689,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!95 &501718611
 Animator:
   serializedVersion: 5
@@ -25221,6 +25396,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!95 &758094675
 Animator:
   serializedVersion: 5
@@ -26144,7 +26322,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.9529412, g: 0.8627451, b: 0.62352943, a: 1}
   m_Intensity: 1
-  m_Range: 9.98
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -29388,6 +29566,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!95 &914886562
 Animator:
   serializedVersion: 5
@@ -37254,7 +37435,7 @@ GameObject:
   - component: {fileID: 1108304613}
   - component: {fileID: 1108304612}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: Point Light Backyard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37999,8 +38180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 1098052313}
-  delayBeforeNextSentence: 3
-  delayAfterLastSentence: 3
+  delayBeforeNextSentence: 2
+  delayAfterLastSentence: 1
   typingSpeed: 0.08
 --- !u!4 &1126957454
 Transform:
@@ -43097,6 +43278,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!65 &1274258638
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45727,7 +45911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.044
+      value: 0.0993
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -45765,6 +45949,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1447e3f2aafaa4bd68d455f9949ba3d7, type: 2}
+    - target: {fileID: -3975166786075327933, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -3975166786075327933, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
+      propertyPath: m_TagString
+      value: InteractiveObject
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
       propertyPath: m_Name
       value: DoorLock
@@ -45777,10 +45969,45 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1447e3f2aafaa4bd68d455f9949ba3d7, type: 2}
+    - target: {fileID: 4947392759880944303, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947392759880944303, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000001545431
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947392759880944303, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000001545431
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947392759880944303, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947392759880944303, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -3975166786075327933, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 424360042}
+    - targetCorrespondingSourceObject: {fileID: -3975166786075327933, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 424360041}
+    - targetCorrespondingSourceObject: {fileID: -3975166786075327933, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 424360040}
+    - targetCorrespondingSourceObject: {fileID: -3975166786075327933, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 424360039}
+    - targetCorrespondingSourceObject: {fileID: -3975166786075327933, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 424360038}
   m_SourcePrefab: {fileID: 100100000, guid: 91027d8be92b05a42b9fae7de6277faf, type: 3}
 --- !u!4 &1352809990 stripped
 Transform:
@@ -50823,6 +51050,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!95 &1517207450
 Animator:
   serializedVersion: 5
@@ -52959,6 +53189,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!95 &1581172957
 Animator:
   serializedVersion: 5
@@ -53635,6 +53868,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!65 &1602112157
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62163,6 +62399,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!95 &1847142399
 Animator:
   serializedVersion: 5
@@ -71861,6 +72100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!114 &2141402706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86555,6 +86797,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!114 &5090664408856967305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89314,6 +89559,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!23 &6222196970315472130
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -92737,7 +92985,7 @@ Transform:
   m_GameObject: {fileID: 6924029405905725464}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.6514664, y: 0.046, z: 0.126}
+  m_LocalPosition: {x: -2.6514664, y: 0.1013, z: 0.126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -93556,7 +93804,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af852eb9a4cb1848b40b68298c676fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockController: {fileID: 0}
+  lockController: {fileID: 424360040}
+  dialogueManager: {fileID: 1126957453}
+  lockedDialogue:
+    sentences:
+    - door is locked
 --- !u!95 &7871391384757342795
 Animator:
   serializedVersion: 5
@@ -93597,8 +93849,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.8608255, y: 3.9448059, z: 0.20654869}
-  m_Center: {x: -1.4304128, y: -0.019791484, z: 0.009576708}
+  m_Size: {x: 2.8608255, y: 3.9448059, z: 0.1393404}
+  m_Center: {x: -1.4304128, y: -0.019791484, z: -0.024027435}
 --- !u!114 &7871391384757342797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95041,6 +95293,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!114 &8370204241072071950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95692,6 +95947,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!95 &8447054471181368782
 Animator:
   serializedVersion: 5
@@ -96782,6 +97040,18 @@ PrefabInstance:
       propertyPath: lockController
       value: 
       objectReference: {fileID: 1081172003}
+    - target: {fileID: 2848186752032314383, guid: 196c67ccac083f94a886391012a306a3, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 1126957453}
+    - target: {fileID: 2848186752032314383, guid: 196c67ccac083f94a886391012a306a3, type: 3}
+      propertyPath: lockedDialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848186752032314383, guid: 196c67ccac083f94a886391012a306a3, type: 3}
+      propertyPath: lockedDialogue.sentences.Array.data[0]
+      value: door is locked
+      objectReference: {fileID: 0}
     - target: {fileID: 4821090723945299792, guid: 196c67ccac083f94a886391012a306a3, type: 3}
       propertyPath: m_Name
       value: Front Door
@@ -97638,6 +97908,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  lockedDialogue:
+    sentences: []
 --- !u!33 &9047754352741591025
 MeshFilter:
   m_ObjectHideFlags: 0

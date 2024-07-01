@@ -7,8 +7,8 @@ public class DialogueManager : MonoBehaviour
 {
     private Queue<string> sentences;
     public TextMeshProUGUI dialogueText;
-    public float delayBeforeNextSentence = 3.0f;
-    public float delayAfterLastSentence = 3.0f; // Additional delay for the last sentence
+    public float delayBeforeNextSentence = 2.0f;
+    public float delayAfterLastSentence = 1.0f; // Additional delay for the last sentence
     public float typingSpeed = .06f; // Delay between each character
 
     // Start is called before the first frame update

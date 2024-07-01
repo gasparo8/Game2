@@ -9,6 +9,8 @@ public class DoorController : MonoBehaviour
     private bool animationCooldown = false;
 
     [SerializeField] private LockController lockController; // Reference to the LockController
+    [SerializeField] private DialogueManager dialogueManager; // Reference to the DialogueManager
+    [SerializeField] private Dialogue lockedDialogue; // Dialogue for the locked door message
 
     private void Awake()
     {
@@ -36,6 +38,7 @@ public class DoorController : MonoBehaviour
         else if (lockController != null && lockController.IsLocked())
         {
             Debug.Log("The door is locked and cannot be opened.");
+            dialogueManager.StartDialogue(lockedDialogue); // Trigger the locked door dialogue
         }
     }
 
