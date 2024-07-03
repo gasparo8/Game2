@@ -12,6 +12,8 @@ public class SingleActionRaycast : MonoBehaviour
     private SpinController rayCastedTP;
 
     [SerializeField] private KeyCode openDoorKey = KeyCode.Mouse0;
+    [SerializeField] private KeyCode pickUpKey = KeyCode.E;
+    [SerializeField] private KeyCode placeKey = KeyCode.R;
 
     [SerializeField] private Image crosshair = null;
 
@@ -19,6 +21,10 @@ public class SingleActionRaycast : MonoBehaviour
     private bool doOnce;
 
     private const string interactableTag = "SingleActionInteraction";
+    private const string pickableTag = "Pickable";
+
+    private GameObject pickedUpObject = null;
+    [SerializeField] private Transform holdPoint; // Point where the object will be held
 
     private void Update()
     {
@@ -45,8 +51,23 @@ public class SingleActionRaycast : MonoBehaviour
                     rayCastedTP.PlayTPAnimation();
                 }
             }
-        }
+            else if (hit.collider.CompareTag(pickableTag))
+            {
+                if (!doOnce)
+                {
+                    CrosshairChange(true);
+                }
 
+                isCrossHairActive = true;
+                doOnce = true;
+
+                if (Input.GetKeyDown(pickUpKey) && pickedUpObject == null)
+                {
+                    pickedUpObject = hit.collider.gameObject;
+                    PickUpObject(pickedUpObject);
+                }
+            }
+        }
         else
         {
             if (isCrossHairActive)
@@ -54,6 +75,11 @@ public class SingleActionRaycast : MonoBehaviour
                 CrosshairChange(false);
                 doOnce = false;
             }
+        }
+
+        if (pickedUpObject != null && Input.GetKeyDown(placeKey))
+        {
+            PlaceObject(pickedUpObject);
         }
     }
 
@@ -68,5 +94,19 @@ public class SingleActionRaycast : MonoBehaviour
             crosshair.color = Color.white;
             isCrossHairActive = false;
         }
+    }
+
+    void PickUpObject(GameObject obj)
+    {
+        obj.GetComponent<Rigidbody>().isKinematic = true; // Disable physics
+        obj.transform.SetParent(holdPoint); // Attach to hold point
+        obj.transform.localPosition = Vector3.zero; // Reset position relative to hold point
+    }
+
+    void PlaceObject(GameObject obj)
+    {
+        obj.GetComponent<Rigidbody>().isKinematic = false; // Enable physics
+        obj.transform.SetParent(null); // Detach from hold point
+        pickedUpObject = null; // Clear reference to the picked up object
     }
 }
