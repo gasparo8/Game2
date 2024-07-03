@@ -15,11 +15,13 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform cameraTransform; // Reference to the camera transform
     public float bobbingSpeed = 14f; // Speed of the bobbing effect
-    public float bobbingAmount = 0.05f; // Amount of bobbing effect
+    public float verticalBobbingAmount = 0.05f; // Amount of vertical bobbing effect
+    public float horizontalBobbingAmount = 0.05f; // Amount of horizontal bobbing effect
 
     Vector3 velocity;
     bool isGrounded;
     float defaultYPos = 0;
+    float defaultXPos = 0;
     float timer = 0;
 
     void Start()
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         if (cameraTransform != null)
         {
             defaultYPos = cameraTransform.localPosition.y;
+            defaultXPos = cameraTransform.localPosition.x;
         }
     }
 
@@ -63,13 +66,19 @@ public class PlayerMovement : MonoBehaviour
         {
             // Player is moving
             timer += Time.deltaTime * bobbingSpeed;
-            cameraTransform.localPosition = new Vector3(cameraTransform.localPosition.x, defaultYPos + Mathf.Sin(timer) * bobbingAmount, cameraTransform.localPosition.z);
+            float waveSlice = Mathf.Sin(timer);
+            float horizontalWaveSlice = Mathf.Sin(timer * 0.5f); // slower horizontal bobbing
+
+            float verticalBob = waveSlice * verticalBobbingAmount;
+            float horizontalBob = horizontalWaveSlice * horizontalBobbingAmount;
+
+            cameraTransform.localPosition = new Vector3(defaultXPos + horizontalBob, defaultYPos + verticalBob, cameraTransform.localPosition.z);
         }
         else
         {
             // Player is stationary
             timer = 0;
-            cameraTransform.localPosition = new Vector3(cameraTransform.localPosition.x, Mathf.Lerp(cameraTransform.localPosition.y, defaultYPos, Time.deltaTime * bobbingSpeed), cameraTransform.localPosition.z);
+            cameraTransform.localPosition = new Vector3(Mathf.Lerp(cameraTransform.localPosition.x, defaultXPos, Time.deltaTime * bobbingSpeed), Mathf.Lerp(cameraTransform.localPosition.y, defaultYPos, Time.deltaTime * bobbingSpeed), cameraTransform.localPosition.z);
         }
     }
 }
