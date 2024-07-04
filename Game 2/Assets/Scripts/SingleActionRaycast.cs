@@ -22,9 +22,17 @@ public class SingleActionRaycast : MonoBehaviour
 
     private const string interactableTag = "SingleActionInteraction";
     private const string pickableTag = "Pickable";
+    private const string pizzaBoxName = "PizzaBox"; // Name of the pizza box object
+    private const string dropZoneTag = "DropZone"; // Tag for the drop zone
 
     private GameObject pickedUpObject = null;
     [SerializeField] private Transform holdPoint; // Point where the object will be held
+    [SerializeField] private GameObject glowingBox; // Reference to the glowing box
+
+    private void Start()
+    {
+        glowingBox.SetActive(false); // Ensure the glowing box is initially invisible
+    }
 
     private void Update()
     {
@@ -101,6 +109,11 @@ public class SingleActionRaycast : MonoBehaviour
         obj.GetComponent<Rigidbody>().isKinematic = true; // Disable physics
         obj.transform.SetParent(holdPoint); // Attach to hold point
         obj.transform.localPosition = Vector3.zero; // Reset position relative to hold point
+
+        if (obj.name == pizzaBoxName) // Check if the object is the pizza box
+        {
+            glowingBox.SetActive(true); // Show the glowing box when the pizza box is picked up
+        }
     }
 
     void PlaceObject(GameObject obj)
@@ -108,5 +121,37 @@ public class SingleActionRaycast : MonoBehaviour
         obj.GetComponent<Rigidbody>().isKinematic = false; // Enable physics
         obj.transform.SetParent(null); // Detach from hold point
         pickedUpObject = null; // Clear reference to the picked up object
+
+        if (obj.name == pizzaBoxName)
+        {
+            // Check if the pizza box is within the drop zone when placed
+            Collider[] colliders = Physics.OverlapSphere(obj.transform.position, 1.0f);
+            foreach (var collider in colliders)
+            {
+                if (collider.CompareTag(dropZoneTag))
+                {
+                    glowingBox.SetActive(false); // Hide the glowing box
+                    TriggerPizzaEatingCutscene(); // Trigger the cutscene
+                    break;
+                }
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(dropZoneTag) && pickedUpObject != null && pickedUpObject.name == pizzaBoxName)
+        {
+            // Handle the event when the pizza box is dropped in the drop zone
+            glowingBox.SetActive(false); // Hide the glowing box
+            PlaceObject(pickedUpObject); // Place the pizza box
+            TriggerPizzaEatingCutscene(); // Trigger the cutscene
+        }
+    }
+
+    private void TriggerPizzaEatingCutscene()
+    {
+        // Implement the cutscene or animation logic here
+        Debug.Log("Pizza eating cutscene triggered!");
     }
 }
