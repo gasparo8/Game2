@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
@@ -29,8 +28,8 @@ public class SingleActionRaycast : MonoBehaviour
     private GameObject pickedUpObject = null;
     [SerializeField] private Transform holdPoint; // Point where the object will be held
     [SerializeField] private GameObject glowingBox; // Reference to the glowing box
-    [SerializeField] private PlayableDirector pizzaCutsceneDirector; // Reference to the PlayableDirector
     public GameObject thePlayer;
+    public CutsceneManager cutsceneManager; // Reference to the CutsceneManager
 
     private void Start()
     {
@@ -134,7 +133,7 @@ public class SingleActionRaycast : MonoBehaviour
                 if (collider.CompareTag(dropZoneTag))
                 {
                     glowingBox.SetActive(false); // Hide the glowing box
-                     TriggerPizzaEatingCutscene(); // Trigger the cutscene
+                    cutsceneManager.TriggerPizzaEatingCutscene(); // Trigger the cutscene via CutsceneManager
                     break;
                 }
             }
@@ -148,29 +147,7 @@ public class SingleActionRaycast : MonoBehaviour
             // Handle the event when the pizza box is dropped in the drop zone
             glowingBox.SetActive(false); // Hide the glowing box
             PlaceObject(pickedUpObject); // Place the pizza box
-            TriggerPizzaEatingCutscene(); // Trigger the cutscene
+            cutsceneManager.TriggerPizzaEatingCutscene(); // Trigger the cutscene via CutsceneManager
         }
-    }
-   
-    private void TriggerPizzaEatingCutscene()
-    {
-        // Play the pizza eating cutscene
-        if (pizzaCutsceneDirector != null)
-        {
-            pizzaCutsceneDirector.Play();
-        }
-
-        StartCoroutine(PlayPizzaCutscene());
-    }
-    
-    private IEnumerator PlayPizzaCutscene()
-    {
-        Debug.Log("Starting pizza cutscene...");
-        thePlayer.SetActive(false);
-
-        yield return new WaitForSeconds((float)pizzaCutsceneDirector.duration); // Wait for the duration of the cutscene
-
-        Debug.Log("Finishing pizza cutscene...");
-        thePlayer.SetActive(true);
     }
 }

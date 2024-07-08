@@ -5384,8 +5384,8 @@ MonoBehaviour:
   crosshair: {fileID: 340322201}
   holdPoint: {fileID: 563836208}
   glowingBox: {fileID: 549235690}
-  pizzaCutsceneDirector: {fileID: 744454925}
   thePlayer: {fileID: 1921317718}
+  cutsceneManager: {fileID: 176337322}
 --- !u!1001 &138934368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6617,6 +6617,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe349a8a38f54f04e8d2796d1aa63f69, type: 3}
+--- !u!1 &176337321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 176337323}
+  - component: {fileID: 176337322}
+  m_Layer: 0
+  m_Name: CutsceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &176337322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176337321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5600090ab660cdd48a646b9ebaa68f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pizzaCutsceneDirector: {fileID: 744454925}
+  thePlayer: {fileID: 1921317718}
+  playerCamera: {fileID: 138418682}
+  pizzaCam: {fileID: 1030507909}
+--- !u!4 &176337323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176337321}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.587457, y: 0.8383802, z: 19.45526}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 188714382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &177074614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6006891164106547525, guid: fe349a8a38f54f04e8d2796d1aa63f69, type: 3}
@@ -6986,6 +7034,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 176337323}
   - {fileID: 1148136509}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
