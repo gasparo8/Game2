@@ -4,16 +4,21 @@ using UnityEngine.Playables;
 
 public class CutsceneManager : MonoBehaviour
 {
-    public PlayableDirector pizzaCutsceneDirector; // Reference to the PlayableDirector
+    public PlayableDirector pizzaCutsceneDirector;
     public GameObject thePlayer;
-    public GameObject playerCamera; // Reference to the player camera
-    public GameObject pizzaCam; // Reference to the pizza cam
+    public GameObject playerCamera;
+    public GameObject pizzaCam;
+    public GameObject chewingCam; // Reference to the new ChewingCam
 
     private void Start()
     {
         if (pizzaCam != null)
         {
             pizzaCam.SetActive(false); // Ensure the pizza cam is initially inactive
+        }
+        if (chewingCam != null)
+        {
+            chewingCam.SetActive(false); // Ensure the chewing cam is initially inactive
         }
     }
 
@@ -22,10 +27,6 @@ public class CutsceneManager : MonoBehaviour
         if (pizzaCutsceneDirector != null)
         {
             pizzaCutsceneDirector.Play();
-        }
-        else
-        {
-            Debug.LogError("PizzaCutsceneDirector is not assigned!");
         }
 
         if (pizzaCam != null)
@@ -64,6 +65,10 @@ public class CutsceneManager : MonoBehaviour
         if (pizzaCam != null)
         {
             pizzaCam.SetActive(false); // Deactivate the pizza cam
+        }
+        if (chewingCam != null)
+        {
+            chewingCam.SetActive(false); // Deactivate the chewing cam
         }
     }
 }
