@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class SingleActionRaycast : MonoBehaviour
@@ -30,10 +29,15 @@ public class SingleActionRaycast : MonoBehaviour
     [SerializeField] private GameObject glowingBox; // Reference to the glowing box
     public GameObject thePlayer;
     public CutsceneManager cutsceneManager; // Reference to the CutsceneManager
+    public GameObject pizzaNBoxOpen; // Reference to PizzaNBoxOPEN object
 
     private void Start()
     {
         glowingBox.SetActive(false); // Ensure the glowing box is initially invisible
+        if (pizzaNBoxOpen != null)
+        {
+            pizzaNBoxOpen.SetActive(false); // Ensure PizzaNBoxOPEN is initially inactive
+        }
     }
 
     private void Update()
@@ -134,6 +138,15 @@ public class SingleActionRaycast : MonoBehaviour
                 {
                     glowingBox.SetActive(false); // Hide the glowing box
                     cutsceneManager.TriggerPizzaEatingCutscene(); // Trigger the cutscene via CutsceneManager
+
+                    // Activate PizzaNBoxOPEN object
+                    if (pizzaNBoxOpen != null)
+                    {
+                        pizzaNBoxOpen.SetActive(true);
+                    }
+
+                    // Destroy pizza box
+                    Destroy(obj);
                     break;
                 }
             }
@@ -148,6 +161,15 @@ public class SingleActionRaycast : MonoBehaviour
             glowingBox.SetActive(false); // Hide the glowing box
             PlaceObject(pickedUpObject); // Place the pizza box
             cutsceneManager.TriggerPizzaEatingCutscene(); // Trigger the cutscene via CutsceneManager
+
+            // Activate PizzaNBoxOPEN object
+            if (pizzaNBoxOpen != null)
+            {
+                pizzaNBoxOpen.SetActive(true);
+            }
+
+            // Destroy pizza box
+            Destroy(pickedUpObject.gameObject);
         }
     }
 }
