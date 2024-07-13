@@ -22,4 +22,10 @@ public class DialogueTrigger : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void TriggerDialogue()
+    {
+        dialogueManager.StartDialogue(dialogue);
+        Debug.Log("Pizza Dialogue Triggered");
+    }
 }

@@ -25550,6 +25550,8 @@ PlayableDirector:
     value: {fileID: 976035178}
   - key: {fileID: 1709569972124370967, guid: beb527c65e7549a458cb6bbabce671b8, type: 2}
     value: {fileID: 1737050418}
+  - key: {fileID: -2440649695668585513, guid: beb527c65e7549a458cb6bbabce671b8, type: 2}
+    value: {fileID: 2010599054}
   m_ExposedReferences:
     m_References: []
 --- !u!1001 &745703863
@@ -34632,7 +34634,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -39669,6 +39671,7 @@ Transform:
   - {fileID: 1030507912}
   - {fileID: 1396983934}
   - {fileID: 965957421}
+  - {fileID: 2010599055}
   m_Father: {fileID: 188714382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1150332685 stripped
@@ -48201,7 +48204,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -51205,9 +51208,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - I never really liked being home alone.
-    - Especially when he had to travel for work.
-    - Something always felt off...
+    - I'm exhausted...
+    - Today just wouldn't end.
+    - I think there is some leftover pizza in the fridge.
 --- !u!4 &1487976895
 Transform:
   m_ObjectHideFlags: 0
@@ -69163,6 +69166,76 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21c1afa0d38d8482d951c897d677edcb, type: 3}
+--- !u!1 &2010599054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2010599055}
+  - component: {fileID: 2010599056}
+  - component: {fileID: 2010599057}
+  m_Layer: 0
+  m_Name: Pizza  Dialogue Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2010599055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010599054}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.3306131, y: 1.5173625, z: 2.1132126}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1148136509}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2010599056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010599054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d309bf730dda44b84a2b2b763fbb57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - I never really liked being home alone.
+    - Something always felt off...
+--- !u!95 &2010599057
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010599054}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2013549745
 PrefabInstance:
   m_ObjectHideFlags: 0
