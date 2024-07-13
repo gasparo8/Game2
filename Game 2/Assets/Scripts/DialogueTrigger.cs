@@ -25,6 +25,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
+        Debug.Log("TriggerDialogue called");
         dialogueManager.StartDialogue(dialogue);
         Debug.Log("Pizza Dialogue Triggered");
     }
