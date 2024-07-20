@@ -7037,6 +7037,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1148136509}
+  - {fileID: 1758778484}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &192116027 stripped
@@ -59874,6 +59875,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2695a4826f0e78443b3ce1b4ab886d4a, type: 3}
+--- !u!1 &1758778483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1758778484}
+  m_Layer: 0
+  m_Name: Front Door Peek
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1758778484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758778483}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.586478, y: 1.8111044, z: -1.3835092}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2062693465}
+  - {fileID: 1891448473}
+  m_Father: {fileID: 188714382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1759508957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7205887739046088693, guid: 43c00b5df81cebf41afbe2cc0d9d3458, type: 3}
@@ -65410,6 +65444,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1891448473}
   - component: {fileID: 1891448472}
+  - component: {fileID: 1891448474}
+  - component: {fileID: 1891448475}
   m_Layer: 0
   m_Name: Front Door Peek Trigger
   m_TagString: Untagged
@@ -65436,8 +65472,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.766305, z: 1}
-  m_Center: {x: 0, y: 0.8831525, z: 0}
+  m_Size: {x: 1, y: 3.545259, z: 1}
+  m_Center: {x: 0, y: 1.2726295, z: 0}
 --- !u!4 &1891448473
 Transform:
   m_ObjectHideFlags: 0
@@ -65447,12 +65483,53 @@ Transform:
   m_GameObject: {fileID: 1891448470}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.64, y: 0.5099999, z: 5.17}
+  m_LocalPosition: {x: -13.547266, y: -2.111364, z: 12.2048435}
   m_LocalScale: {x: 4.8644805, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1758778484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1891448474
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891448470}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1891448475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891448470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f317d8f27dfd8db4b87715ad5ffaf6e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 2062693467}
+  peekerObject: {fileID: 2062693460}
 --- !u!1001 &1892766727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71015,10 +71092,9 @@ GameObject:
   - component: {fileID: 2062693464}
   - component: {fileID: 2062693463}
   - component: {fileID: 2062693462}
-  - component: {fileID: 2062693466}
   - component: {fileID: 2062693467}
   m_Layer: 0
-  m_Name: Front Door Peeker
+  m_Name: Peeker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71105,27 +71181,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062693460}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.63, y: 1.734, z: 17.565}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.537266, y: -1.2083638, z: 25.360844}
   m_LocalScale: {x: 1.1326, y: 2.76458, z: 1.1326}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1758778484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2062693466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062693460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c66d2bcfcb3429947a25ac65d86717ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 2062693467}
-  animationName: FrontDoorPeek
 --- !u!95 &2062693467
 Animator:
   serializedVersion: 5
@@ -99791,5 +99853,3 @@ SceneRoots:
   - {fileID: 1126957454}
   - {fileID: 1487976895}
   - {fileID: 188714382}
-  - {fileID: 2062693465}
-  - {fileID: 1891448473}
