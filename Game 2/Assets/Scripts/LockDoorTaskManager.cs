@@ -32,7 +32,7 @@ public class TaskManager : MonoBehaviour
 
     private void UpdateLockedCounter()
     {
-        lockedCounterText.text = $"{lockedDoorsCount}/{doors.Count} Locked Doors";
+        lockedCounterText.text = $"{lockedDoorsCount}/{doors.Count} Doors Locked";
     }
 
     // Method to handle cutscene completion
