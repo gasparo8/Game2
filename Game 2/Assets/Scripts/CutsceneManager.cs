@@ -9,6 +9,7 @@ public class CutsceneManager : MonoBehaviour
     public GameObject playerCamera;
     public GameObject pizzaCam;
     public GameObject chewingCam; // Reference to the new ChewingCam
+    public TaskManager taskManager; // Reference to the TaskManager
 
     private void Start()
     {
@@ -69,6 +70,12 @@ public class CutsceneManager : MonoBehaviour
         if (chewingCam != null)
         {
             chewingCam.SetActive(false); // Deactivate the chewing cam
+        }
+
+        // Notify TaskManager that the cutscene is complete
+        if (taskManager != null)
+        {
+            taskManager.OnCutsceneComplete();
         }
     }
 }
