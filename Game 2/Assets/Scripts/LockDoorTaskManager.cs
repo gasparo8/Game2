@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TaskManager : MonoBehaviour
 {
@@ -32,7 +31,15 @@ public class TaskManager : MonoBehaviour
 
     private void UpdateLockedCounter()
     {
-        lockedCounterText.text = $"{lockedDoorsCount}/{doors.Count} Doors Locked";
+        if (lockedDoorsCount >= doors.Count)
+        {
+            lockedCounterText.gameObject.SetActive(false); // Hide the counter if all doors are locked
+            this.enabled = false; // Disable this script to prevent further updates
+        }
+        else
+        {
+            lockedCounterText.text = $"{lockedDoorsCount}/{doors.Count} Doors Locked";
+        }
     }
 
     // Method to handle cutscene completion

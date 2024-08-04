@@ -11,7 +11,6 @@ public class DialogueManager : MonoBehaviour
     public float delayAfterLastSentence = 1.0f; // Additional delay for the last sentence
     public float typingSpeed = .06f; // Delay between each character
 
-    // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
