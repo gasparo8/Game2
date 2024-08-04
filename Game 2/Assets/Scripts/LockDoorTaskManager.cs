@@ -6,6 +6,7 @@ public class TaskManager : MonoBehaviour
 {
     [SerializeField] private List<LockController> doors;
     [SerializeField] private TextMeshProUGUI lockedCounterText;
+    [SerializeField] private BookDialogueTrigger bookDialogueTrigger; // Reference to the BookDialogueTrigger
 
     private int lockedDoorsCount = 0;
 
@@ -34,6 +35,7 @@ public class TaskManager : MonoBehaviour
         if (lockedDoorsCount >= doors.Count)
         {
             lockedCounterText.gameObject.SetActive(false); // Hide the counter if all doors are locked
+            bookDialogueTrigger.GoGetBookDialogue(); // Trigger the book dialogue
             this.enabled = false; // Disable this script to prevent further updates
         }
         else
