@@ -367,6 +367,8 @@ public class SingleActionRaycast : MonoBehaviour
         {
             Debug.Log("Player has entered the Book Walk Point with the book.");
             // Here, you can trigger a cutscene or any other action you want
+
+            Destroy(bookWalkPoint.gameObject);
         }
     }
 }
