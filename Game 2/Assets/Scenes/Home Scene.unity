@@ -5523,6 +5523,7 @@ MonoBehaviour:
   cutsceneManager: {fileID: 176337322}
   pizzaNBoxOpen: {fileID: 965957420}
   bookWalkPoint: {fileID: 2002405837}
+  readingCutsceneManager: {fileID: 0}
 --- !u!65 &138418689
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8627,6 +8628,52 @@ PrefabInstance:
       addedObject: {fileID: 1434171920}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 774f80104a7d449baa2969e58307edb6, type: 3}
+--- !u!1 &231020063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 231020064}
+  - component: {fileID: 231020065}
+  m_Layer: 0
+  m_Name: ReadingCutsceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &231020064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231020063}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.738522, y: -1.5403026, z: 1.8080354}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 731490910}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &231020065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231020063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca98129fe6c4f4459bfb762b7460bdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thePlayer: {fileID: 1921317718}
+  readingCam: {fileID: 482777877}
 --- !u!4 &231195436 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7548792589064508403, guid: 96147848d5255574992fbbc008be0314, type: 3}
@@ -17848,7 +17895,6 @@ GameObject:
   m_Component:
   - component: {fileID: 482777878}
   - component: {fileID: 482777881}
-  - component: {fileID: 482777880}
   - component: {fileID: 482777879}
   m_Layer: 0
   m_Name: Reading Camera
@@ -17893,14 +17939,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!81 &482777880
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482777877}
-  m_Enabled: 1
 --- !u!20 &482777881
 Camera:
   m_ObjectHideFlags: 0
@@ -25925,6 +25963,7 @@ Transform:
   - {fileID: 2128003896}
   - {fileID: 2002405841}
   - {fileID: 482777878}
+  - {fileID: 231020064}
   m_Father: {fileID: 188714382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &731917056 stripped

@@ -210,6 +210,7 @@ public class SingleActionRaycast : MonoBehaviour
     public CutsceneManager cutsceneManager; // Reference to the CutsceneManager
     public GameObject pizzaNBoxOpen; // Reference to PizzaNBoxOPEN object
     public GameObject bookWalkPoint; // Reference to the BookWalkPoint object
+    public ReadingCutsceneManager readingCutsceneManager;
 
     private void Start()
     {
