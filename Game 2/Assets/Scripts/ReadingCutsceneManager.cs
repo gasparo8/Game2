@@ -20,11 +20,15 @@ public class ReadingCutsceneManager : MonoBehaviour
         {
             readingCam.SetActive(false); // Ensure the reading cam is initially inactive
         }
+
+        openBook.SetActive(false);
     }
+
     public void TriggerReadingCutscene()
     {
         if (readingCutsceneDirector != null)
         {
+            openBook.SetActive(true);
             readingCutsceneDirector.Play();
             Debug.Log("Reading Cutscene Played");
         }
