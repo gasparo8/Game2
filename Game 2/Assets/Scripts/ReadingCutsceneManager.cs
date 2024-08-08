@@ -8,6 +8,10 @@ public class ReadingCutsceneManager : MonoBehaviour
     public PlayableDirector readingCutsceneDirector;
     public GameObject thePlayer;
     public GameObject readingCam;
+    public GameObject playerCam;
+    public GameObject openBook;
+    public GameObject closedBook;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +32,47 @@ public class ReadingCutsceneManager : MonoBehaviour
         if (readingCam != null)
         {
             readingCam.SetActive(true); // Activate the pizza cam
+        }
+
+        if (playerCam != null)
+        {
+            playerCam.SetActive(false); // Deactivate the player camera
+        }
+
+        StartCoroutine(PlayReadingCutscene());
+    }
+
+    private IEnumerator PlayReadingCutscene()
+    {
+        if (thePlayer != null)
+        {
+            thePlayer.GetComponent<PlayerMovement>().enabled = false;
+        }
+
+        // Wait until the PlayableDirector has finished playing
+        while (readingCutsceneDirector.state == PlayState.Playing)
+        {
+            yield return null;
+        }
+        if (thePlayer != null)
+        {
+            thePlayer.GetComponent<PlayerMovement>().enabled = true;
+        }
+        if (playerCam != null)
+        {
+            playerCam.SetActive(true); // Reactivate the player camera
+        }
+        if (readingCam != null)
+        {
+            readingCam.SetActive(false);
+        }
+        if (closedBook != null)
+        {
+            Destroy(closedBook);
+        }
+        if (openBook != null)
+        {
+            Destroy(openBook);
         }
     }
 }

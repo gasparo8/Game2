@@ -5523,7 +5523,7 @@ MonoBehaviour:
   cutsceneManager: {fileID: 176337322}
   pizzaNBoxOpen: {fileID: 965957420}
   bookWalkPoint: {fileID: 2002405837}
-  readingCutsceneManager: {fileID: 0}
+  readingCutsceneManager: {fileID: 231020065}
 --- !u!65 &138418689
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8675,6 +8675,9 @@ MonoBehaviour:
   readingCutsceneDirector: {fileID: 2128003897}
   thePlayer: {fileID: 1921317718}
   readingCam: {fileID: 482777877}
+  playerCam: {fileID: 1921317718}
+  openBook: {fileID: 2052738212}
+  closedBook: {fileID: 726307800}
 --- !u!4 &231195436 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7548792589064508403, guid: 96147848d5255574992fbbc008be0314, type: 3}
@@ -61526,6 +61529,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpenBook
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 606cfd29fd60a1e449406b60685dd8bd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5315730412217845600, guid: 606cfd29fd60a1e449406b60685dd8bd, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -73387,6 +73394,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 44a4f6f71f8eb1d42b4674453e11a3d5, type: 3}
   m_PrefabInstance: {fileID: 270376337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2052738212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 606cfd29fd60a1e449406b60685dd8bd, type: 3}
+  m_PrefabInstance: {fileID: 1730109404}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2054601913 stripped
 Transform:
