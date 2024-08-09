@@ -28,7 +28,7 @@ public class CutsceneManager : MonoBehaviour
     {
         if (pizzaCutsceneDirector != null)
         {
-            crossfadeManager.PlayCrossfadeIn();
+            crossfadeManager.PlayCrossfadeInOut();
             pizzaCutsceneDirector.Play();
         }
 
@@ -77,7 +77,7 @@ public class CutsceneManager : MonoBehaviour
         // Notify TaskManager that the cutscene is complete
         if (taskManager != null)
         {
-            crossfadeManager.PlayCrossfadeOut();
+            crossfadeManager.PlayCrossfadeInOut();
             taskManager.OnCutsceneComplete();
         }
     }
