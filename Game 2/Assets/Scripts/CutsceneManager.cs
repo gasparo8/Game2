@@ -10,6 +10,7 @@ public class CutsceneManager : MonoBehaviour
     public GameObject pizzaCam;
     public GameObject chewingCam; // Reference to the new ChewingCam
     public TaskManager taskManager; // Reference to the TaskManager
+    public CrossfadeManager crossfadeManager;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class CutsceneManager : MonoBehaviour
     {
         if (pizzaCutsceneDirector != null)
         {
+            crossfadeManager.PlayCrossfadeIn();
             pizzaCutsceneDirector.Play();
         }
 
@@ -75,6 +77,7 @@ public class CutsceneManager : MonoBehaviour
         // Notify TaskManager that the cutscene is complete
         if (taskManager != null)
         {
+            crossfadeManager.PlayCrossfadeOut();
             taskManager.OnCutsceneComplete();
         }
     }

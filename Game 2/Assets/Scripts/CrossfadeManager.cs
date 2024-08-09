@@ -8,20 +8,20 @@ public class CrossfadeManager : MonoBehaviour
 
     void Start()
     {
-        crossfadeImage.enabled = false; // Make sure the image is disabled initially
+        crossfadeImage.enabled = true;
         PlayCrossfadeIn();
     }
 
     public void PlayCrossfadeIn()
     {
         crossfadeImage.enabled = true;
-        crossfadeAnimator.SetTrigger("Fade_In");
+        crossfadeAnimator.SetTrigger("FadeOut");
     }
 
     public void PlayCrossfadeOut()
     {
         crossfadeImage.enabled = true;
-        crossfadeAnimator.SetTrigger("Fade_Out");
+        crossfadeAnimator.SetTrigger("FadeIn");
     }
 
     public void DisableImage()
