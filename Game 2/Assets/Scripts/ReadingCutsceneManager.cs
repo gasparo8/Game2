@@ -11,6 +11,8 @@ public class ReadingCutsceneManager : MonoBehaviour
     public GameObject playerCam;
     public GameObject openBook;
     public GameObject closedBook;
+    public GameObject topEyelid;
+    public GameObject bottomEyelid;
 
 
     // Start is called before the first frame update
@@ -19,6 +21,16 @@ public class ReadingCutsceneManager : MonoBehaviour
         if (readingCam != null)
         {
             readingCam.SetActive(false); // Ensure the reading cam is initially inactive
+        }
+
+        if (topEyelid != null)
+        {
+            topEyelid.SetActive(false); // Ensure the topEyelid is initially inactive
+        }
+
+        if (bottomEyelid != null)
+        {
+            bottomEyelid.SetActive(false); // Ensure the bottomEyelid is initially inactive
         }
 
         openBook.SetActive(false);
@@ -41,6 +53,16 @@ public class ReadingCutsceneManager : MonoBehaviour
         if (playerCam != null)
         {
             playerCam.SetActive(false); // Deactivate the player camera
+        }
+
+        if (topEyelid != null)
+        {
+            topEyelid.SetActive(true); 
+        }
+
+        if (bottomEyelid != null)
+        {
+            bottomEyelid.SetActive(true); 
         }
 
         StartCoroutine(PlayReadingCutscene());
@@ -77,6 +99,16 @@ public class ReadingCutsceneManager : MonoBehaviour
         if (openBook != null)
         {
             Destroy(openBook);
+        }
+
+        if (topEyelid != null)
+        {
+            Destroy(topEyelid);
+        }
+
+        if (bottomEyelid != null)
+        {
+            Destroy(bottomEyelid);
         }
     }
 }
