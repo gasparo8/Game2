@@ -10,6 +10,7 @@ public class CutsceneManager : MonoBehaviour
     public GameObject pizzaCam;
     public GameObject chewingCam; // Reference to the new ChewingCam
     public TaskManager taskManager; // Reference to the TaskManager
+    public DialogueManager dialogueManager; // Reference to the DialogueManager
 
     private void Start()
     {
@@ -79,4 +80,3 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 }
-
