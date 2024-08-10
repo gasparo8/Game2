@@ -313,7 +313,7 @@ public class SingleActionRaycast : MonoBehaviour
             }
         }
     }
-
+    
     void PlaceObject(GameObject obj)
     {
         obj.GetComponent<Rigidbody>().isKinematic = false; // Enable physics
@@ -345,27 +345,27 @@ public class SingleActionRaycast : MonoBehaviour
             }
         }
     }
-    
 
     private void OnTriggerEnter(Collider other)
     {
-      /*  if (other.CompareTag(dropZoneTag) && pickedUpObject != null && pickedUpObject.name == pizzaBoxName)
-        {
-            // Handle the event when the pizza box is dropped in the drop zone
-            glowingBox.SetActive(false); // Hide the glowing box
-            PlaceObject(pickedUpObject); // Place the pizza box
-            cutsceneManager.TriggerPizzaEatingCutscene(); // Trigger the cutscene via CutsceneManager
+        /*  if (other.CompareTag(dropZoneTag) && pickedUpObject != null && pickedUpObject.name == pizzaBoxName)
+          {
+              // Handle the event when the pizza box is dropped in the drop zone
+              glowingBox.SetActive(false); // Hide the glowing box
+              PlaceObject(pickedUpObject); // Place the pizza box
+              cutsceneManager.TriggerPizzaEatingCutscene(); // Trigger the cutscene via CutsceneManager
 
-            // Activate PizzaNBoxOPEN object
-            if (pizzaNBoxOpen != null)
-            {
-                pizzaNBoxOpen.SetActive(true);
-            }
+              // Activate PizzaNBoxOPEN object
+              if (pizzaNBoxOpen != null)
+              {
+                  pizzaNBoxOpen.SetActive(true);
+              }
 
-            // Destroy pizza box
-            Destroy(pickedUpObject.gameObject);
-        }
-       */
+              // Destroy pizza box
+              Destroy(pickedUpObject.gameObject);
+          }
+         */
+
         if (other.CompareTag(bookWalkPointTag) && pickedUpObject != null && pickedUpObject.name == bookName)
         {
             Debug.Log("Player has entered the Book Walk Point with the book.");
