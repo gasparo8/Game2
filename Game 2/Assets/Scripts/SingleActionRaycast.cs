@@ -329,7 +329,8 @@ public class SingleActionRaycast : MonoBehaviour
                 if (collider.CompareTag(dropZoneTag))
                 {
                     glowingBox.SetActive(false); // Hide the glowing box
-                    cutsceneManager.TriggerPizzaEatingCutscene(); // Trigger the cutscene via CutsceneManager
+
+                    cutsceneManager.TriggerPizzaEatingCutscene();
 
                     // Activate PizzaNBoxOPEN object
                     if (pizzaNBoxOpen != null)
@@ -344,10 +345,11 @@ public class SingleActionRaycast : MonoBehaviour
             }
         }
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(dropZoneTag) && pickedUpObject != null && pickedUpObject.name == pizzaBoxName)
+      /*  if (other.CompareTag(dropZoneTag) && pickedUpObject != null && pickedUpObject.name == pizzaBoxName)
         {
             // Handle the event when the pizza box is dropped in the drop zone
             glowingBox.SetActive(false); // Hide the glowing box
@@ -363,7 +365,7 @@ public class SingleActionRaycast : MonoBehaviour
             // Destroy pizza box
             Destroy(pickedUpObject.gameObject);
         }
-
+       */
         if (other.CompareTag(bookWalkPointTag) && pickedUpObject != null && pickedUpObject.name == bookName)
         {
             Debug.Log("Player has entered the Book Walk Point with the book.");

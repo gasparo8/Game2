@@ -5416,7 +5416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f7af1239de44115aa84e5e132e6340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 50
+  mouseSensitivity: 40
   playerBody: {fileID: 1921317720}
 --- !u!81 &138418685
 AudioListener:
@@ -5627,7 +5627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &140128417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6898,7 +6898,6 @@ MonoBehaviour:
   pizzaCam: {fileID: 1030507909}
   chewingCam: {fileID: 1396983933}
   taskManager: {fileID: 2130562567}
-  crossfadeManager: {fileID: 1732683380}
 --- !u!4 &176337323
 Transform:
   m_ObjectHideFlags: 0
@@ -24510,19 +24509,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5772801925763272675, guid: 546c94dd1e5ca2a4c8f41fd86da93c44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.061888784
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5772801925763272675, guid: 546c94dd1e5ca2a4c8f41fd86da93c44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.406
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5772801925763272675, guid: 546c94dd1e5ca2a4c8f41fd86da93c44, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.65188026
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5772801925763272675, guid: 546c94dd1e5ca2a4c8f41fd86da93c44, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.37100315
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5772801925763272675, guid: 546c94dd1e5ca2a4c8f41fd86da93c44, type: 3}
       propertyPath: m_LocalRotation.x
@@ -24530,7 +24529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5772801925763272675, guid: 546c94dd1e5ca2a4c8f41fd86da93c44, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9286316
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -5660109283795512201, guid: 546c94dd1e5ca2a4c8f41fd86da93c44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26629,6 +26628,8 @@ PlayableDirector:
     value: {fileID: 1027746119}
   - key: {fileID: -3950005826183080666, guid: beb527c65e7549a458cb6bbabce671b8, type: 2}
     value: {fileID: 140128416}
+  - key: {fileID: 1405171113974740023, guid: beb527c65e7549a458cb6bbabce671b8, type: 2}
+    value: {fileID: 1210389962}
   m_ExposedReferences:
     m_References: []
 --- !u!1001 &745703863
@@ -34582,7 +34583,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998224704}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -35798,8 +35799,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027746116}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.84, y: 0.14, z: -32.137665}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -24.87, y: -1.4612594, z: -32.137665}
   m_LocalScale: {x: 1, y: 2.2655115, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36180,7 +36181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!20 &1030507911
 Camera:
   m_ObjectHideFlags: 0
@@ -61776,7 +61777,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1732683379}
-  - component: {fileID: 1732683380}
   m_Layer: 0
   m_Name: Fade To Black
   m_TagString: Untagged
@@ -61800,20 +61800,6 @@ Transform:
   - {fileID: 1210389961}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1732683380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732683378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bddd84a2da19ed9488f30f4183d60b81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crossfadeAnimator: {fileID: 1210389962}
-  crossfadeImage: {fileID: 998224707}
 --- !u!1 &1737050414 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4542469878880760866, guid: 546c94dd1e5ca2a4c8f41fd86da93c44, type: 3}
@@ -70936,7 +70922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1979290751
 Transform:
   m_ObjectHideFlags: 0
@@ -72452,7 +72438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2010599055
 Transform:
   m_ObjectHideFlags: 0
