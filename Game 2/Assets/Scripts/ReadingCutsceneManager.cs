@@ -8,6 +8,7 @@ public class ReadingCutsceneManager : MonoBehaviour
     public PlayableDirector readingCutsceneDirector;
     public GameObject thePlayer;
     public GameObject readingCam;
+    public GameObject headDropCam;
     public GameObject playerCam;
     public GameObject openBook;
     public GameObject closedBook;
@@ -21,6 +22,11 @@ public class ReadingCutsceneManager : MonoBehaviour
         if (readingCam != null)
         {
             readingCam.SetActive(false); // Ensure the reading cam is initially inactive
+        }
+
+        if (headDropCam != null)
+        {
+            headDropCam.SetActive(false); // Ensure the reading cam is initially inactive
         }
 
         if (topEyelid != null)
@@ -47,7 +53,12 @@ public class ReadingCutsceneManager : MonoBehaviour
 
         if (readingCam != null)
         {
-            readingCam.SetActive(true); // Activate the pizza cam
+            readingCam.SetActive(true); 
+        }
+
+        if (headDropCam != null)
+        {
+            headDropCam.SetActive(true); 
         }
 
         if (playerCam != null)
@@ -109,6 +120,11 @@ public class ReadingCutsceneManager : MonoBehaviour
         if (bottomEyelid != null)
         {
             Destroy(bottomEyelid);
+        }
+
+        if (headDropCam != null)
+        {
+            Destroy(headDropCam);
         }
     }
 }
