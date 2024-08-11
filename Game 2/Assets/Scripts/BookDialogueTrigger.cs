@@ -5,6 +5,7 @@ using UnityEngine;
 public class BookDialogueTrigger : MonoBehaviour
 {
     public Dialogue bookDialogue;
+    public Dialogue bookCouchDialogue;
     private DialogueManager dialogueManager;
 
     void Start()
@@ -15,5 +16,10 @@ public class BookDialogueTrigger : MonoBehaviour
     public void GoGetBookDialogue()
     {
         dialogueManager.StartDialogue(bookDialogue);
+    }
+
+    public void BookToCouchDialogue()
+    {
+        dialogueManager.StartDialogue(bookCouchDialogue);
     }
 }

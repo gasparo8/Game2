@@ -211,6 +211,7 @@ public class SingleActionRaycast : MonoBehaviour
     public GameObject pizzaNBoxOpen; // Reference to PizzaNBoxOPEN object
     public GameObject bookWalkPoint; // Reference to the BookWalkPoint object
     public ReadingCutsceneManager readingCutsceneManager;
+    public BookDialogueTrigger bookDialogueTrigger;
 
     private void Start()
     {
@@ -307,6 +308,10 @@ public class SingleActionRaycast : MonoBehaviour
         }
         else if (obj.name == bookName) // Check if the object is the book
         {
+            {
+                bookDialogueTrigger.BookToCouchDialogue();
+            }
+
             if (bookWalkPoint != null)
             {
                 bookWalkPoint.SetActive(true); // Activate the BookWalkPoint when the book is picked up
