@@ -8715,6 +8715,7 @@ MonoBehaviour:
   closedBook: {fileID: 726307800}
   topEyelid: {fileID: 127554789}
   bottomEyelid: {fileID: 1998020928}
+  bookDialogueTrigger: {fileID: 1985228164}
 --- !u!4 &231195436 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7548792589064508403, guid: 96147848d5255574992fbbc008be0314, type: 3}
@@ -49492,6 +49493,8 @@ MonoBehaviour:
   bookCouchDialogue:
     sentences:
     - I always read on the couch.
+  postReadingCutsceneDialogue:
+    sentences: []
 --- !u!1001 &1358511079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69346,7 +69349,7 @@ CharacterController:
   m_Height: 3.8
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.6
+  m_StepOffset: 0.55
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -71890,6 +71893,9 @@ MonoBehaviour:
     - I should grab the book in my nightstand.
   bookCouchDialogue:
     sentences: []
+  postReadingCutsceneDialogue:
+    sentences:
+    - What the ...
 --- !u!1001 &1988624191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84795,8 +84801,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6177122, y: 1.1858828, z: 0.6095999}
-  m_Center: {x: -0.004056543, y: 0.2655294, z: 0.036266766}
+  m_Size: {x: 0.6177122, y: 1.1858828, z: 0.5341823}
+  m_Center: {x: -0.004056543, y: 0.26552942, z: -0.0014423562}
 --- !u!65 &2375111134661831658
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -84816,8 +84822,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.60959995, y: 2.0505643, z: 0.23302302}
-  m_Center: {x: 0, y: -0.13958403, z: -0.1520226}
+  m_Size: {x: 0.60959995, y: 2.0505643, z: 0.17643759}
+  m_Center: {x: 0, y: -0.13958403, z: -0.18031582}
 --- !u!65 &2375111134661831659
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -84837,8 +84843,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.60959995, y: 1.635659, z: 0.3927361}
-  m_Center: {x: 0, y: 0.06786897, z: -0.07216589}
+  m_Size: {x: 0.60959995, y: 1.651026, z: 0.35979632}
+  m_Center: {x: 0, y: 0.060185462, z: -0.088635795}
 --- !u!95 &2380981476843368647
 Animator:
   serializedVersion: 5

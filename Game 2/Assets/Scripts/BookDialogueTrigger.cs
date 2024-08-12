@@ -6,6 +6,7 @@ public class BookDialogueTrigger : MonoBehaviour
 {
     public Dialogue bookDialogue;
     public Dialogue bookCouchDialogue;
+    public Dialogue postReadingCutsceneDialogue;
     private DialogueManager dialogueManager;
 
     void Start()
@@ -21,5 +22,10 @@ public class BookDialogueTrigger : MonoBehaviour
     public void BookToCouchDialogue()
     {
         dialogueManager.StartDialogue(bookCouchDialogue);
+    }
+
+    public void postReadingCutscene()
+    {
+        dialogueManager.StartDialogue(postReadingCutsceneDialogue);
     }
 }

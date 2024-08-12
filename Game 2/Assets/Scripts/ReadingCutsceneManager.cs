@@ -14,7 +14,7 @@ public class ReadingCutsceneManager : MonoBehaviour
     public GameObject closedBook;
     public GameObject topEyelid;
     public GameObject bottomEyelid;
-
+    public BookDialogueTrigger bookDialogueTrigger;
 
     // Start is called before the first frame update
     void Start()
@@ -126,5 +126,7 @@ public class ReadingCutsceneManager : MonoBehaviour
         {
             Destroy(headDropCam);
         }
+
+        bookDialogueTrigger.postReadingCutscene();
     }
 }
