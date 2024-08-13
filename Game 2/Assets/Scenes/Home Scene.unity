@@ -88018,6 +88018,7 @@ GameObject:
   - component: {fileID: 2746212910805554397}
   - component: {fileID: 4448194352458904114}
   - component: {fileID: 5997934828203732292}
+  - component: {fileID: 5997934828203732293}
   m_Layer: 8
   m_Name: Small Window
   m_TagString: Untagged
@@ -94506,7 +94507,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8f1dd6d258a3d4bc8beb3751acfeaece, type: 2}
+  - {fileID: 2100000, guid: 19c99879156ad414b82f137cda87c842, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94528,6 +94529,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5997934828203732293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3569315872063392833}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 414c9c030d116af449d9abb6a255c17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightOnMaterial: {fileID: 2100000, guid: 19c99879156ad414b82f137cda87c842, type: 2}
+  lightOffMaterial: {fileID: 2100000, guid: e6041c8345ab1c0418ae679c4f9faa88, type: 2}
+  minFlickerTime: 0.1
+  maxFlickerTime: 0.75
 --- !u!1 &6004186052028352165
 GameObject:
   m_ObjectHideFlags: 0
