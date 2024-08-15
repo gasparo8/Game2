@@ -69389,7 +69389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1921317719}
-  speed: 4
+  speed: 2.5
   gravity: -9.81
   groundCheck: {fileID: 196160816}
   groundDistance: 0.4
@@ -69402,14 +69402,13 @@ MonoBehaviour:
   horizontalBobbingAmount: 0.2
   audioSource: {fileID: 1921317723}
   woodStepSounds:
-  - {fileID: 8300000, guid: 2106de7c74f9b9b4e8c149c34f7468e5, type: 3}
-  - {fileID: 8300000, guid: 8f85e331feb95584a91b1d04309c2273, type: 3}
-  - {fileID: 8300000, guid: fbaa15de508cd9245bd1d4ae4b620c19, type: 3}
-  - {fileID: 8300000, guid: 57859bb1f12043146b15683117b8d7e1, type: 3}
-  - {fileID: 8300000, guid: 524bb144e82b1044fad60adac057df62, type: 3}
+  - {fileID: 8300000, guid: 97c16bdd0a57b2a4bbeea84ca9d685b3, type: 3}
+  - {fileID: 8300000, guid: 43c23782e069650468f44573720f8dfd, type: 3}
+  - {fileID: 8300000, guid: 6c1128091b05f7e47b8d8c83552486f5, type: 3}
+  - {fileID: 8300000, guid: 5302db111d5a49042b108cd6b15b3983, type: 3}
   grassStepSounds:
-  - {fileID: 8300000, guid: 2106de7c74f9b9b4e8c149c34f7468e5, type: 3}
-  stepInterval: 0.5
+  - {fileID: 8300000, guid: 43c23782e069650468f44573720f8dfd, type: 3}
+  stepInterval: 1
 --- !u!65 &1921317722
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -69443,8 +69442,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.55
+  m_Pitch: 0.65
   Loop: 0
   Mute: 0
   Spatialize: 0
