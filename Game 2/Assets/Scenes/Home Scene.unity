@@ -7378,6 +7378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6237377147918724808, guid: fe349a8a38f54f04e8d2796d1aa63f69, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7462,7 +7466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 196160816}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7478,7 +7482,7 @@ Transform:
   m_GameObject: {fileID: 196160815}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.769, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14126,7 +14130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &359274302
 Transform:
   m_ObjectHideFlags: 0
@@ -69320,6 +69324,7 @@ GameObject:
   - component: {fileID: 1921317719}
   - component: {fileID: 1921317721}
   - component: {fileID: 1921317722}
+  - component: {fileID: 1921317723}
   m_Layer: 0
   m_Name: First Person Player
   m_TagString: Player
@@ -69395,6 +69400,16 @@ MonoBehaviour:
   bobbingSpeed: 4.5
   verticalBobbingAmount: 0.05
   horizontalBobbingAmount: 0.2
+  audioSource: {fileID: 1921317723}
+  woodStepSounds:
+  - {fileID: 8300000, guid: 2106de7c74f9b9b4e8c149c34f7468e5, type: 3}
+  - {fileID: 8300000, guid: 8f85e331feb95584a91b1d04309c2273, type: 3}
+  - {fileID: 8300000, guid: fbaa15de508cd9245bd1d4ae4b620c19, type: 3}
+  - {fileID: 8300000, guid: 57859bb1f12043146b15683117b8d7e1, type: 3}
+  - {fileID: 8300000, guid: 524bb144e82b1044fad60adac057df62, type: 3}
+  grassStepSounds:
+  - {fileID: 8300000, guid: 2106de7c74f9b9b4e8c149c34f7468e5, type: 3}
+  stepInterval: 0.5
 --- !u!65 &1921317722
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -69414,8 +69429,104 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 3.0138812, z: 1}
-  m_Center: {x: 0, y: -0.35364795, z: 0}
+  m_Size: {x: 1, y: 3.2326102, z: 1}
+  m_Center: {x: 0, y: -0.46301246, z: 0}
+--- !u!82 &1921317723
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921317718}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1923829387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80123,9 +80234,9 @@ GameObject:
   - component: {fileID: 3523710282201292407}
   - component: {fileID: 1657971849615583933}
   - component: {fileID: 3523710282201292408}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor ONEPIECE
-  m_TagString: Untagged
+  m_TagString: WoodFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
@@ -83446,6 +83557,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6237377147918724808, guid: fe349a8a38f54f04e8d2796d1aa63f69, type: 3}
       propertyPath: m_Name
+      value: Grass
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237377147918724808, guid: fe349a8a38f54f04e8d2796d1aa63f69, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237377147918724808, guid: fe349a8a38f54f04e8d2796d1aa63f69, type: 3}
+      propertyPath: m_TagString
       value: Grass
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -87961,7 +88080,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
