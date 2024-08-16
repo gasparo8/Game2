@@ -410,9 +410,9 @@ GameObject:
   - component: {fileID: 16166547}
   - component: {fileID: 16166546}
   - component: {fileID: 16166545}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Front Walkway
-  m_TagString: Untagged
+  m_TagString: WoodFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69395,20 +69395,18 @@ MonoBehaviour:
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   cameraTransform: {fileID: 138418683}
   bobbingSpeed: 4.5
   verticalBobbingAmount: 0.05
   horizontalBobbingAmount: 0.2
   audioSource: {fileID: 1921317723}
   woodStepSounds:
-  - {fileID: 8300000, guid: 97c16bdd0a57b2a4bbeea84ca9d685b3, type: 3}
   - {fileID: 8300000, guid: 43c23782e069650468f44573720f8dfd, type: 3}
-  - {fileID: 8300000, guid: 6c1128091b05f7e47b8d8c83552486f5, type: 3}
+  - {fileID: 8300000, guid: 97c16bdd0a57b2a4bbeea84ca9d685b3, type: 3}
   grassStepSounds:
-  - {fileID: 8300000, guid: 38962913b657c524a8e5a4fc60f99706, type: 3}
   - {fileID: 8300000, guid: 38436a6d4d1b7ea4ea9608e5e680313b, type: 3}
-  - {fileID: 8300000, guid: 041e902d88e0a664b8581f1bad570b39, type: 3}
+  - {fileID: 8300000, guid: 0111b66ef3ebec7458945dadc2a97b6c, type: 3}
   stepInterval: 0.9
 --- !u!65 &1921317722
 BoxCollider:
@@ -69443,8 +69441,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
-  m_Pitch: 0.62
+  m_Volume: 0.5
+  m_Pitch: 0.8
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -80397,9 +80395,9 @@ GameObject:
   - component: {fileID: 3469287837003939718}
   - component: {fileID: 1711813856229264204}
   - component: {fileID: 3469287837003939719}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Driveway
-  m_TagString: Untagged
+  m_TagString: WoodFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83692,9 +83690,9 @@ GameObject:
   - component: {fileID: 2375111134661831657}
   - component: {fileID: 2375111134661831659}
   - component: {fileID: 2375111134661831658}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Entrance Steps
-  m_TagString: Untagged
+  m_TagString: WoodFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87655,9 +87653,9 @@ GameObject:
   - component: {fileID: 5894964598822672688}
   - component: {fileID: 4900079295571187209}
   - component: {fileID: 8012590087694228364}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Basement Stairs
-  m_TagString: Untagged
+  m_TagString: WoodFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -88770,7 +88768,7 @@ GameObject:
   - component: {fileID: 4568664690892916985}
   m_Layer: 3
   m_Name: Basement Floor
-  m_TagString: Untagged
+  m_TagString: WoodFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -89825,9 +89823,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3578477585423923876}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shed
-  m_TagString: Untagged
+  m_TagString: WoodFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -94510,6 +94508,7 @@ GameObject:
   - component: {fileID: 8948321717317943430}
   - component: {fileID: 3881735421575495045}
   - component: {fileID: 266139751524105277}
+  - component: {fileID: 8948321717317943431}
   m_Layer: 8
   m_Name: Shed
   m_TagString: WoodFloor
@@ -103374,6 +103373,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3578477585423923876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8948321717317943431
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935923706329550945}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 16.475527, y: 0.402215, z: 30.432873}
+  m_Center: {x: 0.0000072413736, y: -0.19393267, z: -0.0000010835565}
 --- !u!1 &8952061081096356545
 GameObject:
   m_ObjectHideFlags: 0
