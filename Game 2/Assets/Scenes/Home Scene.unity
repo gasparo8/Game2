@@ -69405,10 +69405,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 97c16bdd0a57b2a4bbeea84ca9d685b3, type: 3}
   - {fileID: 8300000, guid: 43c23782e069650468f44573720f8dfd, type: 3}
   - {fileID: 8300000, guid: 6c1128091b05f7e47b8d8c83552486f5, type: 3}
-  - {fileID: 8300000, guid: 5302db111d5a49042b108cd6b15b3983, type: 3}
   grassStepSounds:
-  - {fileID: 8300000, guid: 43c23782e069650468f44573720f8dfd, type: 3}
-  stepInterval: 1
+  - {fileID: 8300000, guid: 38962913b657c524a8e5a4fc60f99706, type: 3}
+  - {fileID: 8300000, guid: 38436a6d4d1b7ea4ea9608e5e680313b, type: 3}
+  - {fileID: 8300000, guid: 041e902d88e0a664b8581f1bad570b39, type: 3}
+  stepInterval: 0.9
 --- !u!65 &1921317722
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -69442,8 +69443,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.55
-  m_Pitch: 0.65
+  m_Volume: 0.25
+  m_Pitch: 0.62
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -83558,14 +83559,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass
       objectReference: {fileID: 0}
-    - target: {fileID: 6237377147918724808, guid: fe349a8a38f54f04e8d2796d1aa63f69, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6237377147918724808, guid: fe349a8a38f54f04e8d2796d1aa63f69, type: 3}
-      propertyPath: m_TagString
-      value: Grass
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -85912,9 +85905,9 @@ GameObject:
   - component: {fileID: 1964354815961183372}
   - component: {fileID: 4370247583317180486}
   - component: {fileID: 4370247583317180487}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Deck Stairs
-  m_TagString: Untagged
+  m_TagString: WoodFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -94519,7 +94512,7 @@ GameObject:
   - component: {fileID: 266139751524105277}
   m_Layer: 8
   m_Name: Shed
-  m_TagString: Untagged
+  m_TagString: WoodFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -102300,9 +102293,9 @@ GameObject:
   - component: {fileID: 5441379763804108008}
   - component: {fileID: 7811314716329508898}
   - component: {fileID: 8947651377929517902}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Composite Deck
-  m_TagString: Untagged
+  m_TagString: WoodFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
