@@ -127,6 +127,6 @@ public class ReadingCutsceneManager : MonoBehaviour
             Destroy(headDropCam);
         }
 
-        bookDialogueTrigger.postReadingCutscene();
+        bookDialogueTrigger.PostReadingCutscene();
     }
 }
