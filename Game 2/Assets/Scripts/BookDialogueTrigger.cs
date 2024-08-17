@@ -13,7 +13,7 @@ public class BookDialogueTrigger : MonoBehaviour
 
     private DialogueManager dialogueManager;
     public float doorPoundDelay = 4f;
-    public float postHeartbeatDelay = 15f;  // Delay after the heartbeat before triggering the dogs barking
+    public float postHeartbeatDelay = 10f;  // Delay after the heartbeat before triggering the dogs barking
 
     void Start()
     {

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FriendJumpScare : MonoBehaviour
@@ -55,19 +54,19 @@ public class FriendJumpScare : MonoBehaviour
             playerMovement.enabled = false; // Disable player movement
         }
 
-        // Play the jump scare audio
-        if (jumpScareAudio != null)
-        {
-            jumpScareAudio.Play();
-        }
-
         // Activate the jump scare cutscene
         if (jumpScareCutscene != null)
         {
             jumpScareCutscene.SetActive(true);
         }
 
-        // Wait for the cutscene to complete
+        // Play the jump scare audio within the cutscene
+        if (jumpScareAudio != null)
+        {
+            jumpScareAudio.Play();
+        }
+
+        // Wait for the cutscene and audio to complete
         yield return new WaitForSeconds(jumpScareAudio.clip.length);
 
         // Deactivate the jump scare cutscene
