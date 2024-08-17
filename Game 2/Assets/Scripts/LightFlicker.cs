@@ -7,7 +7,7 @@ public class LightFlicker : MonoBehaviour
     public Material lightOffMaterial;
     public float minFlickerTime = 0.1f; // Minimum flicker time
     public float maxFlickerTime = 0.5f; // Maximum flicker time
-    private Renderer windowRenderer;
+    public Renderer windowRenderer;
 
     private void Start()
     {
@@ -17,7 +17,7 @@ public class LightFlicker : MonoBehaviour
         StartCoroutine(FlickerLight());
     }
 
-    private IEnumerator FlickerLight()
+    public IEnumerator FlickerLight()
     {
         while (true)
         {

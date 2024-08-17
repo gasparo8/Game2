@@ -12090,6 +12090,7 @@ Transform:
   m_Children:
   - {fileID: 973980265}
   - {fileID: 1217412949}
+  - {fileID: 726899052}
   - {fileID: 1161739719}
   m_Father: {fileID: 188714382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26037,6 +26038,134 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 11b640145efcc0c4c928054261b1c110, type: 3}
   m_PrefabInstance: {fileID: 1912105875}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &726899051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 726899052}
+  - component: {fileID: 726899053}
+  m_Layer: 0
+  m_Name: Barking Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &726899052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726899051}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.4038998, y: -0.369709, z: 0.73833275}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 313889203}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &726899053
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726899051}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 70356911a5f4a3e44b1a5bf1aa3f6e29, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.201
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &727872469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33722,7 +33851,6 @@ GameObject:
   m_Component:
   - component: {fileID: 973980265}
   - component: {fileID: 973980264}
-  - component: {fileID: 973980266}
   m_Layer: 0
   m_Name: DogsBarkingManager
   m_TagString: Untagged
@@ -33742,9 +33870,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90f7de60e7689174ea00eef42215daff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dogsBarkingAudio: {fileID: 973980266}
+  dogsBarkingAudio: {fileID: 726899053}
   dogsBarkingCutscene: {fileID: 1217412947}
-  delayUntilBarking: 10
+  dogsBarkingCamera: {fileID: 1161739721}
+  barkingCameraAudioListener: {fileID: 1161739722}
+  player: {fileID: 1921317718}
+  playerCamera: {fileID: 138418682}
+  lightsFlickerScript: {fileID: 5997934828203732293}
+  barkingDuration: 10
+  cutsceneDelay: 3
 --- !u!4 &973980265
 Transform:
   m_ObjectHideFlags: 0
@@ -33760,102 +33894,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 313889203}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &973980266
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973980263}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 70356911a5f4a3e44b1a5bf1aa3f6e29, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.2
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &974224949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42073,7 +42111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1161739719}
   - component: {fileID: 1161739721}
-  - component: {fileID: 1161739720}
+  - component: {fileID: 1161739722}
   m_Layer: 0
   m_Name: Barking Camera
   m_TagString: Untagged
@@ -42090,20 +42128,12 @@ Transform:
   m_GameObject: {fileID: 1161739718}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.95279175, z: -0, w: 0.30362454}
-  m_LocalPosition: {x: -0.277, y: 0.178, z: 1.571}
+  m_LocalPosition: {x: 1.37, y: 0.178, z: 1.571}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 313889203}
   m_LocalEulerAnglesHint: {x: 0, y: -144.649, z: 0}
---- !u!81 &1161739720
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161739718}
-  m_Enabled: 1
 --- !u!20 &1161739721
 Camera:
   m_ObjectHideFlags: 0
@@ -42111,7 +42141,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161739718}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -42146,7 +42176,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 7
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -42155,6 +42185,14 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!81 &1161739722
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161739718}
+  m_Enabled: 1
 --- !u!4 &1162371045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6006891164106547525, guid: fe349a8a38f54f04e8d2796d1aa63f69, type: 3}
@@ -44261,7 +44299,9 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: -2805933356903344355, guid: c1f80ca4c153ae140aa9841da1b4d83a, type: 2}
+    value: {fileID: 1161739718}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1217412949
@@ -49837,7 +49877,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cf774aec167ea274ea793a6ba98616b5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.71
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -69811,7 +69851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1921317719}
-  speed: 2.5
+  speed: 4
   gravity: -9.81
   groundCheck: {fileID: 196160816}
   groundDistance: 0.4
@@ -95179,6 +95219,7 @@ MonoBehaviour:
   lightOffMaterial: {fileID: 2100000, guid: e6041c8345ab1c0418ae679c4f9faa88, type: 2}
   minFlickerTime: 0.1
   maxFlickerTime: 0.75
+  windowRenderer: {fileID: 5997934828203732292}
 --- !u!1 &6004186052028352165
 GameObject:
   m_ObjectHideFlags: 0

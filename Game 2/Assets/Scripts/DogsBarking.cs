@@ -1,11 +1,35 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 public class DogsBarking : MonoBehaviour
 {
-    public AudioSource dogsBarkingAudio;
-    public GameObject dogsBarkingCutscene;
-    public float delayUntilBarking = 10f;
+    public AudioSource dogsBarkingAudio; // Reference to the dogs barking audio
+    public GameObject dogsBarkingCutscene; // Reference to the cutscene GameObject
+    public Camera dogsBarkingCamera; // Reference to the cutscene camera
+    public AudioListener barkingCameraAudioListener; // Reference to the AudioListener on the barking camera
+    public GameObject player; // Reference to the player
+    public GameObject playerCamera; // Reference to the player's camera
+    public LightFlicker lightsFlickerScript; // Reference to the LightFlicker script
+
+    public float barkingDuration = 10f; // How long the dogs will bark
+    public float cutsceneDelay = 4f; // Time after barking starts before the cutscene starts
+
+    private Coroutine flickerCoroutine; // Coroutine reference to stop the flickering later
+
+    private void Start()
+    {
+        // Ensure the AudioListener on the barking camera is initially disabled
+        if (barkingCameraAudioListener != null)
+        {
+            barkingCameraAudioListener.enabled = false;
+        }
+
+        // Ensure the cutscene camera is also initially disabled
+        if (dogsBarkingCamera != null)
+        {
+            dogsBarkingCamera.enabled = false;
+        }
+    }
 
     public void StartBarking()
     {
@@ -14,16 +38,74 @@ public class DogsBarking : MonoBehaviour
 
     private IEnumerator PlayDogsBarking()
     {
+        // Play dogs barking sound
         if (dogsBarkingAudio != null)
         {
             dogsBarkingAudio.Play();
         }
 
-        yield return new WaitForSeconds(delayUntilBarking);
+        // Start flickering lights
+        if (lightsFlickerScript != null)
+        {
+            flickerCoroutine = StartCoroutine(lightsFlickerScript.FlickerLight());
+        }
 
-        if (dogsBarkingCutscene != null)
+        // Wait for the cutscene delay time
+        yield return new WaitForSeconds(cutsceneDelay);
+
+        // Disable player and player's camera for cutscene
+        if (player != null)
+        {
+            player.SetActive(false);
+        }
+
+        if (playerCamera != null)
+        {
+            playerCamera.SetActive(false);
+        }
+
+        // Activate cutscene and enable cutscene camera
+        if (dogsBarkingCutscene != null && dogsBarkingCamera != null)
         {
             dogsBarkingCutscene.SetActive(true);
+            dogsBarkingCamera.enabled = true;
+
+            // Enable the barking camera's AudioListener
+            if (barkingCameraAudioListener != null)
+            {
+                barkingCameraAudioListener.enabled = true;
+            }
         }
+
+        // Wait for the remaining barking duration before ending the cutscene
+        yield return new WaitForSeconds(barkingDuration - cutsceneDelay);
+
+        // Re-enable the player and player's camera after the cutscene
+        if (player != null)
+        {
+            player.SetActive(true);
+        }
+
+        if (playerCamera != null)
+        {
+            playerCamera.SetActive(true);
+        }
+
+        // Disable cutscene camera and its AudioListener after the cutscene ends
+        if (dogsBarkingCamera != null)
+        {
+            dogsBarkingCamera.enabled = false;
+
+            if (barkingCameraAudioListener != null)
+            {
+                barkingCameraAudioListener.enabled = false;
+            }
+        }
+
+        // Stop the light flicker after the cutscene ends
+       /* if (flickerCoroutine != null && lightsFlickerScript != null)
+        {
+            StopCoroutine(flickerCoroutine);
+        }*/
     }
 }
