@@ -38,15 +38,7 @@ public class FriendJumpScare : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            StartCoroutine(JumpScareSequence());
-        }
-    }
-
-    private IEnumerator JumpScareSequence()
+    public IEnumerator JumpScareSequence()
     {
         // Disable player movement but keep the camera active
         if (playerMovement != null)
