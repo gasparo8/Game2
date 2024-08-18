@@ -13,7 +13,7 @@ public class BookDialogueTrigger : MonoBehaviour
 
     private DialogueManager dialogueManager;
     public float doorPoundDelay = 4f;
-    public float postHeartbeatDelay = 10f;  // Delay after the heartbeat before triggering the dogs barking
+    public float postHeartbeatDelay = 5f;  // Delay after the heartbeat before triggering the dogs barking
 
     void Start()
     {
@@ -53,7 +53,7 @@ public class BookDialogueTrigger : MonoBehaviour
             yield return new WaitForSeconds(heartbeatAudio.clip.length);
         }
 
-        // Wait an additional 15 seconds after the heartbeat ends
+        // Wait an additional 5 seconds after the heartbeat ends
         yield return new WaitForSeconds(postHeartbeatDelay);
 
         // Trigger the DogsBarking script
