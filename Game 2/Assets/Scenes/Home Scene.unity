@@ -634,6 +634,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18766675}
   - component: {fileID: 18766674}
+  - component: {fileID: 18766676}
   m_Layer: 0
   m_Name: Jump Scare Cutscene
   m_TagString: Untagged
@@ -656,12 +657,12 @@ PlayableDirector:
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: -4736997072701345824, guid: 7cf1fb52b0e622e41bf528f35d6ffa33, type: 2}
-    value: {fileID: 60397597}
-  - key: {fileID: 8708754182832187314, guid: 7cf1fb52b0e622e41bf528f35d6ffa33, type: 2}
-    value: {fileID: 1981337013}
   - key: {fileID: -8588302081138634606, guid: 7cf1fb52b0e622e41bf528f35d6ffa33, type: 2}
     value: {fileID: 1210389962}
+  - key: {fileID: -745577778766518073, guid: 7cf1fb52b0e622e41bf528f35d6ffa33, type: 2}
+    value: {fileID: 60397599}
+  - key: {fileID: 4399333040168291942, guid: 7cf1fb52b0e622e41bf528f35d6ffa33, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 614e5c445d390ac4595577ca10b6a637: {fileID: 1210389960}
@@ -674,12 +675,108 @@ Transform:
   m_GameObject: {fileID: 18766673}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.201}
+  m_LocalPosition: {x: 0, y: 0, z: -2.179}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 501695894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &18766676
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18766673}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9b8b1ee52f1be1c448ef6bd6d6321d9d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &19265332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 44a4f6f71f8eb1d42b4674453e11a3d5, type: 3}
@@ -72575,6 +72672,7 @@ GameObject:
   - component: {fileID: 1981337015}
   - component: {fileID: 1981337014}
   - component: {fileID: 1981337013}
+  - component: {fileID: 1981337018}
   m_Layer: 0
   m_Name: Friend
   m_TagString: Untagged
@@ -72718,6 +72816,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981337011}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1981337018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981337011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c17a5b28ffae34ca8c64ce6feac6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1981573183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7548792589064508403, guid: 96147848d5255574992fbbc008be0314, type: 3}

@@ -30,12 +30,10 @@ public class LightFlicker : MonoBehaviour
             if (windowRenderer.material.name.Contains(lightOnMaterial.name))
             {
                 windowRenderer.material = lightOffMaterial;
-                Debug.Log("Light Off");
             }
             else
             {
                 windowRenderer.material = lightOnMaterial;
-                Debug.Log("Light On");
             }
 
             yield return new WaitForSeconds(flickerTime);
