@@ -55,22 +55,16 @@ public class FriendJumpScare : MonoBehaviour
 
     public IEnumerator JumpScareSequence()
     {
-        // Disable player movement
+
         if (playerMovement != null)
         {
-            playerMovement.enabled = false; // Disable player movement
+            playerMovement.GetComponent<PlayerMovement>().enabled = false;
         }
 
         // Activate the friend object before the cutscene starts
         if (friend != null)
         {
             friend.SetActive(true);
-        }
-
-        // Destroy the jump trigger immediately after it's triggered
-        if (jumpTrigger != null)
-        {
-            Destroy(jumpTrigger); // Destroy the jump trigger
         }
 
         // Play the jump scare cutscene
@@ -83,6 +77,12 @@ public class FriendJumpScare : MonoBehaviour
             {
                 yield return null;
             }
+        }
+
+        // Destroy the jump trigger immediately after it's triggered
+        if (jumpTrigger != null)
+        {
+            Destroy(jumpTrigger); // Destroy the jump trigger
         }
 
         // Destroy the friend object after the cutscene completes
