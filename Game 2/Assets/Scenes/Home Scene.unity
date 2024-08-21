@@ -663,9 +663,12 @@ PlayableDirector:
     value: {fileID: 60397599}
   - key: {fileID: 4399333040168291942, guid: 7cf1fb52b0e622e41bf528f35d6ffa33, type: 2}
     value: {fileID: 0}
+  - key: {fileID: -7064306174072375601, guid: 7cf1fb52b0e622e41bf528f35d6ffa33, type: 2}
+    value: {fileID: 61478233}
   m_ExposedReferences:
     m_References:
     - 614e5c445d390ac4595577ca10b6a637: {fileID: 1210389960}
+    - 138ec3fbd301f0440b9e314d89097e31: {fileID: 61478233}
 --- !u!4 &18766675
 Transform:
   m_ObjectHideFlags: 0
@@ -1959,6 +1962,85 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96147848d5255574992fbbc008be0314, type: 3}
+--- !u!1 &61478233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 61478234}
+  - component: {fileID: 61478236}
+  - component: {fileID: 61478235}
+  m_Layer: 0
+  m_Name: Friend Dialogue Trigger 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &61478234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61478233}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5466907, y: -0.08741832, z: -1.5146112}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 501695894}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &61478235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61478233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: d1ce1512dc1935f4d89bc78d9d657b13, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 61478236}
+          m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
+          m_MethodName: TriggerDialogue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &61478236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61478233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d309bf730dda44b84a2b2b763fbb57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - HOLY SHIT MAN!
+    - 'Friend: HAHA sorry! Just stoppin by.'
 --- !u!1 &64426800
 GameObject:
   m_ObjectHideFlags: 0
@@ -18754,6 +18836,7 @@ Transform:
   - {fileID: 1301688300}
   - {fileID: 1978138175}
   - {fileID: 1981337012}
+  - {fileID: 61478234}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &501718608 stripped
