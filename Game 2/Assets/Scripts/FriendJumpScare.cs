@@ -11,7 +11,7 @@ public class FriendJumpScare : MonoBehaviour
     public GameObject friend; // Reference to the friend object
 
     private PlayerMovement playerMovement; // Reference to the player's movement script
-    private bool jumpScareTriggered = false; // Prevent multiple triggers
+    public bool jumpScareTriggered = false; // Prevent multiple triggers
 
     private void Start()
     {
