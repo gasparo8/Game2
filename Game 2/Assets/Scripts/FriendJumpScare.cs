@@ -9,6 +9,7 @@ public class FriendJumpScare : MonoBehaviour
     public GameObject jumpTrigger; // Reference to the jump trigger collider
     public LightFlicker lightsFlickerScript; // Reference to the LightFlicker script
     public GameObject friend; // Reference to the friend object
+    public ShedTrigger shedTriggerScript; // Reference to the ShedTrigger script
 
     private PlayerMovement playerMovement; // Reference to the player's movement script
     public bool jumpScareTriggered = false; // Prevent multiple triggers
@@ -55,7 +56,6 @@ public class FriendJumpScare : MonoBehaviour
 
     public IEnumerator JumpScareSequence()
     {
-
         if (playerMovement != null)
         {
             playerMovement.GetComponent<PlayerMovement>().enabled = false;
@@ -89,6 +89,12 @@ public class FriendJumpScare : MonoBehaviour
         if (friend != null)
         {
             Destroy(friend);
+        }
+
+        // Set the shed trigger object active after the friend is destroyed
+        if (shedTriggerScript != null && shedTriggerScript.triggerObject != null)
+        {
+            shedTriggerScript.triggerObject.SetActive(true);
         }
 
         // Re-enable player movement after cutscene completes
