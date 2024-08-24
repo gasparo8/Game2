@@ -7,7 +7,8 @@ public class ShedTrigger : MonoBehaviour
     public FriendJumpScare friendJumpScareScript; // Reference to the FriendJumpScare script
     public GameObject triggerObject; // The object you want to enable (the shed trigger)
     public LightFlicker lightFlicker; // Reference to the LightFlicker script
-    
+    public ShedNoConcern shedNoConcernScript; // Reference to the ShedNoConcern script
+
     private void Start()
     {
         // Ensure the trigger object is disabled at the start
@@ -37,6 +38,12 @@ public class ShedTrigger : MonoBehaviour
         {
             Debug.Log("Player has collided with the trigger object.");
             lightFlicker.StopFlickering(); // Stop the light flickering
+
+            // Inform ShedNoConcern that the object is about to be destroyed
+            if (shedNoConcernScript != null)
+            {
+                shedNoConcernScript.OnShedTriggerDestroyed();
+            }
 
             // Destroy the gameObject this script is attached to after triggering the dialogue
             Destroy(gameObject);
