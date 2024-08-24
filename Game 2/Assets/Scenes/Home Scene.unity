@@ -48472,8 +48472,9 @@ GameObject:
   - component: {fileID: 1306992926}
   - component: {fileID: 1306992925}
   - component: {fileID: 1306992929}
+  - component: {fileID: 1306992930}
   m_Layer: 0
-  m_Name: Walking Collider Trigger
+  m_Name: Shed Light OFF Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48606,6 +48607,24 @@ MonoBehaviour:
   friendJumpScareScript: {fileID: 1978138174}
   triggerObject: {fileID: 1306992923}
   lightFlicker: {fileID: 5997934828203732293}
+  dialogue:
+    sentences: []
+--- !u!114 &1306992930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306992923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d309bf730dda44b84a2b2b763fbb57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - It stopped..
+    - I should still check it out.
 --- !u!1001 &1308219395
 PrefabInstance:
   m_ObjectHideFlags: 0

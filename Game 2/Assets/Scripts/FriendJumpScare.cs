@@ -14,6 +14,7 @@ public class FriendJumpScare : MonoBehaviour
     private PlayerMovement playerMovement; // Reference to the player's movement script
     public bool jumpScareTriggered = false; // Prevent multiple triggers
 
+
     private void Start()
     {
         if (jumpTrigger != null)
