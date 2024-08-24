@@ -18870,6 +18870,7 @@ Transform:
   - {fileID: 1978138175}
   - {fileID: 1981337012}
   - {fileID: 61478234}
+  - {fileID: 1207559207}
   m_Father: {fileID: 188714382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &501718608 stripped
@@ -44477,6 +44478,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8795134053080142860, guid: 3e589bcbb14364ff1975621d96203ab7, type: 3}
   m_PrefabInstance: {fileID: 2043563253}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1207559206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1207559207}
+  - component: {fileID: 1207559208}
+  m_Layer: 0
+  m_Name: Post Jumpscare Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1207559207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207559206}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.205285, y: 0.45644236, z: 0.89223623}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 501695894}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1207559208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207559206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d309bf730dda44b84a2b2b763fbb57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - The shed light is flickering..
 --- !u!1 &1208512501
 GameObject:
   m_ObjectHideFlags: 0
@@ -48607,8 +48655,6 @@ MonoBehaviour:
   friendJumpScareScript: {fileID: 1978138174}
   triggerObject: {fileID: 1306992923}
   lightFlicker: {fileID: 5997934828203732293}
-  dialogue:
-    sentences: []
 --- !u!114 &1306992930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48624,7 +48670,7 @@ MonoBehaviour:
   dialogue:
     sentences:
     - It stopped..
-    - I should still check it out.
+    - I should still check out the shed.
 --- !u!1001 &1308219395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72734,6 +72780,7 @@ MonoBehaviour:
   lightsFlickerScript: {fileID: 5997934828203732293}
   friend: {fileID: 1981337011}
   shedTriggerScript: {fileID: 1306992929}
+  dialogueTrigger: {fileID: 1207559208}
   jumpScareTriggered: 0
 --- !u!4 &1978138175
 Transform:

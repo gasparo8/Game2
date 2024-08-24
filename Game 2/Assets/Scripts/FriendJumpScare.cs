@@ -10,10 +10,10 @@ public class FriendJumpScare : MonoBehaviour
     public LightFlicker lightsFlickerScript; // Reference to the LightFlicker script
     public GameObject friend; // Reference to the friend object
     public ShedTrigger shedTriggerScript; // Reference to the ShedTrigger script
+    public DialogueTrigger dialogueTrigger; // Reference to the DialogueTrigger script
 
     private PlayerMovement playerMovement; // Reference to the player's movement script
     public bool jumpScareTriggered = false; // Prevent multiple triggers
-
 
     private void Start()
     {
@@ -96,6 +96,12 @@ public class FriendJumpScare : MonoBehaviour
         if (shedTriggerScript != null && shedTriggerScript.triggerObject != null)
         {
             shedTriggerScript.triggerObject.SetActive(true);
+        }
+
+        // Trigger the dialogue after the cutscene ends
+        if (dialogueTrigger != null)
+        {
+            dialogueTrigger.TriggerDialogue();
         }
 
         // Re-enable player movement after cutscene completes

@@ -7,8 +7,7 @@ public class ShedTrigger : MonoBehaviour
     public FriendJumpScare friendJumpScareScript; // Reference to the FriendJumpScare script
     public GameObject triggerObject; // The object you want to enable (the shed trigger)
     public LightFlicker lightFlicker; // Reference to the LightFlicker script
-    public Dialogue dialogue;
-
+    
     private void Start()
     {
         // Ensure the trigger object is disabled at the start
