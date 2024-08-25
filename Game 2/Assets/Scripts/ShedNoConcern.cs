@@ -16,19 +16,6 @@ public class ShedNoConcern : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        // Check if the jump scare cutscene has been triggered
-        if (friendJumpScareScript.jumpScareTriggered)
-        {
-            // Enable the trigger object if it's not already enabled
-            if (triggerObject != null && !triggerObject.activeSelf)
-            {
-                triggerObject.SetActive(true);
-            }
-        }
-    }
-
     // This method is called when the associated ShedTrigger object is destroyed
     public void OnShedTriggerDestroyed()
     {
