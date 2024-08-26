@@ -32,7 +32,7 @@ public class ShadowController : MonoBehaviour
             animationPlayed = true; // Ensure it only plays once
 
             // Schedule the peeker object for destruction 4 seconds after the animation is triggered
-            StartCoroutine(DestroyAfterDelay(4.2f));
+            StartCoroutine(DestroyAfterDelay(4.0f));
         }
     }
 
