@@ -11,6 +11,8 @@ public class NewBehaviourScript : MonoBehaviour
            Piano Jump Scare Stinger by TheSoundFXGuy_YT -- https://freesound.org/s/534218/ -- License: Attribution 4.0
            Night Ambience 01 - Aug 2 2013 - Back Yard by rgbrobot -- https://freesound.org/s/195969/ -- License: Creative Commons 0
            Creepy Tension Rise Build Up 1 by miksmusic -- https://freesound.org/s/506843/ -- License: Attribution NonCommercial 3.0
+           Frantic violin screech distant by devilfish101 -- https://freesound.org/s/237281/ -- License: Attribution 4.0
+           Horror Sounds 7.flac by CyberMad -- https://freesound.org/s/352129/ -- License: Creative Commons 0
         */
     }
 }
