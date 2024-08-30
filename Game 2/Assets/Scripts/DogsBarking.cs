@@ -6,7 +6,6 @@ public class DogsBarking : MonoBehaviour
     public AudioSource dogsBarkingAudio; // Reference to the dogs barking audio
     public GameObject dogsBarkingCutscene; // Reference to the cutscene GameObject
     public Camera dogsBarkingCamera; // Reference to the cutscene camera
-    public AudioListener barkingCameraAudioListener; // Reference to the AudioListener on the barking camera
     public GameObject player; // Reference to the player
     public GameObject playerCamera; // Reference to the player's camera
     public LightFlicker lightsFlickerScript; // Reference to the LightFlicker script
@@ -18,12 +17,6 @@ public class DogsBarking : MonoBehaviour
 
     private void Start()
     {
-        // Ensure the AudioListener on the barking camera is initially disabled
-        if (barkingCameraAudioListener != null)
-        {
-            barkingCameraAudioListener.enabled = false;
-        }
-
         // Ensure the cutscene camera is also initially disabled
         if (dogsBarkingCamera != null)
         {
@@ -69,12 +62,6 @@ public class DogsBarking : MonoBehaviour
         {
             dogsBarkingCutscene.SetActive(true);
             dogsBarkingCamera.enabled = true;
-
-            // Enable the barking camera's AudioListener
-            if (barkingCameraAudioListener != null)
-            {
-                barkingCameraAudioListener.enabled = true;
-            }
         }
 
         // Wait for the remaining barking duration before ending the cutscene
@@ -95,17 +82,6 @@ public class DogsBarking : MonoBehaviour
         if (dogsBarkingCamera != null)
         {
             dogsBarkingCamera.enabled = false;
-
-            if (barkingCameraAudioListener != null)
-            {
-                barkingCameraAudioListener.enabled = false;
-            }
         }
-
-        // Stop the light flicker after the cutscene ends
-       /* if (flickerCoroutine != null && lightsFlickerScript != null)
-        {
-            StopCoroutine(flickerCoroutine);
-        }*/
     }
 }

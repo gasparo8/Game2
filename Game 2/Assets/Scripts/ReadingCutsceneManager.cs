@@ -124,7 +124,7 @@ public class ReadingCutsceneManager : MonoBehaviour
 
         if (headDropCam != null)
         {
-            Destroy(headDropCam);
+            headDropCam.SetActive(false);
         }
 
         bookDialogueTrigger.PostReadingCutscene();
