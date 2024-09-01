@@ -86,12 +86,6 @@ public class FriendJumpScare : MonoBehaviour
             Destroy(jumpTrigger); // Destroy the jump trigger
         }
 
-        // Destroy the friend object after the cutscene completes
-        if (neighbor != null)
-        {
-            Destroy(neighbor);
-        }
-
         // Set the shed trigger object active after the friend is destroyed
         if (shedTriggerScript != null && shedTriggerScript.triggerObject != null)
         {
