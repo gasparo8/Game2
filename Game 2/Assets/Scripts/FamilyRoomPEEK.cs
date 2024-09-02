@@ -9,6 +9,10 @@ public class FamilyRoomPEEK : MonoBehaviour
     private bool animationPlayed = false; // To ensure the animation plays only once
     public ShedNoConcern shedNoConcernScript; // Reference to the ShedNoConcern script
 
+    private DialogueManager dialogueManager;
+    public Dialogue postFamilyRoomPeekDialogue;
+    private int postFamilyRoomPeekDialogueDelay = 8;
+
     private void Start()
     {
         // Ensure the Animator component is assigned
@@ -21,6 +25,10 @@ public class FamilyRoomPEEK : MonoBehaviour
         {
             peekerObject.SetActive(false); // Ensure the friend object is disabled at the start
         }
+
+        {
+            dialogueManager = FindObjectOfType<DialogueManager>();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,6 +40,18 @@ public class FamilyRoomPEEK : MonoBehaviour
             // Set the trigger to play the animation
             anim.SetTrigger("PlayFamilyRoomPeek");
             animationPlayed = true; // Ensure it only plays once
+            StartCoroutine(PostFamilyRoomPeekDialogue());
+        }
+    }
+
+    private IEnumerator PostFamilyRoomPeekDialogue()
+    {
+        // Wait for 6 seconds before starting the dialogue
+        yield return new WaitForSeconds(postFamilyRoomPeekDialogueDelay);
+
+        if (animationPlayed)
+        {
+            dialogueManager.StartDialogue(postFamilyRoomPeekDialogue);
         }
     }
 }
