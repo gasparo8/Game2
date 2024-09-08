@@ -11,6 +11,7 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
     public GameObject openBook;
     public GameObject readingCamera;
     public GameObject couchWalkPoint;
+    public LightSwitch lightSwitch; // Reference to the LightSwitch script
 
     private bool couchWalkPointTriggered = false; // To prevent retriggering
 
