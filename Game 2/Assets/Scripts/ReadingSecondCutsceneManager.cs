@@ -15,6 +15,12 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
 
     private bool couchWalkPointTriggered = false; // To prevent retriggering
 
+    public Light lightToTurnOff; // Assign the specific light in the Inspector
+    public Renderer lightRenderer; // Renderer for the light's material
+    public Material offMaterial; // Material to use when the light is off
+    public AudioSource audioSource; // AudioSource for sound effects
+    public AudioClip switchOffClip; // Sound for turning the light off
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +74,23 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
         if (couchWalkPoint != null)
         {
             couchWalkPoint.SetActive(false);
+        }
+    }
+    public void TurnOffLightDuringCutscene()
+    {
+        // Turn off the light
+        lightToTurnOff.enabled = false;
+
+        // Change the light's material to the offMaterial
+        if (lightRenderer != null && offMaterial != null)
+        {
+            lightRenderer.material = offMaterial;
+        }
+
+        // Play the switch off sound if assigned
+        if (audioSource != null && switchOffClip != null)
+        {
+            audioSource.PlayOneShot(switchOffClip);
         }
     }
 
