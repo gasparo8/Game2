@@ -10,6 +10,7 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
     public GameObject playerCam;
     public GameObject openBook;
     public GameObject readingCamera;
+    public GameObject lightOFFLookCamera;
     public GameObject couchWalkPoint;
     public LightSwitch lightSwitch; // Reference to the LightSwitch script
 
@@ -27,6 +28,11 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
         if (readingCamera != null)
         {
             readingCamera.SetActive(false); // Ensure the reading cam is initially inactive
+        }
+
+        if (lightOFFLookCamera != null)
+        {
+            lightOFFLookCamera.SetActive(false); // Ensure the lightOFFLookCamera cam is initially inactive
         }
 
         if (couchWalkPoint != null)
@@ -63,6 +69,11 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
         if (readingCamera != null)
         {
             readingCamera.SetActive(true); // Enable the reading camera
+        }
+
+        if (lightOFFLookCamera != null)
+        {
+            lightOFFLookCamera.SetActive(true); // Enable the lightOFFLookCamera camera
         }
 
         if (playerCam != null)
@@ -113,6 +124,11 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
             if (readingCamera != null)
             {
                 readingCamera.SetActive(false); // Disable the reading camera
+            }
+
+            if (lightOFFLookCamera != null)
+            {
+                lightOFFLookCamera.SetActive(false); // Disable the reading camera
             }
 
             Debug.Log("Second Reading Cutscene Finished");
