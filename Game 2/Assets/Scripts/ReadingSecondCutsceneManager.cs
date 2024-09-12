@@ -22,6 +22,9 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
     public AudioSource audioSource; // AudioSource for sound effects
     public AudioClip switchOffClip; // Sound for turning the light off
 
+    public Renderer[] lightRenderers; // Array of renderers for each light
+    public Material[] offMaterials; // Array of materials to use when the lights are off
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,15 +90,19 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
             couchWalkPoint.SetActive(false);
         }
     }
+
     public void TurnOffLightDuringCutscene()
     {
         // Turn off the light
         lightToTurnOff.enabled = false;
 
-        // Change the light's material to the offMaterial
-        if (lightRenderer != null && offMaterial != null)
+        // Change the light's materials to offMaterials
+        for (int i = 0; i < lightRenderers.Length; i++)
         {
-            lightRenderer.material = offMaterial;
+            if (lightRenderers[i] != null && offMaterials[i] != null)
+            {
+                lightRenderers[i].material = offMaterials[i]; // Set the appropriate off material for each renderer
+            }
         }
 
         // Play the switch off sound if assigned
