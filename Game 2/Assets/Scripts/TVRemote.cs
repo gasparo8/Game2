@@ -33,8 +33,8 @@ public class TVRemote : MonoBehaviour
         }
     }
 
-    void ToggleTV()
-    {
+    public void ToggleTV()
+    {  
         isTVOn = !isTVOn; // Toggle the TV state
 
         if (isTVOn)
