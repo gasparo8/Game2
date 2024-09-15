@@ -308,7 +308,11 @@ public class SingleActionRaycast : MonoBehaviour
 
                 if (Input.GetKeyDown(openDoorKey))
                 {
-                    rayCastedTP.PlayTPAnimation();
+                    // rayCastedTP.PlayTPAnimation();
+                    if (rayCastedTP != null)
+                    {
+                        rayCastedTP.PlayTPAnimation();
+                    }
                 }
             }
             else if (hit.collider.CompareTag(pickableTag))
