@@ -25,6 +25,13 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
     public Renderer[] lightRenderers; // Array of renderers for each light
     public Material[] offMaterials; // Array of materials to use when the lights are off
 
+    private DialogueManager dialogueManager;
+    public Dialogue postSecondReadingCutsceneDialogue;
+
+    // Boolean to track if dialogue has been played
+    private bool postSecondReadingDialoguePlayed = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +55,9 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
             // Subscribe to the event that triggers when the cutscene ends
             readingSecondCutsceneDirector.stopped += OnCutsceneFinished;
         }
+
+        // Ensure dialogueManager is assigned properly
+        dialogueManager = FindObjectOfType<DialogueManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -139,6 +149,9 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
             }
 
             Debug.Log("Second Reading Cutscene Finished");
+
+            // Trigger the post-cutscene dialogue
+            PostSecondReadingCutsceneDialogue();
         }
     }
 
@@ -150,4 +163,10 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
             readingSecondCutsceneDirector.stopped -= OnCutsceneFinished;
         }
     }
+
+    public void PostSecondReadingCutsceneDialogue()
+    {
+        dialogueManager.StartDialogue(postSecondReadingCutsceneDialogue);
+        postSecondReadingDialoguePlayed = true;
+}
 }
