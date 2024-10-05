@@ -9,6 +9,7 @@ public class FamilyRoomPEEK : MonoBehaviour
     public List<Light> pointLights; // List of lights that will flicker
     private bool animationPlayed = false; // To ensure the animation plays only once
     public ShedNoConcern shedNoConcernScript; // Reference to the ShedNoConcern script
+    public GameObject knifeObject; // Reference to the knife GameObject
 
     private DialogueManager dialogueManager;
     public Dialogue postFamilyRoomPeekDialogue;
@@ -47,6 +48,12 @@ public class FamilyRoomPEEK : MonoBehaviour
         // Check if the ShedNoConcern trigger has been activated before playing the animation
         if (other.CompareTag("Player") && !animationPlayed && shedNoConcernScript.hasTriggered)
         {
+            // Delete the knife
+            if (knifeObject != null)
+            {
+                Destroy(knifeObject); // Delete the knife
+            }
+
             peekerObject.SetActive(true);
             // Set the trigger to play the animation
             anim.SetTrigger("PlayFamilyRoomPeek");
