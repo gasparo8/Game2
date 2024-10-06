@@ -4,7 +4,8 @@ using UnityEngine.AI;
 public class BreakerBoxSwitch : MonoBehaviour
 {
     public GameObject walker;  // Reference the existing walker in the scene
-    public AudioClip switchSound;
+    public AudioClip switchSound;  // Sound for the switch
+    public AudioClip walkerSound;  // Sound for when the walker is enabled
     private AudioSource audioSource;
     private bool isSwitched = false;
 
@@ -52,10 +53,16 @@ public class BreakerBoxSwitch : MonoBehaviour
                 audioSource.PlayOneShot(switchSound);
             }
 
-            // Enable the existing walker instead of instantiating a new one
+            // Enable the existing walker and play the walker sound
             if (walker != null)
             {
                 walker.SetActive(true);
+
+                // Play the walker sound after enabling the walker
+                if (walkerSound != null)
+                {
+                    audioSource.PlayOneShot(walkerSound);
+                }
             }
         }
     }
