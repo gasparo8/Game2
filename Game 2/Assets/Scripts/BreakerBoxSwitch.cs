@@ -1,35 +1,38 @@
 using UnityEngine;
-using UnityEngine.AI;  // For NavMesh functionality
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.AI;
 
 public class BreakerBoxSwitch : MonoBehaviour
 {
-    public GameObject mixamoCharacterPrefab;  // Assign your Mixamo character prefab here
-    public Transform spawnLocation;  // Assign the transform where the Mixamo character will appear
-    public AudioClip switchSound;  // Assign the switch sound audio clip
+    public GameObject walker;  // Reference the existing walker in the scene
+    public AudioClip switchSound;
     private AudioSource audioSource;
     private bool isSwitched = false;
 
-    [SerializeField] private int rayLength = 4; // The length of the ray for interaction
-    [SerializeField] private LayerMask layerMaskInteract; // Layer for interactable objects
-    [SerializeField] private KeyCode interactionKey = KeyCode.Mouse0; // Key to interact with the breaker box
+    [SerializeField] private int rayLength = 4;
+    [SerializeField] private LayerMask layerMaskInteract;
+    [SerializeField] private KeyCode interactionKey = KeyCode.Mouse0;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+        // Make sure the walker is disabled at the start
+        if (walker != null)
+        {
+            walker.SetActive(false);
+        }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(interactionKey)) // Detect left mouse click
+        if (Input.GetKeyDown(interactionKey))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, rayLength, layerMaskInteract))
             {
-                if (hit.collider.gameObject == gameObject) // If the breaker box is clicked
+                if (hit.collider.gameObject == gameObject)
                 {
                     OnSwitchClicked();
                 }
@@ -37,7 +40,6 @@ public class BreakerBoxSwitch : MonoBehaviour
         }
     }
 
-    // This function is called when the player clicks on the switch
     public void OnSwitchClicked()
     {
         if (!isSwitched)
@@ -50,10 +52,10 @@ public class BreakerBoxSwitch : MonoBehaviour
                 audioSource.PlayOneShot(switchSound);
             }
 
-            // Instantiate the Mixamo character at the specified spawn location
-            if (mixamoCharacterPrefab != null && spawnLocation != null)
+            // Enable the existing walker instead of instantiating a new one
+            if (walker != null)
             {
-                Instantiate(mixamoCharacterPrefab, spawnLocation.position, spawnLocation.rotation);
+                walker.SetActive(true);
             }
         }
     }
