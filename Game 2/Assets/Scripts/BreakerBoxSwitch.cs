@@ -53,15 +53,17 @@ public class BreakerBoxSwitch : MonoBehaviour
                 audioSource.PlayOneShot(switchSound);
             }
 
-            // Enable the existing walker and play the walker sound
+            // Enable the existing walker and loop the walker sound
             if (walker != null)
             {
                 walker.SetActive(true);
 
-                // Play the walker sound after enabling the walker
+                // Loop the walker sound
                 if (walkerSound != null)
                 {
-                    audioSource.PlayOneShot(walkerSound);
+                    audioSource.clip = walkerSound;
+                    audioSource.loop = true;  // Enable looping
+                    audioSource.Play();  // Play the sound
                 }
             }
         }
