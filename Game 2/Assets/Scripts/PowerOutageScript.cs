@@ -31,6 +31,26 @@ public class PowerOutageScript : MonoBehaviour
     // Reference to the ReadingSecondCutsceneManager
     public ReadingSecondCutsceneManager readingCutsceneManager;
 
+    // Reference to an AudioClip for the power outage sound
+    public AudioClip powerOutageSound;
+
+    // AudioSource component to play the sound
+    private AudioSource audioSource;
+
+    private DialogueManager dialogueManager;
+    public Dialogue postPowerOutageDialogue;
+
+    void Start()
+    {
+        // Ensure dialogueManager is assigned properly
+        dialogueManager = FindObjectOfType<DialogueManager>();
+    }
+
+    private void Awake()
+    {
+        // Get the AudioSource component attached to the GameObject
+        audioSource = GetComponent<AudioSource>();
+    }
     private void Update()
     {
         // Check the checkbox during testing for triggering power outage
@@ -68,6 +88,15 @@ public class PowerOutageScript : MonoBehaviour
     {
         powerOut = true;
         LightSwitch.isPowerOut = true;  // Update the global flag
+
+        // Play the power outage sound if it's set
+        if (powerOutageSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(powerOutageSound);
+        }
+
+        PostPowerOutageDialogue();
+
 
         foreach (LightObject lightObj in lights)
         {
@@ -113,7 +142,18 @@ public class PowerOutageScript : MonoBehaviour
                 }
             }
         }
-
-        Debug.Log("Power restored.");
+    }
+    // Method to trigger the post-power outage dialogue
+    public void PostPowerOutageDialogue()
+    {
+        if (dialogueManager != null && postPowerOutageDialogue != null)
+        {
+            dialogueManager.StartDialogue(postPowerOutageDialogue);
+            Debug.Log("Post power outage dialogue triggered.");
+        }
+        else
+        {
+            Debug.LogWarning("DialogueManager or postPowerOutageDialogue not set.");
+        }
     }
 }
