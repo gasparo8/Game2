@@ -11,6 +11,7 @@ public class SingleActionRaycast : MonoBehaviour
     private SpinController rayCastedTP;
     private LightSwitch rayCastedLightSwitch; // Reference to the LightSwitch script
     private TVRemote rayCastedTVRemote; // Reference to the TVRemote script
+    private FlashlightController rayCastedFlashlight;
 
     [SerializeField] private KeyCode openDoorKey = KeyCode.Mouse0;
     [SerializeField] private KeyCode pickUpKey = KeyCode.E;
@@ -30,6 +31,7 @@ public class SingleActionRaycast : MonoBehaviour
     private const string dropZoneTag = "DropZone"; // Tag for the drop zone
     private const string bookWalkPointTag = "BookWalkPoint"; // Tag for the book walk point
     private const string tvRemoteTag = "TVRemote"; // Tag for TV Remote
+    private const string flashlightTag = "Flashlight"; // New tag for flashlight
 
     private GameObject pickedUpObject = null;
     [SerializeField] private Transform holdPoint; // Point where the object will be held
@@ -132,6 +134,24 @@ public class SingleActionRaycast : MonoBehaviour
                     rayCastedTVRemote.ToggleTV(); // Toggle TV on/off
                 }
             }
+
+            else if (hit.collider.CompareTag(flashlightTag)) // Logic for Flashlight click
+            {
+                if (!doOnce)
+                {
+                    rayCastedFlashlight = hit.collider.gameObject.GetComponent<FlashlightController>();
+                    CrosshairChange(true); // Change crosshair on hover over remote
+                }
+
+                isCrossHairActive = true;
+                doOnce = true;
+
+                if (Input.GetKeyDown(toggleLightKey))
+                {
+                    rayCastedFlashlight.EnableFlashlight(); // Call method to enable flashlight
+                }
+            }
+
         }
         else
         {
@@ -231,3 +251,17 @@ public class SingleActionRaycast : MonoBehaviour
         }
     }
 }
+
+    /*
+    void EnableFlashlight()
+    {
+        // Find the directional light attached to the player
+        Light playerLight = GetComponentInChildren<Light>(); // Assumes light is a child of the player
+        if (playerLight != null)
+        {
+            playerLight.enabled = true; // Enable the light
+            Debug.Log("Flashlight enabled!");
+        }
+    }
+}
+    */
