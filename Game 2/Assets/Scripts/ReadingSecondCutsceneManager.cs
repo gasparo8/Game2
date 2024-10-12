@@ -25,12 +25,13 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
     public Renderer[] lightRenderers; // Array of renderers for each light
     public Material[] offMaterials; // Array of materials to use when the lights are off
 
-    private DialogueManager dialogueManager;
     public Dialogue postSecondReadingCutsceneDialogue;
 
-    // Boolean to track if dialogue has been played
-    private bool postSecondReadingDialoguePlayed = false;
+    // New: Reference to PowerOutageScript
+    public PowerOutageScript powerOutageScript;
+    public bool cutsceneCompleted = false; // Track if the cutscene is completed
 
+    private DialogueManager dialogueManager;
 
     // Start is called before the first frame update
     void Start()
@@ -123,7 +124,7 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
     }
 
     // This method is called when the cutscene finishes
-    private void OnCutsceneFinished(PlayableDirector director)
+    public void OnCutsceneFinished(PlayableDirector director)
     {
         // Re-enable the player and player camera after the cutscene ends
         if (director == readingSecondCutsceneDirector)
@@ -148,10 +149,15 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
                 lightOFFLookCamera.SetActive(false); // Disable the reading camera
             }
 
-            Debug.Log("Second Reading Cutscene Finished");
+            cutsceneCompleted = true; // Mark the cutscene as completed
 
             // Trigger the post-cutscene dialogue
             PostSecondReadingCutsceneDialogue();
+
+            if (powerOutageScript != null)
+                powerOutageScript.StartPowerOutageCoroutine(); // Notify power outage script
+
+            Debug.Log("Cutscene finished. Starting power outage coroutine.");
         }
     }
 
@@ -163,10 +169,8 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
             readingSecondCutsceneDirector.stopped -= OnCutsceneFinished;
         }
     }
-
-    public void PostSecondReadingCutsceneDialogue()
-    {
-        dialogueManager.StartDialogue(postSecondReadingCutsceneDialogue);
-        postSecondReadingDialoguePlayed = true;
-}
-}
+        public void PostSecondReadingCutsceneDialogue()
+        {
+            dialogueManager.StartDialogue(postSecondReadingCutsceneDialogue);
+        }
+    }

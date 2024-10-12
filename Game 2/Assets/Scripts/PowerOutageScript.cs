@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,6 +28,9 @@ public class PowerOutageScript : MonoBehaviour
 
     private bool powerOut = false;  // Track the current power state
 
+    // Reference to the ReadingSecondCutsceneManager
+    public ReadingSecondCutsceneManager readingCutsceneManager;
+
     private void Update()
     {
         // Check the checkbox during testing for triggering power outage
@@ -42,6 +46,21 @@ public class PowerOutageScript : MonoBehaviour
             ResetPower();
             restorePower = false;  // Reset the checkbox
         }
+    }
+
+    // Coroutine to delay the power outage by 10 seconds
+    public IEnumerator PowerOutageCoroutine()
+    {
+        yield return new WaitForSeconds(10f); // Wait for 10 seconds
+        TriggerOutage(); // Trigger power outage
+        Debug.Log("Power outage triggered after cutscene.");
+    }
+
+    // Public method to start the coroutine
+    public void StartPowerOutageCoroutine()
+    {
+        StartCoroutine(PowerOutageCoroutine());
+        Debug.Log("Power outage coroutine started. Waiting 10 seconds.");
     }
 
     // Method to trigger the power outage
