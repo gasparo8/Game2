@@ -6,7 +6,11 @@ public class FlashlightController : MonoBehaviour
     [SerializeField] private Light flashlight; // Reference to the Light component
     [SerializeField] private GameObject flashlightBodyMesh; // Reference to the flashlight body mesh
     [SerializeField] private GameObject flashlightLensMesh; // Reference to the flashlight lens mesh
-    [SerializeField] private float followDelay = 0.1f; // Delay for the flashlight to follow the camera
+    [SerializeField] private AudioClip flashlightToggleSound; // Sound played when flashlight is toggled
+    private AudioSource audioSource; // Audio source for playing sounds
+
+    private DialogueManager dialogueManager;
+    public Dialogue pickedUpFlashlightDialogue;
 
     private void Start()
     {
@@ -25,12 +29,23 @@ public class FlashlightController : MonoBehaviour
         {
             flashlightLensMesh.SetActive(true); // Flashlight lens mesh visible at start
         }
+
+        // Ensure the audio source is ready
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>(); // Add AudioSource if missing
+        }
+
+        // Ensure dialogueManager is assigned properly
+        dialogueManager = FindObjectOfType<DialogueManager>();
     }
 
     public void EnableFlashlight()
     {
         if (flashlight != null && flashlightBodyMesh != null && flashlightLensMesh != null)
         {
+            PlayToggleSound(); // Play the flashlight toggle sound
+            PickedUpFlashlightDialogue();
             StartCoroutine(EnableFlashlightWithDelay()); // Start the coroutine to enable the flashlight
         }
     }
@@ -44,5 +59,27 @@ public class FlashlightController : MonoBehaviour
         flashlightBodyMesh.SetActive(false); // Disable the body mesh (flashlight is in use)
         flashlightLensMesh.SetActive(false); // Disable the lens mesh as well
         Debug.Log("Flashlight enabled!");
+    }
+
+    // Play the flashlight toggle sound
+    private void PlayToggleSound()
+    {
+        if (flashlightToggleSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(flashlightToggleSound); // Play the sound once when flashlight is toggled
+        }
+    }
+
+    public void PickedUpFlashlightDialogue()
+    {
+        if (dialogueManager != null && pickedUpFlashlightDialogue != null)
+        {
+            dialogueManager.StartDialogue(pickedUpFlashlightDialogue);
+            Debug.Log("Picked Up Flashlight dialogue triggered.");
+        }
+        else
+        {
+            Debug.LogWarning("DialogueManager or Flashlight not set.");
+        }
     }
 }

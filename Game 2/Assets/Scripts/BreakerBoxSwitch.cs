@@ -13,6 +13,8 @@ public class BreakerBoxSwitch : MonoBehaviour
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private KeyCode interactionKey = KeyCode.Mouse0;
 
+    public PowerOutageScript powerOutageScript;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -46,6 +48,7 @@ public class BreakerBoxSwitch : MonoBehaviour
         if (!isSwitched)
         {
             isSwitched = true;
+            powerOutageScript.ResetPower();
 
             // Play the switch sound
             if (switchSound != null && audioSource != null)

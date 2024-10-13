@@ -16,6 +16,8 @@ public class NewBehaviourScript : MonoBehaviour
            footsteps-wood-bridge-01-walking.wav by audioninja001 -- https://freesound.org/s/455068/ -- License: Creative Commons 0
            Detuned_Piano_ThreeNotes.wav by RutgerMuller -- https://freesound.org/s/449757/ -- License: Creative Commons 0
            The killer is coming for you.wav by Satanen -- https://freesound.org/s/317385/ -- License: Creative Commons 0
+           Flashlight Button Click.wav by steprock -- https://freesound.org/s/509676/ -- License: Creative Commons 0
+           Power Down by peepholecircus -- https://freesound.org/s/169994/ -- License: Creative Commons 0
         */
     }
 }
