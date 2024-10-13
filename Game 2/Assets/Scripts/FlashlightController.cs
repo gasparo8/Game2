@@ -12,6 +12,8 @@ public class FlashlightController : MonoBehaviour
     private DialogueManager dialogueManager;
     public Dialogue pickedUpFlashlightDialogue;
 
+    [SerializeField] private GameObject postFlashlightTensionTrigger; // Reference to the trigger object
+
     private void Start()
     {
         // Ensure the flashlight light is off and both meshes are enabled initially
@@ -29,6 +31,8 @@ public class FlashlightController : MonoBehaviour
         {
             flashlightLensMesh.SetActive(true); // Flashlight lens mesh visible at start
         }
+
+        postFlashlightTensionTrigger.SetActive(false); // Disable trigger initially
 
         // Ensure the audio source is ready
         if (audioSource == null)
@@ -59,6 +63,16 @@ public class FlashlightController : MonoBehaviour
         flashlightBodyMesh.SetActive(false); // Disable the body mesh (flashlight is in use)
         flashlightLensMesh.SetActive(false); // Disable the lens mesh as well
         Debug.Log("Flashlight enabled!");
+
+
+        // Enable the PostFlashlightTension trigger object
+        if (postFlashlightTensionTrigger != null)
+        {
+            postFlashlightTensionTrigger.SetActive(true);
+            Debug.Log("PostFlashlightTension trigger enabled!");
+        }
+
+
     }
 
     // Play the flashlight toggle sound
