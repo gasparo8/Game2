@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FlashlightController : MonoBehaviour
 {
-    [SerializeField] private Light flashlight; // Reference to the Light component
+    [SerializeField] public Light flashlight; // Reference to the Light component
     [SerializeField] private GameObject flashlightBodyMesh; // Reference to the flashlight body mesh
     [SerializeField] private GameObject flashlightLensMesh; // Reference to the flashlight lens mesh
     [SerializeField] private AudioClip flashlightToggleSound; // Sound played when flashlight is toggled

@@ -14,6 +14,7 @@ public class BreakerBoxSwitch : MonoBehaviour
     [SerializeField] private KeyCode interactionKey = KeyCode.Mouse0;
 
     public PowerOutageScript powerOutageScript;
+    public FlashlightController flashlightController;
 
     private void Start()
     {
@@ -49,6 +50,7 @@ public class BreakerBoxSwitch : MonoBehaviour
         {
             isSwitched = true;
             powerOutageScript.ResetPower();
+            flashlightController.flashlight.enabled = false;
 
             // Play the switch sound
             if (switchSound != null && audioSource != null)
