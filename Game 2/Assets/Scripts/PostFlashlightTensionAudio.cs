@@ -30,4 +30,14 @@ public class PostFlashlightTensionAudio : MonoBehaviour
             Debug.Log("Tension audio played!");
         }
     }
+
+    // Method to stop the tension audio
+    public void StopTensionAudio()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+            Debug.Log("Tension audio stopped!");
+        }
+    }
 }

@@ -16,6 +16,9 @@ public class BreakerBoxSwitch : MonoBehaviour
     public PowerOutageScript powerOutageScript;
     public FlashlightController flashlightController;
 
+    // Add a reference to the PostFlashlightTensionAudio script
+    public PostFlashlightTensionAudio postFlashlightTensionAudio;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -51,6 +54,12 @@ public class BreakerBoxSwitch : MonoBehaviour
             isSwitched = true;
             powerOutageScript.ResetPower();
             flashlightController.flashlight.enabled = false;
+
+            // Stop the tension audio
+            if (postFlashlightTensionAudio != null)
+            {
+                postFlashlightTensionAudio.StopTensionAudio();
+            }
 
             // Play the switch sound
             if (switchSound != null && audioSource != null)
