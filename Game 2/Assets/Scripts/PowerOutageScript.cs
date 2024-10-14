@@ -156,4 +156,8 @@ public class PowerOutageScript : MonoBehaviour
             Debug.LogWarning("DialogueManager or postPowerOutageDialogue not set.");
         }
     }
+    public bool IsPowerOut()
+    {
+        return powerOut;
+    }
 }
