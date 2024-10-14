@@ -13,6 +13,7 @@ public class FlashlightController : MonoBehaviour
     public Dialogue pickedUpFlashlightDialogue;
 
     [SerializeField] private GameObject postFlashlightTensionTrigger; // Reference to the trigger object
+    [SerializeField] private GameObject postFlashlightMaskTrigger; // Reference to the trigger object
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class FlashlightController : MonoBehaviour
         }
 
         postFlashlightTensionTrigger.SetActive(false); // Disable trigger initially
+        postFlashlightMaskTrigger.SetActive(false); // Disable trigger initially
 
         // Ensure the audio source is ready
         if (audioSource == null)
@@ -70,6 +72,7 @@ public class FlashlightController : MonoBehaviour
         {
             postFlashlightTensionTrigger.SetActive(true);
             Debug.Log("PostFlashlightTension trigger enabled!");
+            postFlashlightMaskTrigger.SetActive(true);
         }
 
 
