@@ -19,6 +19,8 @@ public class NewBehaviourScript : MonoBehaviour
            Flashlight Button Click.wav by steprock -- https://freesound.org/s/509676/ -- License: Creative Commons 0
            Power Down by peepholecircus -- https://freesound.org/s/169994/ -- License: Creative Commons 0
            Suspense, tension strings Darklitsudio.wav by Darklitstudio -- https://freesound.org/s/699375/ -- License: Attribution NonCommercial 4.0
+           MCU_or_movie_inspired_blade_stab_or_slash_flesh_sounds.mp3 by Artninja -- https://freesound.org/s/700235/ -- License: Attribution 4.0
+           Male Hurt by Fabrizio84 -- https://freesound.org/s/457965/ -- License: Creative Commons 0
         */
     }
 }
