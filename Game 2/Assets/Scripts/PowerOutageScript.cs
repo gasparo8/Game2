@@ -40,6 +40,12 @@ public class PowerOutageScript : MonoBehaviour
     private DialogueManager dialogueManager;
     public Dialogue postPowerOutageDialogue;
 
+    // ** Reference to the Game Ambience AudioSource **
+    public AudioSource ambienceAudioSource;
+
+    // ** Time to fade out the ambience audio **
+    public float fadeDuration = 5f;
+
     void Start()
     {
         // Ensure dialogueManager is assigned properly
@@ -116,8 +122,33 @@ public class PowerOutageScript : MonoBehaviour
             }
         }
 
+        // ** Start the ambience fade-out process 5 seconds after the power outage **
+        if (ambienceAudioSource != null)
+        {
+            StartCoroutine(FadeOutAmbienceAudio(fadeDuration));
+        }
+
         Debug.Log("Power outage triggered.");
     }
+
+    // Coroutine to fade out the ambience audio
+    private IEnumerator FadeOutAmbienceAudio(float duration)
+    {
+        float startVolume = ambienceAudioSource.volume;
+        float timeElapsed = 0;
+
+        // Gradually decrease the volume over the fadeDuration
+        while (timeElapsed < duration)
+        {
+            ambienceAudioSource.volume = Mathf.Lerp(startVolume, 0, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        ambienceAudioSource.volume = 0;  // Set the volume to 0 at the end of the fade
+        ambienceAudioSource.Stop();  // Stop the audio source after fading out
+    }
+
 
     // Method to reset power (restores lights and materials to 'on' state)
     public void ResetPower()
