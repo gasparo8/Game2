@@ -19,6 +19,8 @@ public class BreakerBoxSwitch : MonoBehaviour
     // Add a reference to the PostFlashlightTensionAudio script
     public PostFlashlightTensionAudio postFlashlightTensionAudio;
 
+    public GameObject endGameTrigger;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -27,6 +29,11 @@ public class BreakerBoxSwitch : MonoBehaviour
         if (walker != null)
         {
             walker.SetActive(false);
+        }
+
+        if (endGameTrigger != null)
+        {
+            endGameTrigger.SetActive(false);
         }
     }
 
@@ -79,6 +86,11 @@ public class BreakerBoxSwitch : MonoBehaviour
                     audioSource.loop = true;  // Enable looping
                     audioSource.Play();  // Play the sound
                 }
+            }
+
+            if (endGameTrigger != null)
+            {
+                endGameTrigger.SetActive(true);
             }
         }
     }

@@ -46,6 +46,8 @@ public class PowerOutageScript : MonoBehaviour
     // ** Time to fade out the ambience audio **
     public float fadeDuration = 5f;
 
+    public BoxCollider flashlightCollider;
+
     void Start()
     {
         // Ensure dialogueManager is assigned properly
@@ -94,6 +96,7 @@ public class PowerOutageScript : MonoBehaviour
     {
         powerOut = true;
         LightSwitch.isPowerOut = true;  // Update the global flag
+        flashlightCollider.enabled = true;
 
         // Play the power outage sound if it's set
         if (powerOutageSound != null && audioSource != null)
