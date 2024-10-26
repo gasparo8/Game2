@@ -99,6 +99,7 @@ public class BreakerBoxSwitch : MonoBehaviour
 
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class BreakerBoxSwitch : MonoBehaviour
 {
@@ -206,5 +207,26 @@ public class BreakerBoxSwitch : MonoBehaviour
                 endGameTrigger.SetActive(true);
             }
         }
+    }
+
+    // Method to fade out the walker's sound
+    public void FadeOutWalkerSound(float fadeDuration)
+    {
+        StartCoroutine(FadeOutAudio(fadeDuration));
+    }
+
+    // Coroutine to handle the audio fading over time
+    private IEnumerator FadeOutAudio(float fadeDuration)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / fadeDuration;
+            yield return null;  // Wait until the next frame
+        }
+
+        audioSource.Stop();  // Stop the sound once faded out
+        audioSource.volume = startVolume;  // Reset the volume for future use
     }
 }
