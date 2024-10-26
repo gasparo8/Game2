@@ -21,6 +21,7 @@ public class NewBehaviourScript : MonoBehaviour
            Suspense, tension strings Darklitsudio.wav by Darklitstudio -- https://freesound.org/s/699375/ -- License: Attribution NonCommercial 4.0
            MCU_or_movie_inspired_blade_stab_or_slash_flesh_sounds.mp3 by Artninja -- https://freesound.org/s/700235/ -- License: Attribution 4.0
            Male Hurt by Fabrizio84 -- https://freesound.org/s/457965/ -- License: Creative Commons 0
+           Soft Piano Loop #1 by ispeakwaves -- https://freesound.org/s/384934/ -- License: Attribution 4.0
         */
     }
 }
