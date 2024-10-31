@@ -7,14 +7,30 @@ public class OfficeCutsceneManager : MonoBehaviour
     // Reference to the Player Camera and Office Camera
     public GameObject playerCamera;
     public GameObject officeCamera;
+    public DialogueManager dialogueManager; // Reference to the DialogueManager
 
     // Reference to the PlayableDirector for the cutscene timeline
     public PlayableDirector cutsceneTimeline;
+
+    // Checkbox to trigger the cutscene
+    public bool triggerCutscene;
 
     void Start()
     {
         // Ensure the office camera is initially off
         officeCamera.SetActive(false);
+    }
+
+    void Update()
+    {
+        // If the checkbox is checked, start the cutscene
+        if (triggerCutscene)
+        {
+            StartCutscene();
+
+            // Reset the checkbox so the cutscene doesn’t keep triggering
+            triggerCutscene = false;
+        }
     }
 
     // Method to start the cutscene
