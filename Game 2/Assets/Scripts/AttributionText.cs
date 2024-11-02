@@ -22,6 +22,8 @@ public class NewBehaviourScript : MonoBehaviour
            MCU_or_movie_inspired_blade_stab_or_slash_flesh_sounds.mp3 by Artninja -- https://freesound.org/s/700235/ -- License: Attribution 4.0
            Male Hurt by Fabrizio84 -- https://freesound.org/s/457965/ -- License: Creative Commons 0
            Soft Piano Loop #1 by ispeakwaves -- https://freesound.org/s/384934/ -- License: Attribution 4.0
+           chair leather sit down get up creaks smooth.wav by kyles -- https://freesound.org/s/452578/ -- License: Creative Commons 0
+           Wheeled chair rolling.wav by jrhodesza -- https://freesound.org/s/367144/ -- License: Attribution NonCommercial 3.0
         */
     }
 }
