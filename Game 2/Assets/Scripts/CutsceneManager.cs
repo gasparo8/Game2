@@ -12,6 +12,8 @@ public class CutsceneManager : MonoBehaviour
     public TaskManager taskManager; // Reference to the TaskManager
     public DialogueManager dialogueManager; // Reference to the DialogueManager
 
+    public DoorController frontDoorController; // Reference to the Front Door Controller
+
     private void Start()
     {
         if (pizzaCam != null)
@@ -22,10 +24,19 @@ public class CutsceneManager : MonoBehaviour
         {
             chewingCam.SetActive(false); // Ensure the chewing cam is initially inactive
         }
+
+
+        // Ensure the front door is closed before starting the cutscene
+        if (frontDoorController != null)
+        {
+            frontDoorController.EnsureFrontDoorClosed();
+        }
+
     }
 
     public void TriggerPizzaEatingCutscene()
     {
+
         if (pizzaCutsceneDirector != null)
         {
             pizzaCutsceneDirector.Play();
@@ -72,6 +83,7 @@ public class CutsceneManager : MonoBehaviour
         {
             chewingCam.SetActive(false); // Deactivate the chewing cam
         }
+
 
         // Notify TaskManager that the cutscene is complete
         if (taskManager != null)

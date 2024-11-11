@@ -12,6 +12,9 @@ public class DoorController : MonoBehaviour
     [SerializeField] private DialogueManager dialogueManager; // Reference to the DialogueManager
     [SerializeField] private Dialogue lockedDialogue; // Dialogue for the locked door message
 
+
+    [SerializeField] private bool isFrontDoor = false; // Flag to identify the front door
+
     private void Awake()
     {
         doorAnim = gameObject.GetComponent<Animator>();
@@ -48,5 +51,16 @@ public class DoorController : MonoBehaviour
         animationCooldown = true;
         yield return new WaitForSeconds(1.0f);
         animationCooldown = false;
+    }
+
+    // Call this method when you need to make sure the front door is closed
+    public void EnsureFrontDoorClosed()
+    {
+        if (isFrontDoor && doorOpen) // Only affects the front door
+        {
+            // Close the front door if it is open
+            doorAnim.Play("DoorClose", 0, 0.0f);
+            doorOpen = false;
+        }
     }
 }
