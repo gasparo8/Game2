@@ -24,14 +24,6 @@ public class CutsceneManager : MonoBehaviour
         {
             chewingCam.SetActive(false); // Ensure the chewing cam is initially inactive
         }
-
-
-        // Ensure the front door is closed before starting the cutscene
-        if (frontDoorController != null)
-        {
-            frontDoorController.EnsureFrontDoorClosed();
-        }
-
     }
 
     public void TriggerPizzaEatingCutscene()
@@ -41,6 +33,13 @@ public class CutsceneManager : MonoBehaviour
         {
             pizzaCutsceneDirector.Play();
         }
+
+        // Ensure the front door is closed before starting the cutscene
+        if (frontDoorController != null)
+        {
+            frontDoorController.EnsureFrontDoorClosed();
+        }
+
 
         if (pizzaCam != null)
         {

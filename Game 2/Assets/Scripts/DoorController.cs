@@ -11,9 +11,9 @@ public class DoorController : MonoBehaviour
     [SerializeField] private LockController lockController; // Reference to the LockController
     [SerializeField] private DialogueManager dialogueManager; // Reference to the DialogueManager
     [SerializeField] private Dialogue lockedDialogue; // Dialogue for the locked door message
-
-
     [SerializeField] private bool isFrontDoor = false; // Flag to identify the front door
+
+    [SerializeField] private AudioSource doorAudioSource; // Reference to the door's AudioSource
 
     private void Awake()
     {
@@ -53,14 +53,33 @@ public class DoorController : MonoBehaviour
         animationCooldown = false;
     }
 
-    // Call this method when you need to make sure the front door is closed
+    // Call this method when you need to ensure the front door is closed without playing sound
     public void EnsureFrontDoorClosed()
     {
-        if (isFrontDoor && doorOpen) // Only affects the front door
+        if (isFrontDoor && doorOpen)
         {
+            // Temporarily mute the door's sound
+            if (doorAudioSource != null)
+            {
+                doorAudioSource.mute = true;
+            }
+
             // Close the front door if it is open
             doorAnim.Play("DoorClose", 0, 0.0f);
             doorOpen = false;
+
+            // Wait for 2 seconds and then unmute the sound
+            StartCoroutine(UnmuteAfterDelay(2.0f));
+        }
+    }
+
+    private IEnumerator UnmuteAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (doorAudioSource != null)
+        {
+            doorAudioSource.mute = false; // Unmute the sound after the delay
         }
     }
 }
