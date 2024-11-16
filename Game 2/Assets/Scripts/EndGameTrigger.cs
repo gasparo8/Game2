@@ -34,14 +34,24 @@ public class EndGameTrigger : MonoBehaviour
         {
             Debug.Log("Player reached End Game Trigger");
 
-            // Trigger the end game cutscene logic
-            endOfGameManager.TriggerEndGameCutscene();
-
             // Fade out the walker's sound using BreakerBoxSwitch
             if (breakerBoxSwitch != null)
             {
                 breakerBoxSwitch.FadeOutWalkerSound(2f);  // Fade out over 2 seconds
             }
+
+            // Trigger the end game cutscene logic
+            endOfGameManager.TriggerEndGameCutscene();
+
+
+            /*
+            // Fade out the walker's sound using BreakerBoxSwitch
+            if (breakerBoxSwitch != null)
+            {
+                breakerBoxSwitch.FadeOutWalkerSound(2f);  // Fade out over 2 seconds
+            }
+            */
+
 
             // Disable the walker GameObject
             if (walker != null)
@@ -71,7 +81,7 @@ public class EndGameTrigger : MonoBehaviour
         audioSource.Play();  // Start playing the audio
 
         float currentTime = 0f;
-
+        
         while (currentTime < fadeDuration)
         {
             currentTime += Time.deltaTime;
