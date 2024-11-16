@@ -5,7 +5,9 @@ public class LockController : MonoBehaviour
     private Animator lockAnim;
     private bool isLocked = false;
     [SerializeField] private TaskManager taskManager;
-     
+
+    [SerializeField] private AudioSource lockAudioSource; // Reference to the lock's AudioSource
+
     private void Awake()
     {
         lockAnim = gameObject.GetComponent<Animator>();

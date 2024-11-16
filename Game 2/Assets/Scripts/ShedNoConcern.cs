@@ -8,6 +8,8 @@ public class ShedNoConcern : MonoBehaviour
     public GameObject triggerObject; // The object you want to enable (the shed trigger)
     public bool hasTriggered = false; // Boolean to track if the player has triggered the shed
 
+    public DoorController frontDoorController; // Reference to the Front Door Controller
+
     private void Start()
     {
         // Ensure the trigger object is disabled at the start
