@@ -34,25 +34,15 @@ public class EndGameTrigger : MonoBehaviour
         {
             Debug.Log("Player reached End Game Trigger");
 
-            // Fade out the walker's sound using BreakerBoxSwitch
-            if (breakerBoxSwitch != null)
-            {
-                breakerBoxSwitch.FadeOutWalkerSound(2f);  // Fade out over 2 seconds
-            }
-
             // Trigger the end game cutscene logic
             endOfGameManager.TriggerEndGameCutscene();
 
-
-            /*
             // Fade out the walker's sound using BreakerBoxSwitch
             if (breakerBoxSwitch != null)
             {
                 breakerBoxSwitch.FadeOutWalkerSound(2f);  // Fade out over 2 seconds
             }
-            */
-
-
+        
             // Disable the walker GameObject
             if (walker != null)
             {
@@ -73,6 +63,7 @@ public class EndGameTrigger : MonoBehaviour
         }
     }
 
+    /*
     // Coroutine to fade in the audio over time
     private IEnumerator FadeInEndGamePianoAudio(AudioSource audioSource, float fadeDuration)
     {
@@ -91,4 +82,25 @@ public class EndGameTrigger : MonoBehaviour
 
         audioSource.volume = targetVolume;  // Make sure the volume is set to the target at the end
     }
+    */
+
+    private IEnumerator FadeInEndGamePianoAudio(AudioSource audioSource, float fadeDuration)
+    {
+        float targetVolume = audioSource.volume;  // The volume to fade in to
+        audioSource.volume = 0f;  // Start with a volume of 0
+        audioSource.Play();  // Start playing the audio
+
+        float currentTime = 0f;
+
+        while (currentTime < fadeDuration)
+        {
+            currentTime += Time.deltaTime;
+            float normalizedVolume = Mathf.Lerp(0f, 1f, currentTime / fadeDuration);  // Lerp between 0 and 1
+            audioSource.volume = normalizedVolume * targetVolume;  // Apply the normalized volume to target volume
+            yield return null;  // Wait until the next frame
+        }
+
+        audioSource.volume = targetVolume;  // Make sure the volume is set to the target at the end
+    }
+
 }
