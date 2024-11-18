@@ -19,6 +19,8 @@ public class OfficeCutsceneManager : MonoBehaviour
     {
         // Ensure the office camera is initially off
         officeCamera.SetActive(false);
+
+        //StartCutscene();
     }
 
     void Update()
