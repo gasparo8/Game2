@@ -102,12 +102,15 @@ public class MouseLook : MonoBehaviour
             LockCursor();
         }
     }
-
-    // Call this method when the player "dies"
-    public void OnPlayerDeath()
+    public void OnPlayerDeathforCursor()
     {
-        UnlockCursor();
-        Debug.Log("Player has died. Cursor unlocked.");
-        // Add any additional logic for the death screen here
+        StartCoroutine(DelayedCursorUnlock(3f));  // Start the coroutine with a 3-second delay
+        Debug.Log("Player has died. Cursor will unlock after 3 seconds.");
+    }
+
+    private IEnumerator DelayedCursorUnlock(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for the specified delay
+        UnlockCursor();  // Unlock the cursor after the delay
     }
 }
