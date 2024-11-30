@@ -7,9 +7,12 @@ public class DeathButtons : MonoBehaviour
     public GameObject deathRestartButton;  // Assign in Unity Inspector
     public GameObject deathMainMenuButton; // Assign in Unity Inspector
     public MouseLook mouseLook;       // Reference to MouseLook script to unlock the cursor
+    public GameObject deathButtons;
 
     void Start()
     {
+        deathButtons.SetActive(false);
+
         // Ensure buttons are initially disabled
         if (deathRestartButton != null) deathRestartButton.SetActive(false);
         if (deathMainMenuButton != null) deathMainMenuButton.SetActive(false);
@@ -18,6 +21,11 @@ public class DeathButtons : MonoBehaviour
     // Call this method when the player dies
     public void OnPlayerDeathforButtons()
     {
+        deathButtons.SetActive(true);
+
+        if (deathRestartButton != null) deathRestartButton.SetActive(false);
+        if (deathMainMenuButton != null) deathMainMenuButton.SetActive(false);
+
         // Start coroutine to enable buttons after 4 seconds
         StartCoroutine(EnableButtonsAfterDelay(4f));
     }
@@ -27,7 +35,7 @@ public class DeathButtons : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         // Enable buttons
-        if (deathRestartButton != null) deathRestartButton.SetActive(true);
-        if (deathMainMenuButton != null) deathMainMenuButton.SetActive(true);
+         if (deathRestartButton != null) deathRestartButton.SetActive(true);
+         if (deathMainMenuButton != null) deathMainMenuButton.SetActive(true);
     }
 }
