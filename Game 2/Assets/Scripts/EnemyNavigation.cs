@@ -13,7 +13,7 @@ public class EnemyNavigation : MonoBehaviour
     public GameObject stabbingObject;
 
     public MouseLook mouseLook;
-    public EndGameButtons endGameButtons;
+    public DeathButtons deathButtons;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +46,7 @@ public class EnemyNavigation : MonoBehaviour
             }
 
             mouseLook.OnPlayerDeathforCursor(); // Notify MouseLook script that the player has died to unlock cursor
-            endGameButtons.OnPlayerDeathforButtons(); // Notify EndGameButton script that player has died and enable buttons
+            deathButtons.OnPlayerDeathforButtons(); // Notify EndGameButton script that player has died and enable buttons
         }
     }
 }

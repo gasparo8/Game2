@@ -21,6 +21,9 @@ public class EndOfGameManager : MonoBehaviour
 
     public float timeCopCarEnable = 1.0f;
 
+    public EndGameButtons endGameButtons;
+    public MouseLook mouseLook;
+
     private void Start()
     {
         // Ensure the end game pan camera is disabled at the start
@@ -40,6 +43,9 @@ public class EndOfGameManager : MonoBehaviour
 
             // Step 2: Start coroutine to switch the camera and enable the cop car after the fade-to-black
             StartCoroutine(SwitchCameraAndEnableCopCar());
+
+            endGameButtons.EnableButtonsOnGameComplete();
+            mouseLook.OnGameEndforCursor();
         }
     }
 

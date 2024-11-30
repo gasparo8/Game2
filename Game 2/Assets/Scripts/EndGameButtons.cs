@@ -14,14 +14,13 @@ public class EndGameButtons : MonoBehaviour
         if (mainMenuButton != null) mainMenuButton.SetActive(false);
     }
 
-    // Call this method when the player dies
-    public void OnPlayerDeathforButtons()
+    public void EnableButtonsOnGameComplete()
     {
-        // Start coroutine to enable buttons after 3 seconds
-        StartCoroutine(EnableButtonsAfterDelay(3f));
+        // Start coroutine to enable buttons after 20 seconds
+        StartCoroutine(EnableButtonsAfterCameraScrollEndGame(20f));
     }
 
-    private IEnumerator EnableButtonsAfterDelay(float delay)
+    private IEnumerator EnableButtonsAfterCameraScrollEndGame(float delay)
     {
         yield return new WaitForSeconds(delay);
 
