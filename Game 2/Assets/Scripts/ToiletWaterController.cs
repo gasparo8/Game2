@@ -7,7 +7,7 @@ public class ToiletWaterController : MonoBehaviour
     public Animator waterAnimator;  // Animator for toilet water animation
     private bool isPlaying = false;
 
-    private void Update()
+    public void Update()
     {
         if (Input.GetMouseButtonDown(0)) // Check for left mouse click
         {
