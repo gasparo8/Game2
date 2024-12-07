@@ -33,6 +33,8 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
 
     private DialogueManager dialogueManager;
 
+    public FamilyRoomPEEK familyRoomPeek;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,13 +65,16 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the entering collider belongs to the player
-        if (other.CompareTag("Player") && !couchWalkPointTriggered)
+        if (familyRoomPeek != null && familyRoomPeek.hasAnimationPlayed)
         {
-            couchWalkPointTriggered = true;
-            couchWalkPoint.SetActive(true); // Activate the couch walk point when player enters trigger
+            if (other.CompareTag("Player") && !couchWalkPointTriggered)
+            {
+                couchWalkPointTriggered = true;
+                couchWalkPoint.SetActive(true); // Activate the couch walk point when the player enters the trigger
+            }
         }
     }
+
 
     public void TriggerSecondReadingCutscene()
     {

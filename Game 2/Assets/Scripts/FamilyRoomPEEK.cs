@@ -20,6 +20,8 @@ public class FamilyRoomPEEK : MonoBehaviour
 
     private Coroutine flickerCoroutine;
 
+    public bool hasAnimationPlayed = false; // Public variable to track animation state
+
     private void Start()
     {
         // Ensure the Animator component is assigned
@@ -58,6 +60,7 @@ public class FamilyRoomPEEK : MonoBehaviour
             // Set the trigger to play the animation
             anim.SetTrigger("PlayFamilyRoomPeek");
             animationPlayed = true; // Ensure it only plays once
+            hasAnimationPlayed = true; // Update the public variable
 
             // Start the light flickering coroutine when the animation starts
             if (pointLights != null && pointLights.Count > 0)
