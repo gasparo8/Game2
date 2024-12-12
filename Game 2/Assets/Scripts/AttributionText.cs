@@ -25,6 +25,8 @@ public class NewBehaviourScript : MonoBehaviour
            chair leather sit down get up creaks smooth.wav by kyles -- https://freesound.org/s/452578/ -- License: Creative Commons 0
            Wheeled chair rolling.wav by jrhodesza -- https://freesound.org/s/367144/ -- License: Attribution NonCommercial 3.0
            UI Buttons by IENBA -- https://freesound.org/s/762132/ -- License: Creative Commons 0
+           Breathing - Slow, Distraught, Tired by TomchikRec -- https://freesound.org/s/372241/ -- License: Attribution 4.0
+           Orchestral Suspense Loop 1 by awrmacd -- https://freesound.org/s/387223/ -- License: Creative Commons 0
         */
     }
 }
