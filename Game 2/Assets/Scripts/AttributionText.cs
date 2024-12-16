@@ -28,6 +28,7 @@ public class NewBehaviourScript : MonoBehaviour
            Breathing - Slow, Distraught, Tired by TomchikRec -- https://freesound.org/s/372241/ -- License: Attribution 4.0
            Orchestral Suspense Loop 1 by awrmacd -- https://freesound.org/s/387223/ -- License: Creative Commons 0
            Horror Choir Syllables by zombieallen -- https://freesound.org/s/725221/ -- License: Creative Commons 0
+           Piano Stinger 3a by MathewHenry -- https://freesound.org/s/636194/ -- License: Creative Commons 0
         */
     }
 }
