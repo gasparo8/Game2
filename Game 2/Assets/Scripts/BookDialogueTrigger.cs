@@ -15,12 +15,21 @@ public class BookDialogueTrigger : MonoBehaviour
     public float doorPoundDelay = 4f;
     public float postHeartbeatDelay = 5f;  // Delay after the heartbeat before triggering the dogs barking
 
+    public GameObject slideDoorBlocker;
+
     void Start()
     {
-        dialogueManager = FindObjectOfType<DialogueManager>();
+        {
+            dialogueManager = FindObjectOfType<DialogueManager>();
+        }
+
+        if (slideDoorBlocker != null)
+        {
+            slideDoorBlocker.SetActive(false); // Ensure the sliderDoorBlocker cam is initially inactive
+        }
     }
 
-    public void GoGetBookDialogue()
+public void GoGetBookDialogue()
     {
         dialogueManager.StartDialogue(bookDialogue);
     }
@@ -44,6 +53,7 @@ public class BookDialogueTrigger : MonoBehaviour
         if (doorPoundAudio != null)
         {
             doorPoundAudio.Play();
+            slideDoorBlocker.SetActive(true);
         }
 
         // Play the heartbeat audio and wait for it to finish

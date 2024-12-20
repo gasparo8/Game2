@@ -14,6 +14,8 @@ public class DogsBarking : MonoBehaviour
 
     private Coroutine flickerCoroutine; // Coroutine reference to stop the flickering later
 
+    public BookDialogueTrigger bookDialogueTrigger;
+
     private void Start()
     {
         // Ensure the cutscene camera is also initially disabled
@@ -68,6 +70,7 @@ public class DogsBarking : MonoBehaviour
         // Re-enable the player and player's camera after the cutscene
         if (player != null)
         {
+            bookDialogueTrigger.slideDoorBlocker.SetActive(false);
             player.SetActive(true);
         }
 
