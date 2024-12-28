@@ -15,6 +15,8 @@ public class FlashlightController : MonoBehaviour
     [SerializeField] private GameObject postFlashlightTensionTrigger; // Reference to the trigger object
     [SerializeField] private GameObject postFlashlightMaskTrigger; // Reference to the trigger object
 
+    public GameObject flashlightDialogueTrigger;
+
     private void Start()
     {
         // Ensure the flashlight light is off and both meshes are enabled initially
@@ -44,6 +46,11 @@ public class FlashlightController : MonoBehaviour
 
         // Ensure dialogueManager is assigned properly
         dialogueManager = FindObjectOfType<DialogueManager>();
+
+        if (flashlightDialogueTrigger != null)
+        {
+            flashlightDialogueTrigger.SetActive(false); // FlashlightTrigger Dialogue false
+        }
     }
 
     public void EnableFlashlight()

@@ -47,6 +47,7 @@ public class PowerOutageScript : MonoBehaviour
     public float fadeDuration = 5f;
 
     public BoxCollider flashlightCollider;
+    public FlashlightController flashlightController;
 
     void Start()
     {
@@ -97,6 +98,7 @@ public class PowerOutageScript : MonoBehaviour
         powerOut = true;
         LightSwitch.isPowerOut = true;  // Update the global flag
         flashlightCollider.enabled = true;
+        flashlightController.flashlightDialogueTrigger.SetActive(true);
 
         // Play the power outage sound if it's set
         if (powerOutageSound != null && audioSource != null)

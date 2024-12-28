@@ -146,7 +146,7 @@ public class SingleActionRaycast : MonoBehaviour
                 isCrossHairActive = true;
                 doOnce = true;
 
-                if (Input.GetKeyDown(toggleLightKey))
+                if (Input.GetKeyDown(pickUpKey))
                 {
                     rayCastedFlashlight.EnableFlashlight(); // Call method to enable flashlight
                 }
