@@ -32,6 +32,7 @@ public class SingleActionRaycast : MonoBehaviour
     private const string bookWalkPointTag = "BookWalkPoint"; // Tag for the book walk point
     private const string tvRemoteTag = "TVRemote"; // Tag for TV Remote
     private const string flashlightTag = "Flashlight"; // New tag for flashlight
+    private const string donutTag = "Donut"; // New tag for donut
 
     private GameObject pickedUpObject = null;
     [SerializeField] private Transform holdPoint; // Point where the object will be held
@@ -152,6 +153,29 @@ public class SingleActionRaycast : MonoBehaviour
                 }
             }
 
+            else if (hit.collider.CompareTag(donutTag)) // Detect the donut
+            {
+                if (!doOnce)
+                {
+                    CrosshairChange(true); // Highlight the crosshair
+                }
+
+                isCrossHairActive = true;
+                doOnce = true;
+
+                if (Input.GetKeyDown(toggleLightKey)) // Use the same key as other interactions
+                {
+                    DialogueTrigger dialogueTrigger = hit.collider.GetComponent<DialogueTrigger>();
+                    if (dialogueTrigger != null)
+                    {
+                        dialogueTrigger.TriggerDialogue(); // Trigger the dialogue
+                    }
+                    else
+                    {
+                        Debug.LogWarning("DialogueTrigger not found on the donut object!");
+                    }
+                }
+            }
         }
         else
         {
