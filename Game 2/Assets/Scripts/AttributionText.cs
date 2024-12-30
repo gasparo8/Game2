@@ -30,6 +30,7 @@ public class NewBehaviourScript : MonoBehaviour
            Horror Choir Syllables by zombieallen -- https://freesound.org/s/725221/ -- License: Creative Commons 0
            Piano Stinger 3a by MathewHenry -- https://freesound.org/s/636194/ -- License: Creative Commons 0
            Creaking Wood 4 Steps by Rudmer_Rotteveel -- https://freesound.org/s/502507/ -- License: Creative Commons 0
+           Adriana Lopez - Coffee Machine by Acekat13X31 -- https://freesound.org/s/515685/ -- License: Attribution 4.0
         */
     }
 }
