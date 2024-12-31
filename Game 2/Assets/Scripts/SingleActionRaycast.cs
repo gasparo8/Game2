@@ -33,9 +33,10 @@ public class SingleActionRaycast : MonoBehaviour
     private const string tvRemoteTag = "TVRemote"; // Tag for TV Remote
     private const string flashlightTag = "Flashlight"; // New tag for flashlight
     private const string donutTag = "Donut"; // New tag for donut
-    private const string knifeBlock = "KnifeBlock"; // New tag for donut
-    private const string coffeeMachine = "CoffeeMachine"; // New tag for donut
-    private const string showerHandle = "ShowerHandle"; // New tag for donut
+    private const string knifeBlock = "KnifeBlock"; // New tag for KnifeBlock
+    private const string coffeeMachine = "CoffeeMachine"; // New tag for CoffeeMachine
+    private const string showerHandle = "ShowerHandle"; // New tag for ShowerHandle
+    private const string fakePlant = "FakePlant"; // New tag for FakePlant
 
     private GameObject pickedUpObject = null;
     [SerializeField] private Transform holdPoint; // Point where the object will be held
@@ -212,6 +213,30 @@ public class SingleActionRaycast : MonoBehaviour
                     else
                     {
                         Debug.LogWarning("DialogueTrigger not found on the knifeBlock object!");
+                    }
+                }
+            }
+
+            else if (hit.collider.CompareTag(fakePlant)) // Detect the fakePlant
+            {
+                if (!doOnce)
+                {
+                    CrosshairChange(true); // Highlight the crosshair
+                }
+
+                isCrossHairActive = true;
+                doOnce = true;
+
+                if (Input.GetKeyDown(toggleLightKey)) // Use the same key as other interactions
+                {
+                    DialogueTrigger dialogueTrigger = hit.collider.GetComponent<DialogueTrigger>();
+                    if (dialogueTrigger != null)
+                    {
+                        dialogueTrigger.TriggerDialogue(); // Trigger the dialogue
+                    }
+                    else
+                    {
+                        Debug.LogWarning("DialogueTrigger not found on the fakePlant object!");
                     }
                 }
             }
