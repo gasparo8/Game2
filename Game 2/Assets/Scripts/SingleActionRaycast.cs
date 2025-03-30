@@ -175,20 +175,12 @@ public class SingleActionRaycast : MonoBehaviour
                     {
                         audioSource.Play(); // Play the audio clip
                     }
-                    else
-                    {
-                        Debug.LogWarning("AudioSource not found on the knifeBlock object!");
-                    }
 
                     // Trigger the dialogue if available
                     DialogueTrigger dialogueTrigger = hit.collider.GetComponent<DialogueTrigger>();
                     if (dialogueTrigger != null)
                     {
                         dialogueTrigger.TriggerDialogue(); // Trigger the dialogue
-                    }
-                    else
-                    {
-                        Debug.LogWarning("DialogueTrigger not found on the coffeeMachine object!");
                     }
                 }
             }
