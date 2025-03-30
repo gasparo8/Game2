@@ -22,6 +22,8 @@ public class FamilyRoomPEEK : MonoBehaviour
 
     public bool hasAnimationPlayed = false; // Public variable to track animation state
 
+    public GameObject footstepObject; // Walker Footsteps
+
     private void Start()
     {
         // Ensure the Animator component is assigned
@@ -42,6 +44,11 @@ public class FamilyRoomPEEK : MonoBehaviour
         if (pointLights == null || pointLights.Count == 0)
         {
             Debug.LogWarning("No point lights assigned for flickering!");
+        }
+
+        if (footstepObject != null)
+        {
+            footstepObject.SetActive(false); // Ensure it's inactive at start
         }
     }
 
@@ -69,6 +76,14 @@ public class FamilyRoomPEEK : MonoBehaviour
             }
 
             StartCoroutine(PostFamilyRoomPeekDialogue());
+            ActivateFootstep();
+        }
+    }
+    private void ActivateFootstep()
+    {
+        if (footstepObject != null)
+        {
+            footstepObject.SetActive(true);
         }
     }
 
