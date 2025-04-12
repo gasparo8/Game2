@@ -37,6 +37,7 @@ public class SingleActionRaycast : MonoBehaviour
     private const string coffeeMachine = "CoffeeMachine"; // New tag for CoffeeMachine
     private const string showerHandle = "ShowerHandle"; // New tag for ShowerHandle
     private const string fakePlant = "FakePlant"; // New tag for FakePlant
+    private const string tissueBox = "TissueBox"; // Mew tag for Tissue Box
 
     private GameObject pickedUpObject = null;
     [SerializeField] private Transform holdPoint; // Point where the object will be held
@@ -59,6 +60,7 @@ public class SingleActionRaycast : MonoBehaviour
         {
             bookWalkPoint.SetActive(false); // Ensure the BookWalkPoint is initially inactive
         }
+
     }
 
     private void Update()
@@ -181,6 +183,26 @@ public class SingleActionRaycast : MonoBehaviour
                     if (dialogueTrigger != null)
                     {
                         dialogueTrigger.TriggerDialogue(); // Trigger the dialogue
+                    }
+                }
+            }
+
+            else if (hit.collider.CompareTag(tissueBox)) // Detect the coffeeMachine
+            {
+                if (!doOnce)
+                {
+                    CrosshairChange(true); // Highlight the crosshair
+                }
+
+                isCrossHairActive = true;
+                doOnce = true;
+
+                if (Input.GetKeyDown(toggleLightKey)) // Clicked on tissue box
+                {
+                    TissueBoxInteraction tissue = hit.collider.GetComponent<TissueBoxInteraction>();
+                    if (tissue != null)
+                    {
+                        tissue.PlayRandomTissueSound();
                     }
                 }
             }
@@ -380,17 +402,3 @@ public class SingleActionRaycast : MonoBehaviour
         }
     }
 }
-
-    /*
-    void EnableFlashlight()
-    {
-        // Find the directional light attached to the player
-        Light playerLight = GetComponentInChildren<Light>(); // Assumes light is a child of the player
-        if (playerLight != null)
-        {
-            playerLight.enabled = true; // Enable the light
-            Debug.Log("Flashlight enabled!");
-        }
-    }
-}
-    */
