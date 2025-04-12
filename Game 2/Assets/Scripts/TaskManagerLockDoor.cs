@@ -13,9 +13,12 @@ public class TaskManager : MonoBehaviour
 
     public GameObject frontDoorPeeker;
 
+    public static bool ShowLockHighlights = false; 
+
     private void Start()
     {
         lockedCounterText.gameObject.SetActive(false); // Hide the counter initially
+        ShowLockHighlights = false;
         UpdateLockedCounter();
         frontDoorPeeker.SetActive(false);
     }
@@ -45,7 +48,20 @@ public class TaskManager : MonoBehaviour
             lockedCounterText.gameObject.SetActive(false); // Hide the counter if all doors are locked
             bookDialogueTrigger.GoGetBookDialogue(); // Trigger the book dialogue
             allDoorsLocked = true; // Mark all doors as locked, preventing further changes
-            this.enabled = false; // Disable this script to prevent further updates
+            ShowLockHighlights = false;
+
+            // Disable LockHighlight script and reset the highlight color
+            foreach (var door in doors)
+            {
+                LockHighlight lockHighlight = door.GetComponent<LockHighlight>();
+                if (lockHighlight != null)
+                {
+                    lockHighlight.HighlightLock(false); // Reset the color
+                    lockHighlight.enabled = false; // Disable the LockHighlight script
+                }
+            }
+
+            this.enabled = false; // Disable TaskManager to prevent further updates
         }
         else
         {
@@ -60,6 +76,7 @@ public class TaskManager : MonoBehaviour
         {
             lockedCounterText.gameObject.SetActive(true); // Show the counter
             frontDoorPeeker.gameObject.SetActive(true);
+            ShowLockHighlights = true;
         }
     }
 }
