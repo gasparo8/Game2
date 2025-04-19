@@ -34,6 +34,7 @@ public class NewBehaviourScript : MonoBehaviour
            tissue pulls.aif by trundlefly -- https://freesound.org/s/196700/ -- License: Creative Commons 0
            owl.wav by Anthousai -- https://freesound.org/s/398734/ -- License: Creative Commons 0
            Gravel Footsteps 1 by simonjeffery13 -- https://freesound.org/s/750797/ -- License: Creative Commons 0
+           Wind chimes 2 (loud) by giddster -- https://freesound.org/s/437336/ -- License: Creative Commons 0
         */
     }
 }
