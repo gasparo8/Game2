@@ -35,6 +35,8 @@ public class NewBehaviourScript : MonoBehaviour
            owl.wav by Anthousai -- https://freesound.org/s/398734/ -- License: Creative Commons 0
            Gravel Footsteps 1 by simonjeffery13 -- https://freesound.org/s/750797/ -- License: Creative Commons 0
            Wind chimes 2 (loud) by giddster -- https://freesound.org/s/437336/ -- License: Creative Commons 0
+           Garbage Disposal.wav by dster777 -- https://freesound.org/s/344564/ -- License: Creative Commons 0
+           door bell short.wav by kwahmah_02 -- https://freesound.org/s/319041/ -- License: Attribution 3.0
         */
     }
 }

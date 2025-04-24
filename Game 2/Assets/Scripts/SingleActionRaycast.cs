@@ -38,6 +38,7 @@ public class SingleActionRaycast : MonoBehaviour
     private const string showerHandle = "ShowerHandle"; // New tag for ShowerHandle
     private const string fakePlant = "FakePlant"; // New tag for FakePlant
     private const string tissueBox = "TissueBox"; // Mew tag for Tissue Box
+    private const string doorBell = "DoorBell";
 
     private GameObject pickedUpObject = null;
     [SerializeField] private Transform holdPoint; // Point where the object will be held
@@ -276,6 +277,28 @@ public class SingleActionRaycast : MonoBehaviour
                     {
                         Debug.LogWarning("DialogueTrigger not found on the showerHandle object!");
                     }
+                }
+            }
+
+            else if (hit.collider.CompareTag(doorBell)) // Detect the doorBell
+            {
+                if (!doOnce)
+                {
+                    CrosshairChange(true); // Highlight the crosshair
+                }
+
+                isCrossHairActive = true;
+                doOnce = true;
+
+                if (Input.GetKeyDown(toggleLightKey)) // Use the same key as other interactions
+                {
+                    // Play the audio clip attached to the doorbell object
+                    AudioSource audioSource = hit.collider.GetComponent<AudioSource>();
+                    if (audioSource != null)
+                    {
+                        audioSource.Play(); // Play the audio clip
+                    }
+
                 }
             }
 
