@@ -14,8 +14,11 @@ public class FlashlightController : MonoBehaviour
 
     [SerializeField] private GameObject postFlashlightTensionTrigger; // Reference to the trigger object
     [SerializeField] private GameObject postFlashlightMaskTrigger; // Reference to the trigger object
+    [SerializeField] private GameObject droppingCanTrigger;
+    [SerializeField] private GameObject popCanOnTable;
+    [SerializeField] private GameObject popCanOnFloor;
 
-    public GameObject flashlightDialogueTrigger;
+    public GameObject flashlightDialogueTrigger; 
 
     private void Start()
     {
@@ -37,6 +40,9 @@ public class FlashlightController : MonoBehaviour
 
         postFlashlightTensionTrigger.SetActive(false); // Disable trigger initially
         postFlashlightMaskTrigger.SetActive(false); // Disable trigger initially
+        droppingCanTrigger.SetActive(false);
+        popCanOnTable.SetActive(true);
+        popCanOnFloor.SetActive(false);
 
         // Ensure the audio source is ready
         if (audioSource == null)
@@ -80,9 +86,10 @@ public class FlashlightController : MonoBehaviour
             postFlashlightTensionTrigger.SetActive(true);
             Debug.Log("PostFlashlightTension trigger enabled!");
             postFlashlightMaskTrigger.SetActive(true);
+            droppingCanTrigger.SetActive(true);
+            popCanOnTable.SetActive(false);
+            popCanOnFloor.SetActive(true);
         }
-
-
     }
 
     // Play the flashlight toggle sound
