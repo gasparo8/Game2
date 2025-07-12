@@ -39,6 +39,8 @@ public class NewBehaviourScript : MonoBehaviour
            door bell short.wav by kwahmah_02 -- https://freesound.org/s/319041/ -- License: Attribution 3.0
            crow call Field recording with zoom h2n by Garuda1982 -- https://freesound.org/s/418181/ -- License: Creative Commons 0
            Drop Can by IENBA -- https://freesound.org/s/658475/ -- License: Creative Commons 0
+           Wing Flap 1.wav by _stubb -- https://freesound.org/s/389634/ -- License: Creative Commons 0
+           Jump-Scare_8.wav by jdupre01 -- https://freesound.org/s/484984/ -- License: Attribution NonCommercial 4.0
         */
     }
 }
