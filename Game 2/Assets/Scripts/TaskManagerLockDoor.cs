@@ -13,7 +13,9 @@ public class TaskManager : MonoBehaviour
 
     public GameObject frontDoorPeeker;
 
-    public static bool ShowLockHighlights = false; 
+    public static bool ShowLockHighlights = false;
+
+    public GameObject tvStaticObject; // Drag TV Static GameObject here in Inspector
 
     private void Start()
     {
@@ -77,6 +79,10 @@ public class TaskManager : MonoBehaviour
             lockedCounterText.gameObject.SetActive(true); // Show the counter
             frontDoorPeeker.gameObject.SetActive(true);
             ShowLockHighlights = true;
+
+            // Enable TV Static
+            if (tvStaticObject != null)
+                tvStaticObject.SetActive(true);
         }
     }
 }
