@@ -7,6 +7,8 @@ public class TVStaticController : MonoBehaviour
     [SerializeField] private float displayTime = 3.5f; // How long to show static
     [SerializeField] private DialogueTrigger dialogueTrigger; // Reference to DialogueTrigger
 
+    public PianoLockTaskAudio pianoLockTaskAudio;
+
     private bool hasTriggered = false;
 
     private void Start()
@@ -21,6 +23,7 @@ public class TVStaticController : MonoBehaviour
         {
             hasTriggered = true;
             StartCoroutine(PlayStaticThenDialogue());
+            pianoLockTaskAudio.StopAudio(); // piano audio during lock task
         }
     }
 

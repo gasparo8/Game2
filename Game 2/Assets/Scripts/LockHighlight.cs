@@ -11,6 +11,8 @@ public class LockHighlight : MonoBehaviour
     [SerializeField] private float pulseSpeed = 2f; // Speed of pulse
     [SerializeField] private float pulseIntensity = 0.5f; // How strong the pulse gets
 
+    public PianoLockTaskAudio pianoLockTaskAudio;
+
     private void Awake()
     {
         lockRenderer = GetComponent<Renderer>();
@@ -25,6 +27,8 @@ public class LockHighlight : MonoBehaviour
             float pulse = (Mathf.Sin(Time.time * pulseSpeed) + 1f) * 0.5f;
             Color pulsingColor = Color.Lerp(originalColor, highlightColor, pulseIntensity * pulse);
             lockMaterial.color = pulsingColor;
+
+            pianoLockTaskAudio.PlayAudio(); // piano audio during lock task
         }
     }
 
