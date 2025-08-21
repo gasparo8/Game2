@@ -15,6 +15,7 @@ public class FriendJumpScare : MonoBehaviour
     private PlayerMovement playerMovement; // Reference to the player's movement script
     public bool jumpScareTriggered = false; // Prevent multiple triggers
 
+    public PianoShedTaskAudio pianoShedTaskAudio;
     private void Start()
     {
         if (jumpTrigger != null)
@@ -102,6 +103,7 @@ public class FriendJumpScare : MonoBehaviour
         if (playerMovement != null)
         {
             playerMovement.enabled = true;
+            pianoShedTaskAudio.PlayAudio();
         }
     }
 }
