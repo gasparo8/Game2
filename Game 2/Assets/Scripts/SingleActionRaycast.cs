@@ -41,6 +41,7 @@ public class SingleActionRaycast : MonoBehaviour
     private const string doorBell = "DoorBell";
     private const string guitar = "Guitar";
     private const string toothbrush = "Toothbrush";
+    private const string blackBox = "Blackbox";
 
     private GameObject pickedUpObject = null;
     [SerializeField] private Transform holdPoint; // Point where the object will be held
@@ -254,6 +255,31 @@ public class SingleActionRaycast : MonoBehaviour
                     else
                     {
                         Debug.LogWarning("DialogueTrigger not found on the fakePlant object!");
+                    }
+                }
+            }
+
+
+            else if (hit.collider.CompareTag(blackBox)) // Detect the blackbox
+            {
+                if (!doOnce)
+                {
+                    CrosshairChange(true); // Highlight the crosshair
+                }
+
+                isCrossHairActive = true;
+                doOnce = true;
+
+                if (Input.GetKeyDown(toggleLightKey)) // Use the same key as other interactions
+                {
+                    DialogueTrigger dialogueTrigger = hit.collider.GetComponent<DialogueTrigger>();
+                    if (dialogueTrigger != null)
+                    {
+                        dialogueTrigger.TriggerDialogue(); // Trigger the dialogue
+                    }
+                    else
+                    {
+                        Debug.LogWarning("DialogueTrigger not found on the blackbox object!");
                     }
                 }
             }
