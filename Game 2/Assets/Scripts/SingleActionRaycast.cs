@@ -7,6 +7,7 @@ public class SingleActionRaycast : MonoBehaviour
     [SerializeField] private int rayLength = 4;
     [SerializeField] private LayerMask layerMaskInteract; // Ensure this includes the layers for both light switches and TV remote
     [SerializeField] private string excludeLayerName = null;
+    [SerializeField] private Transform MopPickUpAnchor; // Assign your anchor in the Inspector
 
     private SpinController rayCastedTP;
     private LightSwitch rayCastedLightSwitch; // Reference to the LightSwitch script
@@ -42,6 +43,7 @@ public class SingleActionRaycast : MonoBehaviour
     private const string guitar = "Guitar";
     private const string toothbrush = "Toothbrush";
     private const string blackBox = "Blackbox";
+    private const string mop = "Mop";
 
     private GameObject pickedUpObject = null;
     [SerializeField] private Transform holdPoint; // Point where the object will be held
@@ -446,6 +448,26 @@ public class SingleActionRaycast : MonoBehaviour
                 bookWalkPoint.SetActive(true); // Activate the BookWalkPoint when the book is picked up
             }
         }
+
+        else if (obj.name == mop) // Mop-specific logic
+        {
+            Debug.Log("Mop picked up!");
+
+            GameObject mopAnchor = GameObject.Find("MopPickUpAnchor");
+            if (mopAnchor != null)
+            {
+                obj.transform.SetParent(holdPoint); // Stay at hold point
+                obj.transform.localPosition = Vector3.zero; // Center in front of player
+
+                // Use world rotation of the anchor so it stays consistent
+                obj.transform.rotation = mopAnchor.transform.rotation;
+            }
+            else
+            {
+                Debug.LogWarning("MopPickUpAnchor not found!");
+            }
+        }
+
     }
 
     void PlaceObject(GameObject obj)
