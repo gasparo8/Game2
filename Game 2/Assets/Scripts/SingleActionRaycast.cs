@@ -411,9 +411,11 @@ public class SingleActionRaycast : MonoBehaviour
         }
 
         if (pickedUpObject != null && Input.GetKeyDown(placeKey))
-        {
+           // Only allow dropping for objects that are NOT the mop
+            if (pickedUpObject.name != mop)
+            {
             PlaceObject(pickedUpObject);
-        }
+            }
     }
 
     void CrosshairChange(bool on)
