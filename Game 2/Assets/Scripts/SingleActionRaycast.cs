@@ -44,6 +44,9 @@ public class SingleActionRaycast : MonoBehaviour
     private const string toothbrush = "Toothbrush";
     private const string blackBox = "Blackbox";
     private const string mop = "Mop";
+    private const string footprintTag = "Footprint";
+    private int footprintsCleaned = 0;
+    private int totalFootprints = 3; // adjust if more later
 
     private GameObject pickedUpObject = null;
     [SerializeField] private Transform holdPoint; // Point where the object will be held
@@ -375,6 +378,40 @@ public class SingleActionRaycast : MonoBehaviour
 
                 }
             }
+
+
+
+            else if (hit.collider.CompareTag(footprintTag))
+            {
+                if (!doOnce)
+                {
+                    CrosshairChange(true);
+                }
+
+                isCrossHairActive = true;
+                doOnce = true;
+
+                if (Input.GetKeyDown(toggleLightKey) && pickedUpObject != null && pickedUpObject.name == mop)
+                {
+                    Footprint fp = hit.collider.GetComponent<Footprint>();
+                    if (fp != null)
+                    {
+                        fp.CleanFootprint(() =>
+                        {
+                            footprintsCleaned++;
+
+                            if (footprintsCleaned >= totalFootprints)
+                            {
+                                // All footprints cleaned – destroy mop
+                                Destroy(pickedUpObject);
+                                pickedUpObject = null;
+                                Debug.Log("All footprints cleaned! Mop destroyed.");
+                            }
+                        });
+                    }
+                }
+            }
+
 
             else if (hit.collider.CompareTag(donutTag)) // Detect the donut
             {
