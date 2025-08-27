@@ -380,7 +380,7 @@ public class SingleActionRaycast : MonoBehaviour
             }
 
 
-
+            /*
             else if (hit.collider.CompareTag(footprintTag))
             {
                 if (!doOnce)
@@ -411,6 +411,39 @@ public class SingleActionRaycast : MonoBehaviour
                     }
                 }
             }
+            */
+            else if (hit.collider.CompareTag(footprintTag))
+            {
+                if (!doOnce)
+                {
+                    CrosshairChange(true);
+                }
+
+                isCrossHairActive = true;
+                doOnce = true;
+
+                if (Input.GetKeyDown(toggleLightKey) && pickedUpObject != null && pickedUpObject.name == mop)
+                {
+                    Footprint fp = hit.collider.GetComponent<Footprint>();
+                    if (fp != null)
+                    {
+                        fp.CleanFootprint(() =>
+                        {
+                            footprintsCleaned++;
+
+                            if (footprintsCleaned >= totalFootprints)
+                            {
+                                // All footprints cleaned – destroy mop
+                                Destroy(pickedUpObject);
+                                pickedUpObject = null;
+                                Debug.Log("All footprints cleaned! Mop destroyed.");
+                            }
+                        },
+                        pickedUpObject.transform); // pass the mop transform here
+                    }
+                }
+            }
+
 
 
             else if (hit.collider.CompareTag(donutTag)) // Detect the donut
