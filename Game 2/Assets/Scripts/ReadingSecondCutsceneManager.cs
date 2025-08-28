@@ -62,7 +62,7 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
         // Ensure dialogueManager is assigned properly
         dialogueManager = FindObjectOfType<DialogueManager>();
     }
-
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (familyRoomPeek != null && familyRoomPeek.hasAnimationPlayed)
@@ -74,7 +74,7 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
             }
         }
     }
-
+    */
 
     public void TriggerSecondReadingCutscene()
     {

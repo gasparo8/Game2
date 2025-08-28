@@ -23,6 +23,7 @@ public class FamilyRoomPEEK : MonoBehaviour
     public bool hasAnimationPlayed = false; // Public variable to track animation state
 
     public GameObject footstepObject; // Walker Footsteps
+    public BoxCollider mopTaskTrigger;
 
     private void Start()
     {
@@ -84,6 +85,12 @@ public class FamilyRoomPEEK : MonoBehaviour
         if (footstepObject != null)
         {
             footstepObject.SetActive(true);
+
+            // Enable the BoxCollider so the player can trigger it
+            if (mopTaskTrigger != null)
+            {
+                mopTaskTrigger.enabled = true;
+            }
         }
     }
 

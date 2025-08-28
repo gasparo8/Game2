@@ -1,10 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FootprintManager : MonoBehaviour
 {
     public DialogueTrigger dialogueTrigger; // Assign in Inspector
+    public GameObject couchWalkPoint;       // Assign the couch walk point in Inspector
+
     private int totalFootprints;
     private int cleanedFootprints = 0;
 
@@ -26,7 +27,19 @@ public class FootprintManager : MonoBehaviour
             if (dialogueTrigger != null)
             {
                 dialogueTrigger.TriggerDialogue();
+                StartCoroutine(ActivateCouchWalkPointAfterDelay(3f)); // wait 3 seconds
             }
+        }
+    }
+
+    private IEnumerator ActivateCouchWalkPointAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (couchWalkPoint != null)
+        {
+            couchWalkPoint.SetActive(true);
+            Debug.Log("Couch walk point activated after dialogue delay.");
         }
     }
 }
