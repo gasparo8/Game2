@@ -14,9 +14,14 @@ public class Footprint : MonoBehaviour
     [SerializeField] private float mopMoveDistance = 0.15f; // How far mop moves
     [SerializeField] private float mopMoveSpeed = 8f;       // How fast it oscillates
 
+    private FootprintManager footprintManager;
+
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
+
+        // Find the FootprintManager in the scene
+        footprintManager = FindObjectOfType<FootprintManager>();
 
         // Try to get AudioSource, add one if missing
         audioSource = GetComponent<AudioSource>();
@@ -72,7 +77,13 @@ public class Footprint : MonoBehaviour
         // Reset mop back to its original position
         mopTransform.localPosition = startPos;
 
-        Destroy(gameObject);
+        // Notify manager this footprint is done
+        if (footprintManager != null)
+        {
+            footprintManager.FootprintCleaned();
+        }
+
+        //Destroy(gameObject);
         onFinished?.Invoke(); // Notify that this footprint is gone
     }
 }
