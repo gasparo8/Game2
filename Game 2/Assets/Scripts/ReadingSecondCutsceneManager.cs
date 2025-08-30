@@ -14,8 +14,6 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
     public GameObject couchWalkPoint;
     public LightSwitch lightSwitch; // Reference to the LightSwitch script
 
-    private bool couchWalkPointTriggered = false; // To prevent retriggering
-
     public Light lightToTurnOff; // Assign the specific light in the Inspector
     public Renderer lightRenderer; // Renderer for the light's material
     public Material offMaterial; // Material to use when the light is off
@@ -62,19 +60,6 @@ public class ReadingSecondCutsceneManager : MonoBehaviour
         // Ensure dialogueManager is assigned properly
         dialogueManager = FindObjectOfType<DialogueManager>();
     }
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if (familyRoomPeek != null && familyRoomPeek.hasAnimationPlayed)
-        {
-            if (other.CompareTag("Player") && !couchWalkPointTriggered)
-            {
-                couchWalkPointTriggered = true;
-                couchWalkPoint.SetActive(true); // Activate the couch walk point when the player enters the trigger
-            }
-        }
-    }
-    */
 
     public void TriggerSecondReadingCutscene()
     {
