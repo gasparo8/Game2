@@ -25,6 +25,8 @@ public class FamilyRoomPEEK : MonoBehaviour
     public GameObject footstepObject; // Walker Footsteps
     public BoxCollider mopTaskTrigger;
 
+    public BookDialogueTrigger bookDialogueTrigger;
+
     private void Start()
     {
         // Ensure the Animator component is assigned
@@ -69,6 +71,9 @@ public class FamilyRoomPEEK : MonoBehaviour
             anim.SetTrigger("PlayFamilyRoomPeek");
             animationPlayed = true; // Ensure it only plays once
             hasAnimationPlayed = true; // Update the public variable
+
+            bookDialogueTrigger.sideHouseBlocker1.SetActive(false);
+            bookDialogueTrigger.sideHouseBlocker2.SetActive(false);
 
             // Start the light flickering coroutine when the animation starts
             if (pointLights != null && pointLights.Count > 0)

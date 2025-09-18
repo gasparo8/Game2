@@ -18,7 +18,9 @@ public class FlashlightController : MonoBehaviour
     [SerializeField] private GameObject popCanOnTable;
     [SerializeField] private GameObject popCanOnFloor;
 
-    public GameObject flashlightDialogueTrigger; 
+    public GameObject flashlightDialogueTrigger;
+
+    public BookDialogueTrigger bookDialogueTrigger;
 
     private void Start()
     {
@@ -66,6 +68,8 @@ public class FlashlightController : MonoBehaviour
             PlayToggleSound(); // Play the flashlight toggle sound
             PickedUpFlashlightDialogue();
             StartCoroutine(EnableFlashlightWithDelay()); // Start the coroutine to enable the flashlight
+            bookDialogueTrigger.sideHouseBlocker1.SetActive(true);
+            bookDialogueTrigger.sideHouseBlocker2.SetActive(true);
         }
     }
 

@@ -17,8 +17,6 @@ public class FriendJumpScare : MonoBehaviour
 
     public PianoShedTaskAudio pianoShedTaskAudio;
 
-    public BookDialogueTrigger bookDialogueTrigger;
-
     private void Start()
     {
         if (jumpTrigger != null)
@@ -100,8 +98,6 @@ public class FriendJumpScare : MonoBehaviour
         if (dialogueTrigger != null)
         {
             dialogueTrigger.TriggerDialogue();
-            bookDialogueTrigger.sideHouseBlocker1.SetActive(false);
-            bookDialogueTrigger.sideHouseBlocker2.SetActive(false);
         }
 
         // Re-enable player movement after cutscene completes

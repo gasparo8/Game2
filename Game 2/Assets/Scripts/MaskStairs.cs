@@ -8,6 +8,8 @@ public class MaskStairsDescend : MonoBehaviour
     public GameObject objectToDisable;  // The object to disable after the animation
     private bool hasPlayed = false;  // To ensure the animation only plays once
 
+    public BookDialogueTrigger bookDialogueTrigger;
+
     private void Start()
     {
         // Disable the object at the start
@@ -55,5 +57,7 @@ public class MaskStairsDescend : MonoBehaviour
 
         // Disable the object after the animation completes
         objectToDisable.SetActive(false);
+        bookDialogueTrigger.sideHouseBlocker1.SetActive(false);
+        bookDialogueTrigger.sideHouseBlocker2.SetActive(false);
     }
 }
