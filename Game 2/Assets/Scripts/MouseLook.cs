@@ -17,19 +17,6 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
-        // Handle cursor locking/unlocking
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ToggleCursorLock();
-        }
-
-        /* Simulate player death for testing
-        if (Input.GetKeyDown(KeyCode.K)) // Press 'K' to simulate death
-        {
-            OnPlayerDeath();
-        }
-        */
-
         if (isCursorLocked)
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
