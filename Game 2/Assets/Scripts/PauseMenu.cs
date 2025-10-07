@@ -18,6 +18,10 @@ public class PauseMenu : MonoBehaviour
     public Color normalColor = Color.white;
     public Color hoverColor = Color.yellow;
 
+    [Header("Font Size Settings")]
+    public int normalFontSize = 36;
+    public int hoverFontSize = 42;
+
     [Header("Mouse Sensitivity Settings")]
     public Slider mouseSensitivitySlider;    // assign this in the Inspector
     public float defaultSensitivity = 40f;   // midpoint value
@@ -37,6 +41,9 @@ public class PauseMenu : MonoBehaviour
             TMP_Text buttonText = button.GetComponentInChildren<TMP_Text>();
             if (buttonText == null) continue;
 
+            // Set default font size
+            buttonText.fontSize = normalFontSize;
+
             EventTrigger trigger = button.gameObject.GetComponent<EventTrigger>();
             if (trigger == null)
                 trigger = button.gameObject.AddComponent<EventTrigger>();
@@ -46,13 +53,13 @@ public class PauseMenu : MonoBehaviour
             enter.callback.AddListener((_) =>
             {
                 PlaySound(highlightSound);
-                ChangeTextColor(buttonText, hoverColor);
+                ChangeTextAppearance(buttonText, hoverColor, hoverFontSize);
             });
             trigger.triggers.Add(enter);
 
             // Pointer Exit
             EventTrigger.Entry exit = new EventTrigger.Entry { eventID = EventTriggerType.PointerExit };
-            exit.callback.AddListener((_) => ChangeTextColor(buttonText, normalColor));
+            exit.callback.AddListener((_) => ChangeTextAppearance(buttonText, normalColor, normalFontSize));
             trigger.triggers.Add(exit);
 
             // Click sound
@@ -62,11 +69,9 @@ public class PauseMenu : MonoBehaviour
         // --- Mouse Sensitivity Slider setup ---
         if (mouseSensitivitySlider != null)
         {
-            // Set min/max relative to defaultSensitivity
             mouseSensitivitySlider.minValue = defaultSensitivity - sensitivityRange / 2f;
             mouseSensitivitySlider.maxValue = defaultSensitivity + sensitivityRange / 2f;
 
-            // Load saved sensitivity or set handle to middle on first launch
             if (PlayerPrefs.HasKey(prefsKey))
             {
                 float saved = PlayerPrefs.GetFloat(prefsKey);
@@ -82,31 +87,28 @@ public class PauseMenu : MonoBehaviour
                     mouseLook.mouseSensitivity = middleValue;
             }
 
-            // Add listener for slider movement
             mouseSensitivitySlider.onValueChanged.AddListener(OnSensitivityChanged);
 
-            // --- Slider hover like button ---
             EventTrigger sliderTrigger = mouseSensitivitySlider.gameObject.GetComponent<EventTrigger>();
             if (sliderTrigger == null)
                 sliderTrigger = mouseSensitivitySlider.gameObject.AddComponent<EventTrigger>();
 
             TMP_Text sliderText = mouseSensitivitySlider.GetComponentInChildren<TMP_Text>();
+            if (sliderText != null)
+                sliderText.fontSize = normalFontSize;
 
             // Pointer Enter
             EventTrigger.Entry sliderEnter = new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter };
             sliderEnter.callback.AddListener((_) =>
             {
                 PlaySound(highlightSound);
-                ChangeTextColor(sliderText, hoverColor);
+                ChangeTextAppearance(sliderText, hoverColor, hoverFontSize);
             });
             sliderTrigger.triggers.Add(sliderEnter);
 
             // Pointer Exit
             EventTrigger.Entry sliderExit = new EventTrigger.Entry { eventID = EventTriggerType.PointerExit };
-            sliderExit.callback.AddListener((_) =>
-            {
-                ChangeTextColor(sliderText, normalColor);
-            });
+            sliderExit.callback.AddListener((_) => ChangeTextAppearance(sliderText, normalColor, normalFontSize));
             sliderTrigger.triggers.Add(sliderExit);
         }
         else
@@ -139,7 +141,6 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
         mouseLook.UnlockCursor();
 
-        // Ensure slider reflects current sensitivity
         if (mouseSensitivitySlider != null && mouseLook != null)
             mouseSensitivitySlider.SetValueWithoutNotify(mouseLook.mouseSensitivity);
     }
@@ -165,16 +166,19 @@ public class PauseMenu : MonoBehaviour
             mouseSensitivitySlider.onValueChanged.RemoveListener(OnSensitivityChanged);
     }
 
-    // --- Helper methods for sound & color ---
+    // --- Helper methods for sound, color & font size ---
     private void PlaySound(AudioClip clip)
     {
         if (clip != null && audioSource != null)
             audioSource.PlayOneShot(clip);
     }
 
-    private void ChangeTextColor(TMP_Text text, Color color)
+    private void ChangeTextAppearance(TMP_Text text, Color color, int fontSize)
     {
         if (text != null)
+        {
             text.color = color;
+            text.fontSize = fontSize;
+        }
     }
 }
