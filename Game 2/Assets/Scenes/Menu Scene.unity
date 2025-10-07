@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 198794463}
   - component: {fileID: 198794465}
   - component: {fileID: 198794464}
+  - component: {fileID: 198794466}
   m_Layer: 5
   m_Name: Game Name Text
   m_TagString: Untagged
@@ -399,7 +400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -461, y: 371}
+  m_AnchoredPosition: {x: -461, y: 394}
   m_SizeDelta: {x: 654.2128, y: 99.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &198794464
@@ -499,6 +500,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198794462}
   m_CullTransparentMesh: 1
+--- !u!114 &198794466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198794462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d157c816c6757842ae030f64b9e07af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 198794464}
+  fadeDuration: 3.5
+  delayBeforeFade: 0
+  moveDistance: 20
+  fadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &282245332
 GameObject:
   m_ObjectHideFlags: 0
@@ -2515,6 +2556,7 @@ GameObject:
   - component: {fileID: 1555977715}
   - component: {fileID: 1555977714}
   - component: {fileID: 1555977716}
+  - component: {fileID: 1555977717}
   m_Layer: 0
   m_Name: Sound Manager
   m_TagString: Untagged
@@ -2542,6 +2584,7 @@ MonoBehaviour:
     fontSizeIncrease: 2
     normalColor: {r: 0.75686276, g: 0.654902, b: 0.3764706, a: 1}
     hoverColor: {r: 1, g: 0.8627451, b: 0.49411765, a: 1}
+    originalFontSize: 0
   - button: {fileID: 852461739}
     highlightSound: {fileID: 8300000, guid: 38b166a85b4efe24dbd867f5354dc134, type: 3}
     pressedSound: {fileID: 8300000, guid: 69a980caaacd5a7408c9c09edc3fad2e, type: 3}
@@ -2549,6 +2592,7 @@ MonoBehaviour:
     fontSizeIncrease: 2
     normalColor: {r: 0.75686276, g: 0.654902, b: 0.3764706, a: 1}
     hoverColor: {r: 1, g: 0.8627451, b: 0.49411765, a: 1}
+    originalFontSize: 0
   - button: {fileID: 553699953}
     highlightSound: {fileID: 8300000, guid: 38b166a85b4efe24dbd867f5354dc134, type: 3}
     pressedSound: {fileID: 8300000, guid: 69a980caaacd5a7408c9c09edc3fad2e, type: 3}
@@ -2556,6 +2600,7 @@ MonoBehaviour:
     fontSizeIncrease: 2
     normalColor: {r: 0.75686276, g: 0.654902, b: 0.3764706, a: 1}
     hoverColor: {r: 1, g: 0.8627451, b: 0.49411765, a: 1}
+    originalFontSize: 0
   - button: {fileID: 316000471}
     highlightSound: {fileID: 8300000, guid: 38b166a85b4efe24dbd867f5354dc134, type: 3}
     pressedSound: {fileID: 8300000, guid: 69a980caaacd5a7408c9c09edc3fad2e, type: 3}
@@ -2563,6 +2608,7 @@ MonoBehaviour:
     fontSizeIncrease: 2
     normalColor: {r: 0.75686276, g: 0.654902, b: 0.3764706, a: 1}
     hoverColor: {r: 1, g: 0.8627451, b: 0.49411765, a: 1}
+    originalFontSize: 0
   - button: {fileID: 903643392}
     highlightSound: {fileID: 8300000, guid: 38b166a85b4efe24dbd867f5354dc134, type: 3}
     pressedSound: {fileID: 8300000, guid: 69a980caaacd5a7408c9c09edc3fad2e, type: 3}
@@ -2570,6 +2616,7 @@ MonoBehaviour:
     fontSizeIncrease: 2
     normalColor: {r: 0.75686276, g: 0.654902, b: 0.3764706, a: 1}
     hoverColor: {r: 1, g: 0.8627451, b: 0.49411765, a: 1}
+    originalFontSize: 0
   - button: {fileID: 967685337}
     highlightSound: {fileID: 8300000, guid: 38b166a85b4efe24dbd867f5354dc134, type: 3}
     pressedSound: {fileID: 8300000, guid: 69a980caaacd5a7408c9c09edc3fad2e, type: 3}
@@ -2577,6 +2624,7 @@ MonoBehaviour:
     fontSizeIncrease: 2
     normalColor: {r: 0.75686276, g: 0.654902, b: 0.3764706, a: 1}
     hoverColor: {r: 1, g: 0.8627451, b: 0.49411765, a: 1}
+    originalFontSize: 0
 --- !u!4 &1555977715
 Transform:
   m_ObjectHideFlags: 0
@@ -2602,8 +2650,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 91a4db2d5954f0f48840dd76dc0f87b2, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2688,6 +2736,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1555977717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555977713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b7d6904cc385f41a2c2c44c17e6b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1555977716}
+  minDelay: 0
+  maxDelay: 15
 --- !u!1 &1581629086
 GameObject:
   m_ObjectHideFlags: 0

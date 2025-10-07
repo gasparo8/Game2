@@ -16,6 +16,8 @@ public class ButtonSoundManager : MonoBehaviour
         public float fontSizeIncrease = 2f; // Amount to increase font size
         public Color normalColor = Color.white; // Default color
         public Color hoverColor = Color.yellow; // Hover color
+
+        [HideInInspector] public float originalFontSize; // store starting size
     }
 
     public List<ButtonSound> buttonSounds; // List of buttons and their sounds
@@ -34,6 +36,9 @@ public class ButtonSoundManager : MonoBehaviour
         {
             if (buttonSound.button != null && buttonSound.buttonText != null)
             {
+                // store original font size once at start
+                buttonSound.originalFontSize = buttonSound.buttonText.fontSize;
+
                 EventTrigger trigger = buttonSound.button.gameObject.GetComponent<EventTrigger>();
                 if (trigger == null)
                     trigger = buttonSound.button.gameObject.AddComponent<EventTrigger>();
@@ -46,7 +51,7 @@ public class ButtonSoundManager : MonoBehaviour
                 enter.callback.AddListener((_) =>
                 {
                     PlaySound(buttonSound.highlightSound);
-                    AdjustFontSize(buttonSound.buttonText, buttonSound.fontSizeIncrease);
+                    SetFontSize(buttonSound.buttonText, buttonSound.originalFontSize + buttonSound.fontSizeIncrease);
                     ChangeTextColor(buttonSound.buttonText, buttonSound.hoverColor);
                 });
                 trigger.triggers.Add(enter);
@@ -58,7 +63,7 @@ public class ButtonSoundManager : MonoBehaviour
                 };
                 exit.callback.AddListener((_) =>
                 {
-                    AdjustFontSize(buttonSound.buttonText, -buttonSound.fontSizeIncrease);
+                    SetFontSize(buttonSound.buttonText, buttonSound.originalFontSize);
                     ChangeTextColor(buttonSound.buttonText, buttonSound.normalColor);
                 });
                 trigger.triggers.Add(exit);
@@ -67,8 +72,8 @@ public class ButtonSoundManager : MonoBehaviour
                 buttonSound.button.onClick.AddListener(() =>
                 {
                     PlaySound(buttonSound.pressedSound);
-                    // Optional: temporarily increase font size on click
-                    AdjustFontSize(buttonSound.buttonText, buttonSound.fontSizeIncrease);
+                    // Optional: briefly scale up, then reset
+                    SetFontSize(buttonSound.buttonText, buttonSound.originalFontSize + buttonSound.fontSizeIncrease);
                 });
             }
         }
@@ -80,10 +85,10 @@ public class ButtonSoundManager : MonoBehaviour
             audioSource.PlayOneShot(clip);
     }
 
-    private void AdjustFontSize(TMP_Text text, float adjustment)
+    private void SetFontSize(TMP_Text text, float newSize)
     {
         if (text != null)
-            text.fontSize += adjustment;
+            text.fontSize = newSize;
     }
 
     private void ChangeTextColor(TMP_Text text, Color color)
