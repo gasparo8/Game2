@@ -51,11 +51,16 @@ public class SingleUseMaterials : EditorWindow
                 Material singleMat = kvp.Key;
                 GameObject obj = kvp.Value[0];
                 objectsToSelect.Add(obj);
-                Debug.Log($"Material '{singleMat.name}' is only used by GameObject '{obj.name}'");
+
+                //  Clicking this log entry now highlights the object in Hierarchy
+                Debug.Log(
+                    $"Material '{singleMat.name}' is only used by GameObject '{obj.name}'",
+                    obj // <-- context object enables ping/select
+                );
             }
         }
 
-        // Select all objects using single-use materials in the hierarchy
+        // Select all objects in the Hierarchy
         if (objectsToSelect.Count > 0)
         {
             Selection.objects = objectsToSelect.ToArray();
