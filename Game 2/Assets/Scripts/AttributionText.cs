@@ -46,6 +46,7 @@ public class NewBehaviourScript : MonoBehaviour
            Swiffer Mopping Tile Floor.wav by blwuens -- https://freesound.org/s/515158/ -- License: Creative Commons 0
            squishing gel between hands by breadparticles -- https://freesound.org/s/575333/ -- License: Creative Commons 0
            Sound 11 - shower curtain.wav by jotica012 -- https://freesound.org/s/560232/ -- License: Creative Commons 0
+           Finger Dragging on Shower Curtain _2.wav by RossBell -- https://freesound.org/s/389423/ -- License: Creative Commons 0
         */
     }
 }
