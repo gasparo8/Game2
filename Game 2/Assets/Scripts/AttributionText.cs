@@ -45,6 +45,7 @@ public class NewBehaviourScript : MonoBehaviour
            Typing on a rainy 75 by Techrul -- https://freesound.org/s/815614/ -- License: Creative Commons 0
            Swiffer Mopping Tile Floor.wav by blwuens -- https://freesound.org/s/515158/ -- License: Creative Commons 0
            squishing gel between hands by breadparticles -- https://freesound.org/s/575333/ -- License: Creative Commons 0
+           Sound 11 - shower curtain.wav by jotica012 -- https://freesound.org/s/560232/ -- License: Creative Commons 0
         */
     }
 }
