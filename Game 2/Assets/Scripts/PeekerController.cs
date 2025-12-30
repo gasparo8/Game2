@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using UnityEngine;
 
 public class ShadowController : MonoBehaviour
@@ -48,6 +48,84 @@ public class ShadowController : MonoBehaviour
         }
 
         // Destroy the trigger GameObject
+        Destroy(gameObject);
+    }
+}
+*/
+using System.Collections;
+using UnityEngine;
+
+public class ShadowController : MonoBehaviour
+{
+    public Animator anim;
+    public GameObject peekerObject;
+
+    [Header("Scare Light")]
+    public Light scareLight;
+    public float scareDuration = 2.0f;
+    public float fadeOutDuration = 0.75f;
+
+    private bool animationPlayed = false;
+    private float originalIntensity;
+
+    private void Start()
+    {
+        if (anim == null)
+            anim = GetComponent<Animator>();
+
+        if (scareLight != null)
+        {
+            originalIntensity = scareLight.intensity;
+            scareLight.enabled = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && !animationPlayed)
+        {
+            animationPlayed = true;
+            anim.SetTrigger("PlayPeek");
+
+            if (scareLight != null)
+                StartCoroutine(ScareSequence());
+        }
+    }
+
+    private IEnumerator ScareSequence()
+    {
+        // Turn light ON
+        scareLight.intensity = originalIntensity;
+        scareLight.enabled = true;
+
+        // Hold light
+        yield return new WaitForSeconds(scareDuration);
+
+        // Fade OUT
+        float timer = 0f;
+        while (timer < fadeOutDuration)
+        {
+            scareLight.intensity = Mathf.Lerp(
+                originalIntensity,
+                0f,
+                timer / fadeOutDuration
+            );
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // Disable light cleanly
+        scareLight.enabled = false;
+        scareLight.intensity = originalIntensity;
+
+        // Small pause for psychological aftertaste (optional but good)
+        yield return new WaitForSeconds(0.25f);
+
+        // Cleanup
+        if (peekerObject != null)
+            Destroy(peekerObject);
+
         Destroy(gameObject);
     }
 }
