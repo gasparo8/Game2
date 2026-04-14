@@ -27,6 +27,16 @@ public class FamilyRoomPEEK : MonoBehaviour
 
     public BookDialogueTrigger bookDialogueTrigger;
 
+    public Camera mainCamera;       // Player camera
+    public Camera peekCamera;       // Camera aimed at the window/animation
+
+    public float peekCameraDuration = 5f; // How long to show the peek
+
+    public Transform peekStartPoint;
+    public Transform peekEndPoint;
+
+    public float moveDuration = 5f;
+
     private void Start()
     {
         // Ensure the Animator component is assigned
@@ -53,6 +63,11 @@ public class FamilyRoomPEEK : MonoBehaviour
         {
             footstepObject.SetActive(false); // Ensure it's inactive at start
         }
+
+        if (peekCamera != null)
+        {
+            peekCamera.enabled = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -71,6 +86,7 @@ public class FamilyRoomPEEK : MonoBehaviour
             anim.SetTrigger("PlayFamilyRoomPeek");
             animationPlayed = true; // Ensure it only plays once
             hasAnimationPlayed = true; // Update the public variable
+            StartCoroutine(PeekCameraRoutine());
 
             bookDialogueTrigger.sideHouseBlocker1.SetActive(false);
             bookDialogueTrigger.sideHouseBlocker2.SetActive(false);
@@ -85,6 +101,86 @@ public class FamilyRoomPEEK : MonoBehaviour
             ActivateFootstep();
         }
     }
+
+    /* private IEnumerator PeekCameraRoutine()
+     {
+         // Switch to peek camera
+         if (mainCamera != null)
+         {
+             mainCamera.enabled = false;
+         }
+
+         if (peekCamera != null)
+         {
+             peekCamera.enabled = true;
+         }
+
+         // Hold for duration so player sees the animation
+         yield return new WaitForSeconds(peekCameraDuration);
+
+         // Switch back to player camera
+         if (peekCamera != null)
+         {
+             peekCamera.enabled = false;
+         }
+
+         if (mainCamera != null)
+         {
+             mainCamera.enabled = true;
+         }
+     }
+    */
+    private IEnumerator PeekCameraRoutine()
+    {
+        // Switch cameras
+        if (mainCamera != null)
+        {
+            mainCamera.enabled = false;
+        }
+
+        if (peekCamera != null)
+        {
+            peekCamera.enabled = true;
+        }
+
+        // Start exactly at start point
+        peekCamera.transform.position = peekStartPoint.position;
+        peekCamera.transform.rotation = peekStartPoint.rotation;
+
+        float time = 0f;
+
+        while (time < moveDuration)
+        {
+            float t = Mathf.SmoothStep(0f, 1f, time / moveDuration);
+
+            // Move from start to end
+            peekCamera.transform.position = Vector3.Lerp(peekStartPoint.position, peekEndPoint.position, t);
+            peekCamera.transform.rotation = Quaternion.Lerp(peekStartPoint.rotation, peekEndPoint.rotation, t);
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        // Snap exactly to end (avoids tiny precision issues)
+        peekCamera.transform.position = peekEndPoint.position;
+        peekCamera.transform.rotation = peekEndPoint.rotation;
+
+        // Hold so player sees it
+        yield return new WaitForSeconds(peekCameraDuration);
+
+        // Switch back
+        if (peekCamera != null)
+        {
+            peekCamera.enabled = false;
+        }
+
+        if (mainCamera != null)
+        {
+            mainCamera.enabled = true;
+        }
+    }
+
+
     private void ActivateFootstep()
     {
         if (footstepObject != null)
