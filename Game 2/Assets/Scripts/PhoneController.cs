@@ -12,7 +12,6 @@ public class PhoneController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
-
     void Update()
     {
         // Manual trigger
@@ -21,26 +20,27 @@ public class PhoneController : MonoBehaviour
             PlayPhoneAnimation();
         }
 
-        // Check for any movement/input keys
         bool hasInput =
             Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.1f ||
             Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.1f ||
-            Input.anyKeyDown;
+            Mathf.Abs(Input.GetAxis("Mouse X")) > 0.01f ||
+            Mathf.Abs(Input.GetAxis("Mouse Y")) > 0.01f ||
+            Input.anyKeyDown ||
+            Input.GetMouseButton(0) ||
+            Input.GetMouseButton(1);
 
         if (hasInput)
         {
-            // Reset timer when player gives input
             idleTimer = 0f;
         }
         else
         {
-            // Count idle time
             idleTimer += Time.deltaTime;
 
             if (idleTimer >= idleTimeBeforePhone)
             {
                 PlayPhoneAnimation();
-                idleTimer = 0f; // Reset so it doesn't spam constantly
+                idleTimer = 0f;
             }
         }
     }
