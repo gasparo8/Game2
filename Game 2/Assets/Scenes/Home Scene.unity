@@ -59291,7 +59291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec31f3dfb4c83145bac228fe80e1e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleTimeBeforePhone: 8
 --- !u!114 &1372546798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87736,8 +87735,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1949307171}
-  - component: {fileID: 1949307169}
   - component: {fileID: 1949307170}
+  - component: {fileID: 1949307169}
   m_Layer: 0
   m_Name: FamilyRoomPeekCamera
   m_TagString: Untagged
@@ -87803,7 +87802,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949307168}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!4 &1949307171
 Transform:
   m_ObjectHideFlags: 0
@@ -95537,6 +95536,7 @@ MonoBehaviour:
   - {fileID: 424360040}
   lockedCounterText: {fileID: 120722579}
   bookDialogueTrigger: {fileID: 1985228164}
+  phoneController: {fileID: 1372546797}
   frontDoorPeeker: {fileID: 1758778483}
   tvStaticObject: {fileID: 159545359}
 --- !u!4 &2130562568

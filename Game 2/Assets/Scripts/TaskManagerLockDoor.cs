@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,20 +7,21 @@ public class TaskManager : MonoBehaviour
 {
     [SerializeField] private List<LockController> doors;
     [SerializeField] private TextMeshProUGUI lockedCounterText;
-    [SerializeField] private BookDialogueTrigger bookDialogueTrigger; // Reference to the BookDialogueTrigger
+    [SerializeField] private BookDialogueTrigger bookDialogueTrigger;
+
+    [SerializeField] private PhoneController phoneController; // Assign in Inspector
 
     private int lockedDoorsCount = 0;
-    private bool allDoorsLocked = false; // Flag to track if all doors have been locked
+    private bool allDoorsLocked = false;
+    private bool firstDoorTriggeredPhone = false; // Prevent repeat trigger
 
     public GameObject frontDoorPeeker;
-
     public static bool ShowLockHighlights = false;
-
-    public GameObject tvStaticObject; // Drag TV Static GameObject here in Inspector
+    public GameObject tvStaticObject;
 
     private void Start()
     {
-        lockedCounterText.gameObject.SetActive(false); // Hide the counter initially
+        lockedCounterText.gameObject.SetActive(false);
         ShowLockHighlights = false;
         UpdateLockedCounter();
         frontDoorPeeker.SetActive(false);
@@ -27,12 +29,18 @@ public class TaskManager : MonoBehaviour
 
     public void DoorLockedStateChanged(bool isLocked)
     {
-        // Only allow updates if not all doors have been locked before
         if (!allDoorsLocked)
         {
             if (isLocked)
             {
                 lockedDoorsCount++;
+
+                // First locked door only
+                if (lockedDoorsCount == 1 && !firstDoorTriggeredPhone)
+                {
+                    firstDoorTriggeredPhone = true;
+                    StartCoroutine(PlayPhoneAfterDelay());
+                }
             }
             else
             {
@@ -43,27 +51,37 @@ public class TaskManager : MonoBehaviour
         }
     }
 
+    private IEnumerator PlayPhoneAfterDelay()
+    {
+        yield return new WaitForSeconds(2f);
+
+        if (phoneController != null)
+        {
+            phoneController.PlayPhoneAnimation();
+        }
+    }
+
     private void UpdateLockedCounter()
     {
         if (lockedDoorsCount >= doors.Count)
         {
-            lockedCounterText.gameObject.SetActive(false); // Hide the counter if all doors are locked
-            bookDialogueTrigger.GoGetBookDialogue(); // Trigger the book dialogue
-            allDoorsLocked = true; // Mark all doors as locked, preventing further changes
+            lockedCounterText.gameObject.SetActive(false);
+            bookDialogueTrigger.GoGetBookDialogue();
+            allDoorsLocked = true;
             ShowLockHighlights = false;
 
-            // Disable LockHighlight script and reset the highlight color
             foreach (var door in doors)
             {
                 LockHighlight lockHighlight = door.GetComponent<LockHighlight>();
+
                 if (lockHighlight != null)
                 {
-                    lockHighlight.HighlightLock(false); // Reset the color
-                    lockHighlight.enabled = false; // Disable the LockHighlight script
+                    lockHighlight.HighlightLock(false);
+                    lockHighlight.enabled = false;
                 }
             }
 
-            this.enabled = false; // Disable TaskManager to prevent further updates
+            this.enabled = false;
         }
         else
         {
@@ -71,16 +89,14 @@ public class TaskManager : MonoBehaviour
         }
     }
 
-    // Method to handle cutscene completion
     public void OnCutsceneComplete()
     {
         if (!allDoorsLocked)
         {
-            lockedCounterText.gameObject.SetActive(true); // Show the counter
+            lockedCounterText.gameObject.SetActive(true);
             frontDoorPeeker.gameObject.SetActive(true);
             ShowLockHighlights = true;
 
-            // Enable TV Static
             if (tvStaticObject != null)
                 tvStaticObject.SetActive(true);
         }
