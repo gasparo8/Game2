@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using UnityEngine;
 
 public class FenceMaskTrigger : MonoBehaviour
@@ -40,6 +40,29 @@ public class FenceMaskTrigger : MonoBehaviour
         if (maskObject != null)
         {
             maskObject.SetActive(false);
+        }
+    }
+}
+*/
+
+using UnityEngine;
+
+public class FenceMaskTrigger : MonoBehaviour
+{
+    public Animator maskAnimator;
+
+    private bool hasTriggered = false;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (hasTriggered)
+            return;
+
+        if (other.CompareTag("Player"))
+        {
+            hasTriggered = true;
+
+            maskAnimator.Play("MaskFenceMovement");
         }
     }
 }
