@@ -19,6 +19,8 @@ public class BookDialogueTrigger : MonoBehaviour
     public GameObject sideHouseBlocker1;
     public GameObject sideHouseBlocker2;
 
+    public PianoLockTaskAudio pianoLockTaskAudio;
+
     void Start()
     {
         {
@@ -55,6 +57,7 @@ public void GoGetBookDialogue()
     {
         dialogueManager.StartDialogue(postReadingCutsceneDialogue);
         StartCoroutine(PlaySoundsAfterDelay(doorPoundDelay));  // Wait for the specified delay
+        pianoLockTaskAudio.StopAudio(); // piano audio during lock task
     }
 
     private IEnumerator PlaySoundsAfterDelay(float delay)
